@@ -48,7 +48,31 @@ Puis `populate_all_tables()` , après quelques minutes toutes les tables seront 
 
 14. Enfin lancer l'application avec `flask run` depuis la racine du dossier
 
+## | Grandes étapes d'hebergement sur serveur Ubuntu (NGINX + gunicorn)
+# ----(source DigitalOcean : https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-20-04-fr )
 
+1. Créer un point d'entrée WSGI:
+A la racine du dossier `nano ~/{nom projet}/wsgi.py`
+puis vérifier que le fichier contient bien
+`if __name__ == "__main__":`
+`    app = create_app()`
+`    app.run()`
+
+2. Créer fichier d'unité:
+`sudo nano /etc/systemd/system/{nom du projet}.service`
+
+3. Activer le projet pour qu'il demarre au boot :
+`sudo systemctl start {nom projet}`
+puis
+`sudo systemctl enable {nom projet}`
+
+4. Confrigurer NGINX et relier le dossier du projet à un nom de dommaine:
+- `sudo nano /etc/nginx/sites-available/{nom projet}`
+- `sudo ln -s /etc/nginx/sites-available/{nom projet} /etc/nginx/sites-enabled`
+
+5. Tester la syntaxe : `sudo nginx -t`
+
+6. Relacer NGINX : `sudo systemctl restart nginx` 
 
 ## | Description
 
