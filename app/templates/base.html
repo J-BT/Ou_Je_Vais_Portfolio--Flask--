@@ -116,6 +116,27 @@
 
     
     {% endblock %}
+    <!-- Formulaire contact -->
+    <!-- Google -->
+    <button onclick="afficheFormulaire()" class="btn btn-outline-light btn-floating m-1 " 
+    role="button" style="color: black;"
+    ><i class="far fa-envelope"></i
+    ></button>
+
+    <div class="contact mt-5 pb-5 d-flex justify-content-center" >
+
+      <div class="container col-10 col-md-10 col-xl-6" id="formulaireContact"
+      >
+
+          <h2 class="text-light pt-5 titleh2 text-center" >
+            <p class="class" style="color: black;"> Contactez-moi</p>
+            </h2>
+
+              
+      </div>
+  </div>
+
+  <!-- Formulaire contact -->
     <footer class="container tm-footer">
       <div class="row tm-footer-row">
         <p class="col-md-10 col-sm-12 mb-0">
@@ -127,11 +148,14 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
+    crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.2.1/dist/svgMap.min.js"></script>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-    <script src="ouJeVais.js"></script>
+
+    <script src="{{ url_for('static', filename='js/ouJeVais.js') }}"></script>
   </body>
 </html>
