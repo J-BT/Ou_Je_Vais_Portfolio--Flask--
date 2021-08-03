@@ -1,5 +1,11 @@
 /* Navbar *******************************************************************/
 
+.nav-item{
+    font-size: 2em;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
 
 
 
@@ -15,6 +21,10 @@
     #titre{
       display: none;
     }
+    .nav-item{
+        margin: 5px;
+    
+    }
     
         
         
@@ -23,7 +33,11 @@
     
     /* Ecran moyens */
     @media screen and (min-width: 576px) and (max-width: 768px) {
-      
+        .nav-item{
+            margin-left: 7px;
+            margin-right: 7px;
+        
+        }
     }
     
       
@@ -31,6 +45,11 @@
     /* Pour les Grands ecrans */
     @media screen and (min-width: 769px) {
         
+        .nav-item{
+            margin-left: 10px;
+            margin-right: 10px;
+        
+        }
     
     }
     
