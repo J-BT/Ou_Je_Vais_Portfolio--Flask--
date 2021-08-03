@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<!-- Activities -->
+	<div class="container" id="activities">
+	  <div class="row">
+	    <div class="col-12">
+	      <div class="tm-parallax">
+	        <header class="tm-parallax-header">
+	          <h2 class="">Connexion</h2>
+	        </header>
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="container">
+        <div class="row" style="margin-top: 40px">
+            <div class="col-sm-6">
+              <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.username.label }}<br>
+                    {{ form.username(size=32) }}
+                    {% for error in form.username.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=32) }}
+                    {% for error in form.password.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+                <p>{{ form.submit() }}</p>
+            </form>
+            </div>
+        </div>
+    </div>
+    <p>Nouveau ? <a href="{{ url_for('auth.register') }}">Cliquez ici pour vous inscrire!</a></p>
+
+{% endblock %}
+

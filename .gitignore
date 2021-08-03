@@ -1,0 +1,14 @@
+# Cache
+/__pycache__
+# Environnement Virtuel
+/envOuJeVaisFromScratch
+
+# Configuration
+.env
+#Jupyter Notebook
+*.ipynb
+# fichier sqlite si crée
+app.db
+
+#migrations
+/migrations
