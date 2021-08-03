@@ -1,10 +1,10 @@
 # Cache
-__pycache__/
+__pycache__/*
 # Environnement Virtuel
-OuJeVaisFromScratch/
-Ou_Je_Vais_Portfolio--Flask--/
-logs/
-migrations/
+OuJeVaisFromScratch/*
+Ou_Je_Vais_Portfolio--Flask--/*
+logs/*
+migrations/*
 
 # Configuration
 .env
@@ -14,7 +14,7 @@ migrations/
 app.db
 
 #migrations
-migrations/
+migrations/*
 
 #Socket
 Ou_Je_Vais_Portfolio--Flask--.sock
