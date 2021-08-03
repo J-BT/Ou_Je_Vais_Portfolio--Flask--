@@ -29,7 +29,7 @@ Cela créera un environnement virtuel s'appellant `nom_de_l_environnement_virtue
 `source (nom_de_l_environnement_virtuel)/bin/activate`
 nb: pour quitter l'environnement : executer `deactivate`
 
-7. Exécuter `pip install -r requierements.txt` pour installer les bibliothèque nécessaires
+7. Exécuter `pip install -r requirements.txt` pour installer les bibliothèque nécessaires
 
 8. Mettre à jour `pip` si l'on vous le propose
 
