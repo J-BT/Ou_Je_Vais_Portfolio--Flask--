@@ -1,0 +1,36 @@
+/* Responsive : Media query *********************************************** */
+
+/* Pour les petits ecrans */
+@media screen and (max-width: 768px) {
+
+    #titre{
+      display: none;
+    }
+    
+        
+        
+    }
+    
+    
+    /* Ecran moyens */
+    @media screen and (min-width: 576px) and (max-width: 768px) {
+      
+    }
+    
+      
+    
+    /* Pour les Grands ecrans */
+    @media screen and (min-width: 769px) {
+        
+    
+    }
+    
+    
+    
+    /* Pour les très grands ecrans */
+    @media screen and (min-width: 900px) and (max-width: 1200px) {
+    
+      
+    }
+    
+    /* fin Responsive : Media query ********************************************* */

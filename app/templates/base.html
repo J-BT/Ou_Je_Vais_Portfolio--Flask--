@@ -10,95 +10,94 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
     />
-    <!-- https://fonts.google.com/specimen/Open+Sans -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}" />
-    <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
-    <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/tooplate-style.css') }}" />
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  
 
-    <!--
-Tooplate 2111 Pro Line
-http://www.tooplate.com/view/2111-pro-line
--->
+
   </head>
 
   <body>
     <!-- page header -->
     <div class="container" id="home">
-      <div class="col-12 text-center">
-        <div class="tm-page-header">
-          <a class="nav-link external" href="{{ url_for('main.accueil') }}">
-            <i class="fas fa-4x fa-globe-asia mr-4"></i>
-            <h1 class="d-inline-block text-uppercase">Où je vais</h1>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- navbar -->
-    <div class="tm-nav-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="navbar navbar-expand-md navbar-light">
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#tmMainNav"
-                aria-controls="tmMainNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="tmMainNav">
-                <ul class="navbar-nav mx-auto tm-navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link external" href="{{ url_for('main.accueil') }}">Accueil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link external " href="{{ url_for('main.accueil') }}#activities">A propos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link external" href="{{ url_for('main.jy_vais') }}">J'y vais !</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link external" href="{{ url_for('main.contact') }}">Contact</a>
-                  </li>
-                  {% if not current_user.is_authenticated %}
-                  <li class="nav-item">
-                    <button type="button" class="btn btn-outline-dark btn-sm"><a 
-                      class="nav-link external" 
-                      href="{{ url_for('auth.register') }}">Inscription</a>
-                  </li>
-                  {% endif %}
-
-                  {% if not current_user.is_authenticated %}
-                  <li class="nav-item">
-                    <button type="button" class="btn btn-outline-primary btn-sm"><a 
-                      class="nav-link external" 
-                      href="{{ url_for('auth.login') }}">Connexion</a></button> 
-                  </li>
-                  {% endif %}
-                  
-                  {% if current_user.is_authenticated %}
-                  <li class="nav-item">
-                    <button type="button" class="btn btn-outline-danger
-                     btn-sm"><a 
-                      class="nav-link external" 
-                      href="{{ url_for('auth.logout') }}">Déconnexion</a></button>
-                    
-                  </li>
-                  {% endif %}
-                </ul>
-              </div>
-            </nav>
+        <!-- logo debut-->
+        <div id="titre" class="col-md-12 col-lg-12 text-center">
+          <div class="tm-page-header">
+            <a class="nav-link external" href="{{ url_for('main.accueil') }}">
+              <i class="fas fa-4x fa-globe-asia mr-4"></i>
+              <h1 class="d-inline-block text-uppercase" >Où je vais</h1>
+            </a>
           </div>
         </div>
+         <!-- logo fin-->
+    
+      <!-- navbar -->
+      <div class="col-12 col-md-12 col-lg-12 tm-nav-section row">
+       
+          
+            
+              <nav class="navbar navbar-expand-md navbar-light">
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#tmMainNav"
+                  aria-controls="tmMainNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="tmMainNav">
+                  <ul class="navbar-nav mx-auto tm-navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link external" href="{{ url_for('main.accueil') }}">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link external " href="{{ url_for('main.accueil') }}#activities">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link external" href="{{ url_for('main.jy_vais') }}">J'y vais !</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link external" href="{{ url_for('main.contact') }}">Contact</a>
+                    </li>
+                    {% if not current_user.is_authenticated %}
+                    <li class="nav-item">
+                      <button type="button" class="btn btn-outline-dark btn-sm"><a 
+                        class="nav-link external" 
+                        href="{{ url_for('auth.register') }}">Inscription</a>
+                    </li>
+                    {% endif %}
+
+                    {% if not current_user.is_authenticated %}
+                    <li class="nav-item">
+                      <button type="button" class="btn btn-outline-primary btn-sm"><a 
+                        class="nav-link external" 
+                        href="{{ url_for('auth.login') }}">Connexion</a></button> 
+                    </li>
+                    {% endif %}
+                    
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                      <button type="button" class="btn btn-outline-danger
+                      btn-sm"><a 
+                        class="nav-link external" 
+                        href="{{ url_for('auth.logout') }}">Déconnexion</a></button>
+                      
+                    </li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </nav>
+            
+          
+        
       </div>
+      <!-- navbar fin -->
     </div>
+    <!-- page header fin -->
     {% block content %}
 
     
