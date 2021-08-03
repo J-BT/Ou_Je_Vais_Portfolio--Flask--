@@ -3,7 +3,7 @@
 {% block content %}
     {% if current_user.is_authenticated %}
     <div class="welcome_user">
-      <h1>Hi, {{ current_user.username }}!</h1>
+      <h1>Bienvenue, {{ current_user.username }}!</h1>
     </div>
     {% endif %}
     <div class="container_flash">
@@ -18,28 +18,20 @@
       {%endwith%}
     </div>
     <!-- Video Banner -->
-    <section class="tm-banner-section" id="tmVideoSection">
-      <div class="container tm-banner-text-container">
-        <div class="row">
-          <div class="col-12">
-            <header>
-              <h2 class="tm-banner-title">« Quelle sera ma prochaine destination...</h2>
-            </header>
+
+     <!-- Background image -->
+     <div class="p-5 text-center bg-image mb-5" id="photoBanniere">
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
+          <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white">
+                  <h1 id="bannerGrosTitre">Quelle sera votre destination ?</h1>
+                  <h3 id="bannerPetitTitre">Determinez la grâce aux données...</h3>
+              </div>
           </div>
-        </div>
       </div>
-
-      <!-- Video -->
-
-      
-      <video id="hero-vid" controls autoplay loop muted>
-        <source src="{{ url_for('static', filename='videos/Miyajima - 33821.mp4') }}" type="video/mp4" />
-        Visiblement notre navigateur rencontre quelques difficultés pour afficher la videos...
-        Une petite mise à jour ? Sinon essayez d'appuyer sur F5 pour recharger la page.
-      </video>
+    </div>
+    <!-- Background image -->
     
-
-    </section>
      <section class="container tm-company-section" id="company">
       <div class="row">
         <div class="col-xl-9 col-lg-8 col-md-12 tm-company-left">
@@ -239,159 +231,7 @@
       </div>
     </div>
 
+    
 <!-- -------------------------SCRIPTS--------------------------------------->
-    <script src="{{ url_for('static', filename='js/jquery-1.9.1.min.js') }}"></script>
-    <!-- Single Page Nav plugin works with this version of jQuery -->
-    <script src="{{ url_for('static', filename='js/jquery.singlePageNav.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script>
-          /**
-             * detect IE
-             * returns version of IE or false, if browser is not Internet Explorer
-             */
-
-      function detectIE() {
-          var ua = window.navigator.userAgent;
-
-          var msie = ua.indexOf("MSIE ");
-          if (msie > 0) {
-            // IE 10 or older => return version number
-            return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
-          }
-
-          var trident = ua.indexOf("Trident/");
-          if (trident > 0) {
-            // IE 11 => return version number
-            var rv = ua.indexOf("rv:");
-            return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
-          }
-
-          // var edge = ua.indexOf('Edge/');
-          // if (edge > 0) {
-          //     // Edge (IE 12+) => return version number
-          //     return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-          // }
-
-          // other browser
-          return false;
-        }
-
-        function setVideoHeight() {
-          const videoRatio = 1920 / 1080;
-          const minVideoWidth = 400 * videoRatio;
-          let secWidth = 0,
-            secHeight = 0;
-
-          secWidth = videoSec.width();
-          secHeight = videoSec.height();
-
-          secHeight = secWidth / 2.13;
-
-          if (secHeight > 600) {
-            secHeight = 600;
-          } else if (secHeight < 400) {
-            secHeight = 400;
-          }
-
-          if (secWidth > minVideoWidth) {
-            $("video").width(secWidth);
-          } else {
-            $("video").width(minVideoWidth);
-          }
-
-          videoSec.height(secHeight);
-        }
-
-        // Parallax function
-        // https://codepen.io/roborich/pen/wpAsm
-        var background_image_parallax = function($object, multiplier) {
-          multiplier = typeof multiplier !== "undefined" ? multiplier : 0.5;
-          multiplier = 1 - multiplier;
-          var $doc = $(document);
-          $object.css({ "background-attatchment": "fixed" });
-          $(window).scroll(function() {
-            var from_top = $doc.scrollTop(),
-              bg_css = "center " + multiplier * from_top + "px";
-            $object.css({ "background-position": bg_css });
-          });
-        };
-
-        $(window).scroll(function() {
-          if ($(this).scrollTop() > 50) {
-            $(".scrolltop:hidden")
-              .stop(true, true)
-              .fadeIn();
-          } else {
-            $(".scrolltop")
-              .stop(true, true)
-              .fadeOut();
-          }
-
-          // Make sticky header
-          if ($(this).scrollTop() > 158) {
-            $(".tm-nav-section").addClass("sticky");
-          } else {
-            $(".tm-nav-section").removeClass("sticky");
-          }
-        });
-
-        let videoSec;
-
-        $(function() {
-          if (detectIE()) {
-            alert(
-              "Please use the latest version of Edge, Chrome, or Firefox for best browsing experience."
-            );
-          }
-
-          const mainNav = $("#tmMainNav");
-          mainNav.singlePageNav({
-            filter: ":not(.external)",
-            offset: $(".tm-nav-section").outerHeight(),
-            updateHash: true,
-            beforeStart: function() {
-              mainNav.removeClass("show");
-            }
-          });
-
-          videoSec = $("#tmVideoSection");
-
-          // Adjust height of video when window is resized
-          $(window).resize(function() {
-            setVideoHeight();
-          });
-
-          setVideoHeight();
-
-          $(window).on("load scroll resize", function() {
-            var scrolled = $(this).scrollTop();
-            var vidHeight = $("#hero-vid").height();
-            var offset = vidHeight * 0.6;
-            var scrollSpeed = 0.25;
-            var windowWidth = window.innerWidth;
-
-            if (windowWidth < 768) {
-              scrollSpeed = 0.1;
-              offset = vidHeight * 0.5;
-            }
-
-            $("#hero-vid").css(
-              "transform",
-              "translate3d(-50%, " + -(offset + scrolled * scrollSpeed) + "px, 0)"
-            ); // parallax (25% scroll rate)
-          });
-
-          // Parallax image background
-          background_image_parallax($(".tm-parallax"), 0.4);
-
-          // Back to top
-          $(".scroll").click(function() {
-            $("html,body").animate(
-              { scrollTop: $("#home").offset().top },
-              "1000"
-            );
-            return false;
-          });
-        });
-     </script>
+    
 {% endblock %}
