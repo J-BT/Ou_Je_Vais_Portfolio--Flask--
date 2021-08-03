@@ -1,3 +1,10 @@
+/*
+body {
+    overflow-x:hidden;
+}
+*/
+
+
 /* Navbar *******************************************************************/
 
 .nav-item{
@@ -8,14 +15,21 @@
 }
 /* fin Navbar ***************************************************************/
 
-#videoToori{
-    width: 100%;
-    
-    
+/* Banner  ******************************************************************/
+#photoBanniere{
+    background-image: url('/static/img/patrick-tomasso-j1dj50Td7CQ-unsplash.jpg');
+    height: 600px;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-/* Responsive : Media query *********************************************** */
 
+/* fin Banner ***************************************************************/
+
+/* Responsive : Media query *********************************************** */
 /* Pour les petits ecrans */
 @media screen and (max-width: 768px) {
 

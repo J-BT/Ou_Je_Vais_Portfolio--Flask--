@@ -19,11 +19,18 @@
     </div>
     <!-- Video Banner -->
 
-    <div class="ratio ratio-16x9 my-3 py-3" id="videoToori">
-      <video id="hero-vid" controls autoplay loop muted>
-        <source src="{{ url_for('static', filename='videos/Miyajima - 33821.mp4') }}" type="video/mp4" />
-      </video>
+     <!-- Background image -->
+     <div class="p-5 text-center bg-image mb-5" id="photoBanniere">
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
+          <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white">
+                  <h1 id="bannerGrosTitre">Quelle sera votre destination ?</h1>
+                  <h3 id="bannerPetitTitre">Determinez la grâce aux données...</h3>
+              </div>
+          </div>
+      </div>
     </div>
+    <!-- Background image -->
     
      <section class="container tm-company-section" id="company">
       <div class="row">
