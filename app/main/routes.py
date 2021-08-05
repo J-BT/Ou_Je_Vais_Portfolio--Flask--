@@ -872,13 +872,13 @@ def jy_vais():
             and(choix_temperature == 'Ignorer')\
             and(choix_meteo == 'Ignorer'):
             flash(f"Veuillez choisir un critère !", 'danger')
-            return redirect(url_for('jy_vais'))
+            return redirect(url_for('main.jy_vais'))
      
 
 ### AUTRES CAS ==============================================================
 
         flash(f"Veuillez choisir un seul critère à la fois !", 'danger')
-        return redirect(url_for('jy_vais'))
+        return redirect(url_for('main.jy_vais'))
     
 ### Si country vide ----> pas pris en compte! 
     elif request.method == 'GET' :

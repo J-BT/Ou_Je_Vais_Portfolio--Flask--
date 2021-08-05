@@ -123,3 +123,20 @@ body {
     #aProposTableau{
         max-width: 90%;
     }
+
+    /*****************Selecteurs Preferences *********************************/
+    #formulaireSelecteursPreferences{
+        width: 50%;
+    }
+    .selecteurPreferences{
+        margin:  2px 2px 2px 2px;
+    }
+    
+    #move{
+        margin-top:  10px;
+        margin-bottom:  10px;
+
+    }
+    
+
+    /***************** fin Selecteurs Preferences ****************************/
