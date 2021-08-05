@@ -1,3 +1,4 @@
+import flask
 from app import (db)
 from flask import (render_template, redirect, url_for, flash, request)
 from flask_login import (current_user, login_user, logout_user, login_required)
@@ -20,6 +21,7 @@ def login():
             return redirect(url_for('auth.connexion'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
+        flash("Bienvenue, "+ current_user.username + " !", 'success')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('main.accueil')
         return redirect(next_page)
