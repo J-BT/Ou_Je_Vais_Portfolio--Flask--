@@ -170,65 +170,53 @@ id="preferencesEtTitre">
 
 
       {% if title != "J'y vais" %}
-      <!-- Activities -->
-        <div class="container" id="activities">
-          <div class="row">
-            <div class="col-12">
-              <div class="tm-parallax">
-                <header class="tm-parallax-header">
-                  <h2 class="">Analysons la destination de vos rêves ...</h2>
-                </header>
-              </div>
-            </div>
+      
+    
+        <!-- Graphiques -->
+        <div class="my-5 col-12 col-md-12 col-lg-12 
+            d-flex flex-column align-items-center justify-content-center" 
+            id="resultatTitre">
+            <i class="fas fa-5x fa-chart-line mx-5 my-3"></i>
+              <h3 class="questionPreferences">Analyse Graphique du 1er pays: </h3>
           </div>
 
-      
-          <!-- Graphique -->
-        <div class="row">
-          <div class="col">
-            <header>
-              <h2 class="tm-company-about-header">Sa population </h2>
-            </header>
-            <div class="tm-company-about">
-            
-            <div class="tm-company-img-container">
-              <img src="{{ url_for('static', filename='graphiques/population.png') }}" alt="Image" />
-            </div>
-          </div>
-          </div>
-          <div class="col">
-            <header>
-              <h2 class="tm-company-about-header">Son chômage </h2>
-            </header>
-            <div class="tm-company-about">
-            
-            <div class="tm-company-img-container">
-              <img src="{{ url_for('static', filename='graphiques/chomage.png') }}" alt="Image" />
-            </div>
-          </div>
-          </div>
-          <div class="w-100"></div>
-          <div class="col">
-            <header>
-            <h2 class="tm-company-about-header">Son esperance de vie </h2>
-          </header>
-          <div class="tm-company-about">
+        <div class="graphiquesPar4 my-5 
+        d-flex flex-row flex-wrap align-items-center justify-content-around">
           
-          <div class="tm-company-img-container">
-            <img src="{{ url_for('static', filename='graphiques/espe_vie.png') }}" alt="Image" />
+          <div class="graphiques my-5 col-12 col-md-6 col-lg-6
+            d-flex flex-column align-items-center justify-content-around">
+              <h2 class="" id="titreGraphique">Sa population </h2>
+              <img src="{{ url_for('static', filename='graphiques/population.png') }}" 
+              id="imagesGraphiques" alt="Image" />
           </div>
-        </div></div>
-          <div class="col">
-            <header>
-            <h2 class="tm-company-about-header">Temp./Esp. vie/Pop./Cho </h2>
-          </header>
-          <div class="tm-company-about">
+
+          <div class="graphiques my-5 col-12 col-md-6 col-lg-6
+            d-flex flex-column align-items-center justify-content-around">
+              <h2 class="" id="titreGraphique">Son chômage </h2>
+              <img src="{{ url_for('static', filename='graphiques/chomage.png') }}" 
+              id="imagesGraphiques" alt="Image" />
+              
+          </div>
+
+        
+       
           
-          <div class="tm-company-img-container">
-            <img src="{{ url_for('static', filename='graphiques/corelation.png') }}" alt="Image" />
+          <div class="graphiques my-5 col-12 col-md-6 col-lg-6
+            d-flex flex-column align-items-center justify-content-around">
+              <h2 class="" id="titreGraphique">Son esperance de vie </h2>
+              <img src="{{ url_for('static', filename='graphiques/espe_vie.png') }}" 
+              id="imagesGraphiques" alt="Image" /> 
+              
           </div>
-        </div></div>
+
+          <div class="graphiques my-5 my-5 col-12 col-md-6 col-lg-6 ">
+              <h2 class="" id="titreGraphique">Temp./Esp. vie/Pop./Cho </h2>
+              <img src="{{ url_for('static', filename='graphiques/corelation.png') }}" 
+              id="imagesGraphiques" alt="Image" /> 
+             
+          </div>
         </div>
+        <!-- fin Graphiques -->
       {% endif %}
 </div>
     

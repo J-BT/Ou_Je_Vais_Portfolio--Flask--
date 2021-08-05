@@ -140,3 +140,15 @@ body {
     
 
     /***************** fin Selecteurs Preferences ****************************/
+
+    /****************** images Graphiques ************************************/
+    .graphiquesPar4{
+        width: 100%;
+    }
+    #imagesGraphiques{
+        margin: 10px 10px 10px 10px;
+        width: 80%;
+        height: auto;
+    }
+
+    /****************** fin images Graphiques ********************************/
