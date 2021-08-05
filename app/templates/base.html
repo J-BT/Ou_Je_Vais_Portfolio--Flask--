@@ -70,14 +70,17 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('main.accueil') }}">Accueil</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('main.accueil') }}#activities">A propos</a>
-              </li>
+            
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('main.jy_vais') }}">Où je vais ?</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('main.contact') }}">Contact</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link text-justify" href="" data-mdb-toggle="modal" 
+                data-mdb-target="#exampleModal2">A propos</a>
               </li>
             </ul>
             <!-- Left links -->
@@ -112,6 +115,119 @@
         <!-- Container wrapper -->
       </nav>
       <!-- Navbar -->
+
+      <!-- à propos -->
+      <!-- Modal -->
+      <div
+      class="modal fade"
+      id="exampleModal2"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel2"
+      aria-hidden="true"
+      >
+      <div class="modal-dialog ">
+          <div class="modal-content">
+              <div class="modal-body">
+                <p class="mx-1 px-1 " id="aProposTexte">
+                    <div class="modal-header">
+                      <h5 class="modal-title" 
+                      id="exampleModalLabel2">Technologies utilisées</h5>
+                      <button
+                      type="button"
+                      class="btn-close"
+                      data-mdb-dismiss="modal"
+                      aria-label="Fermer"
+                      ></button>
+                  </div>
+                    <!--Tableau -->
+                    <!-- rounded-pill -->
+                    <table class="table table-responsive table-bordered border border-2 border-info"
+                    id="aProposTableau">
+                      <thead>
+                        <tr>
+                          <th scope="col">Front-end</th>
+                          <th scope="col">Back-end</th>
+                          <th scope="col">Base de données</th>
+                          <th scope="col">Serveur</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+
+                          {%for technologie in technologiesUtilisees %}
+                          <tr>
+                            <td>{{technologiesUtilisees['frontend'][loop.index - 1]}}</td>
+                            <td>{{technologiesUtilisees['backend'][loop.index - 1]}}</td>
+                            <td>{{technologiesUtilisees['bdd'][loop.index - 1]}}</td>
+                            <td>{{technologiesUtilisees['serveur'][loop.index - 1 ]}}</td>   
+                          </tr>  
+                          {% endfor %}    
+                      </tbody>
+
+                    </table>
+
+                    <div class="modal-header">
+                      <h5 class="modal-title" 
+                      id="exampleModalLabel2">A propos du projet</h5>
+                    </div>
+                    
+                    <p>
+                      Grâce à des données démographiques ou météorologiques, 
+                      cette application determine un classement des destinations les
+                      plus susceptibles de vous plaire.
+                    </p>  
+                    
+                    <p>
+                      Pour l'instant vous avez le choix parmi 5 critères : 
+                      le nombre d'habitants, l'esperance de vie, le taux de chômage,
+                      la temperature et la météo.
+                    </p>
+
+                    <p id="nbLimitesAPI">NB : les données météo ne sont pas à jour car l'API
+                      d'OpenWeatherMap est payante au-delà d'un certain nombre 
+                      d'appels...</p>
+                  
+                    <p class="" id="miniTexteCertif">
+                    Projet présenté pour les certifications
+                    <strong><a 
+                      rel="nofollow"
+                      href="https://www.francecompetences.fr/recherche/rs/3497/" 
+                      class="tm-footer-link">RS3497</a></strong>  
+                    “Développer une base de données” et <strong><a 
+                      rel="nofollow"
+                      href="https://www.francecompetences.fr/recherche/rs/3508/" 
+                      class="tm-footer-link">RS3508</a></strong>  
+                    “Exploiter une base de données” de l'école Digifab.
+                    </p>
+
+                    <div class="modal-header">
+                      <h5 class="modal-title" 
+                      id="exampleModalLabel2">Sources</h5>
+                    </div>
+
+                    <p>
+                      L'Organisation de coopération et de développement économiques
+                      (<strong>OCDE</strong>)
+                    </p>
+                    <p>
+                      L'Organisation des Nations Unies pour l'éducation, la science
+                      et la Culture (<strong>UNESCO</strong>)
+                    </p>
+                    <p>
+                      Le service en ligne de prévisions météorologiques : (<strong>OpenWeatherMap</strong>)
+                    </p>
+                </p>          
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                  Fermer
+                  </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- fin à propos --> 
     
       {% block content %}
 

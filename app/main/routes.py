@@ -20,7 +20,15 @@ from app.data_visualization import (lineplot_analyse, graph_corr)
 @bp.route('/')
 @bp.route("/Accueil", methods= ['GET','POST'] )
 def accueil():
-    return render_template('index.html', title="Page d'Accueil")
+    technologiesUtilisees = {
+        "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
+        "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
+        "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
+        "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
+    }
+
+    return render_template('index.html', title="Page d'Accueil",
+     technologiesUtilisees=technologiesUtilisees)
 
 
 @bp.route("/Contact", methods= ['GET','POST'] )
