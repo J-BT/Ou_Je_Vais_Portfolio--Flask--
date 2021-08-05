@@ -13,67 +13,65 @@
     {%endif %}
   {%endwith%}
 </div>
+<!-- Animation JS Ou Je Vais -->
+<div class="col-12 col-md-12 col-lg-12 d-flex" 
+id="animationOuJeVais"> 
 
-
-<div class="salutation_connecte">
-  <h1>Bienvenue, {{ current_user.username }}!</h1>
 </div>
 
-<!-- Activities -->
-<div class="container" id="activities">
-  <div class="row">
-    <div class="col-12">
-      <div class="tm-parallax">
-        <header class="tm-parallax-header">
-          <h2 class="">J'y vais !</h2>
-        </header>
-      </div>
+
+<!-- Titre Preference + Selecteurs-->
+<div class="col-12 col-md-12 col-lg-12 d-flex flex-column" 
+id="preferencesEtTitre"> 
+
+    <!-- Barre choix utilisateur -->
+    <div class="col-12 col-md-12 col-lg-12 
+    d-flex flex-column align-items-center justify-content-center" 
+    id="choix_barre">
+      <i class="fas fa-5x fa-question questionPreferences mx-5 my-3"></i>
+      <h3 class="questionPreferences">Quelles sont vos préférences ?</h3>
+      <p class="questionPreferences">(Pour l'instant) <u>un critère</u> à la fois...</p>
+    </div>
+        
+    <!-- Selecteur critères-->
+    <div class="my-5 col-12 col-md-12 col-lg-12  
+    d-flex flex-row flex-wrap align-items-center justify-content-around"
+    id="barreSelecteurs">
+      <form  action="" method="post" class="col-12 col-md-12 col-lg-12
+      d-flex flex-row flex-wrap align-items-center justify-content-around " 
+      id="formulaireSelecteursPreferences">
+          {{ choix_utilisateur.csrf_token() }}
+          <div class="selecteurPreferences" id="pop">
+          {{choix_utilisateur.nombre_population.label(class="form-control-label")}}<br>
+          {{choix_utilisateur.nombre_population(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="espe">
+          {{choix_utilisateur.esperance_vie.label(class="form-control-label")}}<br>
+          {{choix_utilisateur.esperance_vie(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="cho">
+            {{choix_utilisateur.taux_chomage.label(class="form-control-label")}}<br>
+            {{choix_utilisateur.taux_chomage(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="tempe">
+            {{choix_utilisateur.temperature.label(class="form-control-label")}}<br>
+            {{choix_utilisateur.temperature(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="meteo">
+            {{choix_utilisateur.meteo.label(class="form-control-label")}}<br>
+            {{choix_utilisateur.meteo(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="move">
+            {{ choix_utilisateur.choix_submit(class="btn btn-primary") }}
+          </div>
+      </form>
     </div>
   </div>
-    
-      <!-- Barre choix utilisateur -->
-      <div class="choix_barre">
-        <div class="choix_titre">
-          <header class="tm-feature-header">  
-            <i class="fas fa-5x fa-question tm-feature-icon"></i>
-            <h3 class="tm-feature-h">Quelles sont vos préférences ?</h3>
-            <p>(Pour l'instant) <u>un critère</u> à la fois...</p>
-          </header>
-        </div>
-        
-        <div class="row align-items-center justify-content-center">
-          <form  action="" method="post" class="form_flask_jib" >
-              {{ choix_utilisateur.csrf_token() }}
-              <div id="pop">
-              {{choix_utilisateur.nombre_population.label(class="form-control-label")}}<br>
-              {{choix_utilisateur.nombre_population(class="form-control form-control-lg")}}
-              </div>
-              <div id="espe">
-              {{choix_utilisateur.esperance_vie.label(class="form-control-label")}}<br>
-              {{choix_utilisateur.esperance_vie(class="form-control form-control-lg")}}
-              </div>
-              <div id="cho">
-                {{choix_utilisateur.taux_chomage.label(class="form-control-label")}}<br>
-                {{choix_utilisateur.taux_chomage(class="form-control form-control-lg")}}
-              </div>
-              <div id="tempe">
-                {{choix_utilisateur.temperature.label(class="form-control-label")}}<br>
-                {{choix_utilisateur.temperature(class="form-control form-control-lg")}}
-              </div>
-              <div id="meteo">
-                {{choix_utilisateur.meteo.label(class="form-control-label")}}<br>
-                {{choix_utilisateur.meteo(class="form-control form-control-lg")}}
-              </div>
-              <div class="modal-footer">
-                  <div class="move" >
-                    {{ choix_utilisateur.choix_submit(class="btn btn-primary") }}
-                  </div>
-              </div>
-          </form>
-        </div>
-      </div>
+  <!-- fin Titre Preference + Selecteurs-->
+
       
-  <!-- Features -->
+  <!-- Features 
+
   <div class="container tm-features-section" id="features">
     <div class="row tm-features-row">
       <section class="col-md-6 col-sm-12 tm-feature-block">
@@ -112,29 +110,33 @@
       </section>
     </div>
   </div>
+  -->
 
     <!-- Tableau -->
     <div class="resultat_pays">
       <div class="resultat">
-    {% if title == "J'y vais" %}
-        <div class="resultat_titre">
-          <header class="tm-feature-header">  
-            <i class="fas fa-5x fa-atlas tm-feature-icon"></i>
-            <h4 class="tm-feature-h">Voici les pays disponibles</h4>
-          </header>
-        </div>
-    {% else %}
-        <div class="resultat_titre">
-          <header class="tm-feature-header">  
-            <i class="fas fa-5x fa-flag tm-feature-icon"></i>
-            <h4 class="tm-feature-h">Votre prochaine destination : {{title}} !!</h4>
-          </header>
-        </div>
-    {% endif %}
+        {% if title == "J'y vais" %}
+
+          <div class="my-5 col-12 col-md-12 col-lg-12 
+            d-flex flex-column align-items-center justify-content-center" 
+            id="resultatTitre">
+            <i class="fas fa-5x fa-atlas mx-5 my-3"></i>
+              <h3 class="questionPreferences">Voici les pays disponibles : </h3>
+          </div>
+
+        {% else %}
+
+          <div class="my-5 col-12 col-md-12 col-lg-12 
+            d-flex flex-column align-items-center justify-content-center" 
+            id="resultatTitre">
+            <i class="fas fa-5x fa-atlas mx-5 my-3 "></i>
+              <h3 class="questionPreferences">Votre prochaine destination : {{title}} !!</h3>
+          </div>
+        {% endif %}
 
 
         <div class="w-100 p-3">
-          <table class="table table-striped">
+          <table class="table table-responsive table-hover">
             <thead>
               <tr>
                 <th scope="col">Pays</th>
@@ -164,66 +166,57 @@
         </div>
       </div>
     </div>
+
+
+
       {% if title != "J'y vais" %}
-      <!-- Activities -->
-        <div class="container" id="activities">
-          <div class="row">
-            <div class="col-12">
-              <div class="tm-parallax">
-                <header class="tm-parallax-header">
-                  <h2 class="">Analysons la destination de vos rêves ...</h2>
-                </header>
-              </div>
-            </div>
+      
+    
+        <!-- Graphiques -->
+        <div class="my-5 col-12 col-md-12 col-lg-12 
+            d-flex flex-column align-items-center justify-content-center" 
+            id="resultatTitre">
+            <i class="fas fa-5x fa-chart-line mx-5 my-3"></i>
+              <h3 class="questionPreferences">Analyse Graphique du 1er pays: </h3>
           </div>
 
-      
-          <!-- Graphique -->
-        <div class="row">
-          <div class="col">
-            <header>
-              <h2 class="tm-company-about-header">Sa population </h2>
-            </header>
-            <div class="tm-company-about">
-            
-            <div class="tm-company-img-container">
-              <img src="{{ url_for('static', filename='graphiques/population.png') }}" alt="Image" />
-            </div>
-          </div>
-          </div>
-          <div class="col">
-            <header>
-              <h2 class="tm-company-about-header">Son chômage </h2>
-            </header>
-            <div class="tm-company-about">
-            
-            <div class="tm-company-img-container">
-              <img src="{{ url_for('static', filename='graphiques/chomage.png') }}" alt="Image" />
-            </div>
-          </div>
-          </div>
-          <div class="w-100"></div>
-          <div class="col">
-            <header>
-            <h2 class="tm-company-about-header">Son esperance de vie </h2>
-          </header>
-          <div class="tm-company-about">
+        <div class="graphiquesPar4 my-5 
+        d-flex flex-row flex-wrap align-items-center justify-content-around">
           
-          <div class="tm-company-img-container">
-            <img src="{{ url_for('static', filename='graphiques/espe_vie.png') }}" alt="Image" />
+          <div class="graphiques my-5 col-12 col-md-6 col-lg-6
+            d-flex flex-column align-items-center justify-content-around">
+              <h2 class="" id="titreGraphique">Sa population </h2>
+              <img src="{{ url_for('static', filename='graphiques/population.png') }}" 
+              id="imagesGraphiques" alt="Image" />
           </div>
-        </div></div>
-          <div class="col">
-            <header>
-            <h2 class="tm-company-about-header">Temp./Esp. vie/Pop./Cho </h2>
-          </header>
-          <div class="tm-company-about">
+
+          <div class="graphiques my-5 col-12 col-md-6 col-lg-6
+            d-flex flex-column align-items-center justify-content-around">
+              <h2 class="" id="titreGraphique">Son chômage </h2>
+              <img src="{{ url_for('static', filename='graphiques/chomage.png') }}" 
+              id="imagesGraphiques" alt="Image" />
+              
+          </div>
+
+        
+       
           
-          <div class="tm-company-img-container">
-            <img src="{{ url_for('static', filename='graphiques/corelation.png') }}" alt="Image" />
+          <div class="graphiques my-5 col-12 col-md-6 col-lg-6
+            d-flex flex-column align-items-center justify-content-around">
+              <h2 class="" id="titreGraphique">Son esperance de vie </h2>
+              <img src="{{ url_for('static', filename='graphiques/espe_vie.png') }}" 
+              id="imagesGraphiques" alt="Image" /> 
+              
           </div>
-        </div></div>
+
+          <div class="graphiques my-5 my-5 col-12 col-md-6 col-lg-6 ">
+              <h2 class="" id="titreGraphique">Temp./Esp. vie/Pop./Cho </h2>
+              <img src="{{ url_for('static', filename='graphiques/corelation.png') }}" 
+              id="imagesGraphiques" alt="Image" /> 
+             
+          </div>
         </div>
+        <!-- fin Graphiques -->
       {% endif %}
 </div>
     
