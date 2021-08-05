@@ -38,8 +38,11 @@ body {
         background-position: center;
         background-size: cover;
     }
+   
 
     /* fin Banner ********************************************************/
+
+    
     
         
         
@@ -102,3 +105,21 @@ body {
     }
     
     /* fin Responsive : Media query ********************************************* */
+
+
+    #aProposTexte{
+        text-align: justify;
+    }
+
+    #miniTexteCertif{
+        text-align: justify;
+        border-style: dashed;
+        padding : 4px 4px 4px 4px;
+    }
+    #nbLimitesAPI{
+        text-decoration: underline #1b59bd;
+    }
+
+    #aProposTableau{
+        max-width: 90%;
+    }
