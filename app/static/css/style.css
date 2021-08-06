@@ -141,6 +141,18 @@ body {
 
     /***************** fin Selecteurs Preferences ****************************/
 
+    /****************** tableau classement ***********************************/
+   
+    #tableauClassement{
+        overflow: scroll;
+       
+    }
+
+    /****************** fin tableau classement *******************************/
+
+
+
+
     /****************** images Graphiques ************************************/
     .graphiquesPar4{
         width: 100%;
@@ -152,3 +164,4 @@ body {
     }
 
     /****************** fin images Graphiques ********************************/
+
