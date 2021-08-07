@@ -72,13 +72,26 @@ body {
     /* Ecran moyens */
     @media screen and (min-width: 576px) and (max-width: 768px) {
         /***** J'y vais (avion + lettres) *****/
+        #animationOuJeVais__GrandsTresGrandsEcrans{
+            display: none;
+        }
+        /* 
+        
+        #animationOuJeVais__GrandsTresGrandsEcrans{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+        }
+        */
         #avionJs{
             position: relative;
             right: 500px;
         }
         
         #lettresJS{
-            font-size: 3em;
+            font-size: 2em;
             color: blanchedalmond;
         }
         .letter {
@@ -115,6 +128,15 @@ body {
     /* Pour les Grands ecrans */
     @media screen and (min-width: 769px) {
         /***** J'y vais (avion + lettres) *****/
+
+        /*d-flex flex-row justify-content-center align-items-center*/
+        #animationOuJeVais__GrandsTresGrandsEcrans{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+        }
         #avionJs{
             position: relative;
             right: 540px;
@@ -163,6 +185,15 @@ body {
     @media screen and (min-width: 900px) and (max-width: 1200px) {
         
         /***** J'y vais (avion + lettres) *****/
+        /*d-flex flex-row justify-content-center align-items-center*/
+        #animationOuJeVais__GrandsTresGrandsEcrans{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+        }
+
         #avionJs{
             position: relative;
             right: 500px;
@@ -253,7 +284,7 @@ body {
 
     /*************** Js J'y vais *********************************************/
     
-    #animationOuJeVais{
+    #animationOuJeVais__GrandsTresGrandsEcrans{
         background-image: url('/static/img/ken-okum-GW9ASDNcnxA-unsplash_grande.jpg');
         width: 100%;
         height: 500px;
