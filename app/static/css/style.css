@@ -23,21 +23,48 @@ body {
     /***** J'y vais (avion + lettres) *****/
     #avionJs{
         position: relative;
-        right: 500px;
+        right: 280px;
+        bottom: 130px;
     }
     
     #lettresJS{
-        font-size: 3em;
+        width: 80%;
+        position: relative;
+        right: 70px;
+        font-size: 1.7em;
         color: blanchedalmond;
     }
     .letter {
+        position: relative;
+        left: 77px;
         display: inline-block;
         opacity: 0;
       }
     
+    #lettreAvantMilieu{
+        position: relative;
+        left: 103px;
+    }
+
+    #lettreMilieu{
+        position: relative;
+        left: 93px;
+    }
+
+    #lettreBas{
+        position: relative;
+        left: 35px;
+    }
+
+    #lettrePointInterro{
+        position: relative;
+        left: 135px;
+    }
+
+    
     #espaceLettres {
         display: inline-block;
-        width: 10px;
+        width: 700px;
       }
     /***** fin J'y vais (avion + lettres) *****/
 
