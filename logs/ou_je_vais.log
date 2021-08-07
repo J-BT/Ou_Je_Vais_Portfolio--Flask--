@@ -1,64 +1,24 @@
-2021-08-06 00:24:50,742 ERROR: Exception on /Jy_vais [POST] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/main/routes.py", line 875, in jy_vais
-    return redirect(url_for('jy_vais'))
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2216, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
-    rv = url_adapter.build(
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'jy_vais'. Did you mean 'main.jy_vais' instead?
-2021-08-06 00:29:25,298 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:38:59,189 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:40:19,972 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:42:27,368 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:44:48,612 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:49:49,508 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:50:28,467 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:52:44,576 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:55:20,789 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:56:28,236 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 00:59:05,835 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 01:01:33,677 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 01:02:32,028 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 01:07:41,796 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 01:08:46,440 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 11:44:53,832 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 11:46:29,509 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-06 17:12:42,093 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:38:04,996 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:40:06,434 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:41:03,094 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:47:04,117 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:50:21,392 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:51:57,501 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:53:13,417 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:54:21,970 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:55:46,743 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:57:20,397 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 11:58:14,428 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 12:02:20,175 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 12:04:12,653 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 12:05:15,710 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 12:06:30,733 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 12:07:45,590 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 12:09:21,309 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 12:10:12,419 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-07 12:11:01,855 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 15:26:22,437 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 15:27:16,041 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 15:28:24,384 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 15:31:38,622 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 15:32:19,760 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 15:32:58,509 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 15:33:39,760 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 15:34:19,212 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:00:31,190 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:01:29,212 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:02:43,018 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:04:07,193 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:05:03,738 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:06:59,913 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:07:36,995 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:08:46,948 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:10:26,957 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:17:43,527 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:18:43,774 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:19:30,699 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:20:19,476 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:20:54,220 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:21:22,875 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-07 17:21:45,363 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]

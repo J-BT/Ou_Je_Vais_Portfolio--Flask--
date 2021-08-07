@@ -167,6 +167,13 @@ body {
 
 
     /*************** Js J'y vais *********************************************/
+    
+    #avionJs{
+        position: relative;
+        right: 500px;
+    }
+    
+    
     #lettresJS{
         font-size: 3em;
     }
@@ -179,6 +186,8 @@ body {
         display: inline-block;
         opacity: 0;
       }
-      #espaceLettres {
+    
+    #espaceLettres {
         display: inline-block;
+        width: 10px;
       }
