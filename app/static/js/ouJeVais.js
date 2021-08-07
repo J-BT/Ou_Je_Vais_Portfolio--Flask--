@@ -14,8 +14,9 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   }); 
 
-  /************************  Anine.js J'y vais **************************/
-    
+/************************  Anime.js J'y vais **************************/
+
+/************  Très grands ecrans  ********************* */
 //Avion
 let avion = anime({
   targets: '#avionJs',
@@ -27,8 +28,7 @@ let avion = anime({
     {value: [0], duration: 800, delay: 1500},
     {value: [0, -330], duration: 1000, delay: 1500}
   ],
-  /*translateY: [0, -200],*/
-  /*delay: 2500,*/
+  
   direction: 'normal',
   loop: false,
   easing: 'easeOutSine'
@@ -49,3 +49,20 @@ let avion = anime({
   delay: anime.stagger(100, {start: 1000}), 
   translateX: [-10, 30]
 });   
+
+/************  Grands ecrans  ********************* */
+
+
+
+
+
+/************  Moyens ecrans  ********************* */
+
+
+
+
+
+/************  Petits ecrans  ********************* */
+
+
+/************************  fin Anime.js J'y vais **************************/
