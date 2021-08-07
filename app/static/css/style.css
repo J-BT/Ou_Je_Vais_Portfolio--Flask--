@@ -217,8 +217,9 @@ body {
     }
     
     #move{
-        margin-top:  10px;
-        margin-bottom:  10px;
+        position: relative;
+        top: 10px;
+        margin: 10px 10px 10px 10px;
 
     }
     
