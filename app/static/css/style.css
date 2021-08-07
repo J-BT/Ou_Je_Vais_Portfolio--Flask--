@@ -165,3 +165,20 @@ body {
 
     /****************** fin images Graphiques ********************************/
 
+
+    /*************** Js J'y vais *********************************************/
+    #lettresJS{
+        font-size: 3em;
+    }
+    #animationOuJeVais{
+        width: 100%;
+        height: 300px;
+    }
+
+    .letter {
+        display: inline-block;
+        opacity: 0;
+      }
+      #espaceLettres {
+        display: inline-block;
+      }
