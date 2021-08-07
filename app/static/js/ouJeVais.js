@@ -25,7 +25,7 @@ let avion = anime({
   ], 
   translateY: [
     {value: [0], duration: 800, delay: 1500},
-    {value: [0, -230], duration: 1000, delay: 1500}
+    {value: [0, -330], duration: 1000, delay: 1500}
   ],
   /*translateY: [0, -200],*/
   /*delay: 2500,*/

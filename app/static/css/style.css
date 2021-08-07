@@ -168,6 +168,17 @@ body {
 
     /*************** Js J'y vais *********************************************/
     
+    #animationOuJeVais{
+        background-image: url('/static/img/ken-okum-GW9ASDNcnxA-unsplash_grande.jpg');
+        width: 100%;
+        height: 500px;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
     #avionJs{
         position: relative;
         right: 500px;
@@ -176,12 +187,9 @@ body {
     
     #lettresJS{
         font-size: 3em;
+        color: blanchedalmond;
     }
-    #animationOuJeVais{
-        width: 100%;
-        height: 300px;
-    }
-
+   
     .letter {
         display: inline-block;
         opacity: 0;

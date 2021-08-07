@@ -14,6 +14,6 @@ class Choix_utilisateur(FlaskForm):
     meteo = SelectField(
         'Météo') 
     choix_submit = SubmitField(
-        'Soumettre')
+        'J\'y vais !')
     
     
