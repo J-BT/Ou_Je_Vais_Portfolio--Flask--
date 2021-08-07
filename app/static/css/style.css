@@ -131,6 +131,8 @@ body {
         }
         
         #lettresJS{
+            position: relative;
+            right: 50px;
             font-size: 3em;
             color: blanchedalmond;
         }
