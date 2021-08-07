@@ -79,18 +79,26 @@ body {
         }
         
         #lettresJS{
-            font-size: 2em;
+            position: relative;
+            right: 50px;
+            width: 75%;
+            font-size: 2.5em;
             color: blanchedalmond;
         }
         .letter {
             display: inline-block;
             opacity: 0;
           }
-        
+        #lettreBas{
+            position: relative;
+            left: 70px;
+        }
+
         #espaceLettres {
             display: inline-block;
             width: 10px;
           }
+
         /***** fin J'y vais (avion + lettres) *****/
         .nav-item{
             margin-left: 7px;
