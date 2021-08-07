@@ -117,7 +117,7 @@ body {
         /***** J'y vais (avion + lettres) *****/
         #avionJs{
             position: relative;
-            right: 500px;
+            right: 540px;
         }
         
         #lettresJS{
@@ -211,7 +211,9 @@ body {
         width: 50%;
     }
     .selecteurPreferences{
+        width: 120px;
         margin:  2px 2px 2px 2px;
+        font-size: 0.8em;
     }
     
     #move{
