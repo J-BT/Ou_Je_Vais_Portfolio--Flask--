@@ -19,7 +19,7 @@ body {
 
 /* Responsive : Media query *********************************************** */
 /* Pour les petits ecrans */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px)  {
     /***** J'y vais (avion + lettres) *****/
     #avionJs{
         position: relative;
@@ -97,7 +97,7 @@ body {
     
     
     /* Ecran moyens */
-    @media screen and (min-width: 576px) and (max-width: 768px) {
+    @media screen and (min-width: 600px) {
         /***** J'y vais (avion + lettres) *****/
 
         #avionJs{
@@ -120,6 +120,13 @@ body {
             position: relative;
             left: 70px;
         }
+        
+        #lettrePointInterro{
+            position: relative;
+            left: 70px;
+
+        }
+        
 
         #espaceLettres {
             display: inline-block;
@@ -149,7 +156,7 @@ body {
       
     
     /* Pour les Grands ecrans */
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 992px){
         /***** J'y vais (avion + lettres) *****/
 
         #avionJs{
@@ -199,7 +206,7 @@ body {
     
     
     /* Pour les très grands ecrans */
-    @media screen and (min-width: 900px) and (max-width: 1200px) {
+    @media screen and (min-width: 1200px) {
         
         /***** J'y vais (avion + lettres) *****/
         
