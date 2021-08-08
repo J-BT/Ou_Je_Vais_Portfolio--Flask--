@@ -44,21 +44,36 @@
 }
 
 
-/* Navbar *******************************************************************/
-
-.nav-item{
-    font-size: 2em;
-    margin-left: 10px;
-    margin-right: 10px;
-
-}
-/* fin Navbar ***************************************************************/
-
 
 
 /* Responsive : Media query *********************************************** */
 /* Pour les petits ecrans */
 @media screen and (max-width: 600px)  {
+    /***** Navbar *************************/
+    .navbar-nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+    }
+    .nav-item{
+        font-size: 1.5em;
+        margin: 50px;
+
+    }
+    .boutonsConnexionInscription{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #boutonsConnexionInscription-item{
+        margin: 10px;
+    }
+    /* fin Navbar *************************/
+
     /***** J'y vais (avion + lettres) *****/
     #lettresJS{
         display: flex;
