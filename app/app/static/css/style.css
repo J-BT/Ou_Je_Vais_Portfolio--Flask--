@@ -1,0 +1,412 @@
+/*************** Js J'y vais *********************************************/
+    
+  
+#animationOuJeVais{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/static/img/ken-okum-GW9ASDNcnxA-unsplash_grande.jpg');
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+/* lettresJS */
+#lettresJS{
+    position: relative;
+    right: 72px;
+
+}
+
+#avionJs{
+    position: relative;
+    right: 1000px;
+    bottom: 80px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+
+.mots{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+#espaceLettres{
+    width: 20px;
+}
+
+
+
+
+/* Responsive : Media query *********************************************** */
+/* Pour les petits ecrans */
+@media screen and (max-width: 600px)  {
+    /***** Navbar *************************/
+    .navbar-nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+    }
+    .nav-item{
+        font-size: 1.5em;
+        margin: 50px;
+
+    }
+    .boutonsConnexionInscription{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #boutonsConnexionInscription-item{
+        margin: 10px;
+    }
+    /* fin Navbar *************************/
+
+    /***** J'y vais (avion + lettres) *****/
+    #lettresJS{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: blanchedalmond;
+        font-size: 1.8em;
+
+    }
+    #avionJs{
+        position: relative;
+        right: 1000px;
+        bottom: 110px;
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+
+    /***** fin J'y vais (avion + lettres) *****/
+
+    #titre{
+      display: none;
+    }
+    .nav-item{
+        margin: 5px;
+    
+    }
+    /* Banner Petits ecrans  **********************************************/
+    #photoBanniere{
+        background-image: url('/static/img/shayd-johnson-LTzlrL8VCuU-unsplash.jpg');
+        height: 550px;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+   
+
+    /* fin Banner ********************************************************/
+
+    
+    
+        
+        
+    }
+    
+    
+    /* Ecran moyens */
+    @media screen and (min-width: 600px) {
+    /***** Navbar *************************/
+    .navbar-nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+    }
+    .nav-item{
+        font-size: 1.8em;
+        margin: 10px;
+
+    }
+    .boutonsConnexionInscription{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #boutonsConnexionInscription-item{
+        margin: 10px;
+    }
+    /* fin Navbar *************************/
+
+        /***** J'y vais (avion + lettres) *****/
+
+        #lettresJS{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: blanchedalmond;
+            font-size: 2.4em;
+    
+        }
+        #avionJs{
+            position: relative;
+            right: 1000px;
+            bottom: 150px;
+            overflow-x:hidden;
+            overflow-y:hidden;
+        }
+        
+        /***** fin J'y vais (avion + lettres) *****/
+        .nav-item{
+            margin-left: 7px;
+            margin-right: 7px;
+        
+        }
+        /* Banner Moyens ecrans  **********************************************/
+        #photoBanniere{
+            background-image: url('/static/img/patrick-tomasso-j1dj50Td7CQ-unsplash.jpg');
+            height: 400px;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* fin Banner ********************************************************/
+    }
+    
+      
+    
+    /* Pour les grandes tablettes*/
+    @media screen and (min-width: 990px){
+    /***** Navbar *************************/
+    .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .nav-item{
+        
+        font-size: 1em;
+        margin: 10px;
+
+    }
+    #navbarButtonsExample{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .boutonsConnexionInscription{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    #boutonsConnexionInscription-item{
+        font-size: 0.8em;
+        margin: 10px;
+        margin-top: 30px;
+    }
+
+ 
+    /* fin Navbar *************************/
+        /***** J'y vais (avion + lettres) *****/
+        #lettresJS{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: blanchedalmond;
+            font-size: 3em;
+    
+        }
+        #avionJs{
+            position: relative;
+            right: 1000px;
+            bottom: 180px;
+            overflow-x:hidden;
+            overflow-y:hidden;
+        }
+
+        /***** fin J'y vais (avion + lettres) *****/
+        
+    
+        .nav-item{
+            margin-left: 10px;
+            margin-right: 10px;
+        
+        }
+
+        /* Banner Gd ecrans  *************************************************/
+        
+        #photoBanniere{
+            background-image: url('/static/img/patrick-tomasso-j1dj50Td7CQ-unsplash.jpg');
+            height: 600px;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* fin Banner ********************************************************/
+    
+    }
+    
+    
+    
+    /* Pour les très grands ecrans */
+    @media screen and (min-width: 1200px) {
+
+    /***** Navbar *************************/
+    .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .nav-item{
+        
+        font-size: 1.5em;
+        margin: 10px;
+
+    }
+    #navbarButtonsExample{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .boutonsConnexionInscription{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    #boutonsConnexionInscription-item{
+        font-size: 1.2em;
+        margin: 10px;
+        margin-top: 33px;
+    }
+
+ 
+    /* fin Navbar *************************/
+        
+        /***** J'y vais (avion + lettres) *****/
+        #lettresJS{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            color: blanchedalmond;
+            font-size: 3em;
+    
+        }
+        #avionJs{
+            position: relative;
+            right: 1000px;
+            bottom: 50px;
+            overflow-x:hidden;
+            overflow-y:hidden;
+        }
+        
+        /***** fin J'y vais (avion + lettres) *****/
+    
+      
+    }
+    
+    /* fin Responsive : Media query ********************************************* */
+
+
+    #aProposTexte{
+        text-align: justify;
+    }
+
+    #miniTexteCertif{
+        text-align: justify;
+        border-style: dashed;
+        padding : 4px 4px 4px 4px;
+    }
+    #nbLimitesAPI{
+        text-decoration: underline #1b59bd;
+    }
+
+    #aProposTableau{
+        max-width: 90%;
+    }
+
+    /*****************Selecteurs Preferences *********************************/
+    #formulaireSelecteursPreferences{
+        width: 50%;
+    }
+    .selecteurPreferences{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        margin:  2px 2px 2px 2px;
+        font-size: 0.8em;
+    }
+    
+    #move{
+        position: relative;
+        top: 10px;
+        margin: 10px 10px 10px 10px;
+
+    }
+    
+
+    /***************** fin Selecteurs Preferences ****************************/
+
+    /****************** tableau classement ***********************************/
+   
+    #tableauClassement{
+        overflow: scroll;
+       
+    }
+
+    /****************** fin tableau classement *******************************/
+
+
+
+
+    /****************** images Graphiques ************************************/
+    .graphiquesPar4{
+        width: 100%;
+    }
+    #imagesGraphiques{
+        margin: 10px 10px 10px 10px;
+        width: 80%;
+        height: auto;
+    }
+
+    /****************** fin images Graphiques ********************************/
+
+
+    
