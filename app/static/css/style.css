@@ -156,28 +156,29 @@ body {
       
     
     /* Pour les Grands ecrans */
-    @media screen and (min-width: 992px){
+    @media screen and (min-width: 900px){
         /***** J'y vais (avion + lettres) *****/
 
         #avionJs{
             position: relative;
-            right: 540px;
+            right: 0px;
         }
         
         #lettresJS{
-            position: relative;
-            right: 50px;
+            width: 100%;
             font-size: 3em;
             color: blanchedalmond;
         }
         .letter {
+            position: relative;
+            left: 80px;
             display: inline-block;
             opacity: 0;
           }
         
         #espaceLettres {
             display: inline-block;
-            width: 10px;
+            width: 20px;
           }
         /***** fin J'y vais (avion + lettres) *****/
         
@@ -213,21 +214,26 @@ body {
 
         #avionJs{
             position: relative;
-            right: 500px;
+            right: 330px;
         }
         
         #lettresJS{
+            position: relative;
+            left: 40px;
+            width: 100%;
             font-size: 3em;
             color: blanchedalmond;
         }
         .letter {
+            position: relative;
+            left: 80px;
             display: inline-block;
             opacity: 0;
           }
         
         #espaceLettres {
             display: inline-block;
-            width: 10px;
+            width: 20px;
           }
         /***** fin J'y vais (avion + lettres) *****/
     
