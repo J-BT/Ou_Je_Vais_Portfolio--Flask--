@@ -42,11 +42,11 @@ let avion = anime({
   translateY: 50, 
   rotate: {
     value: 360,
-    duration: 1500,
+    duration: 1000,
     easing: 'easeInExpo'
   }, 
   scale: anime.stagger([0.7, 1], {from: 'center'}), 
-  delay: anime.stagger(100, {start: 1000}), 
+  delay: anime.stagger(100, {start: 1200}), 
   translateX: [-10, 30]
 });   
 
