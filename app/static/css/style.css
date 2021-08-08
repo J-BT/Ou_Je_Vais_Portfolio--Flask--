@@ -372,6 +372,12 @@ body {
         background-position: center;
         background-size: cover;
     }
+    /* lettresJS */
+    #lettresJS{
+        position: relative;
+        right: 72px;
+
+    }
 
     #avionJs{
         overflow-x:hidden;
