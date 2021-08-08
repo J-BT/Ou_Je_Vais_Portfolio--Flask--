@@ -380,6 +380,9 @@ body {
     }
 
     #avionJs{
+        position: relative;
+        right: 1000px;
+        bottom: 80px;
         overflow-x:hidden;
         overflow-y:hidden;
     }

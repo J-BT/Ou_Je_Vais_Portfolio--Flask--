@@ -21,13 +21,13 @@ document.addEventListener("DOMContentLoaded", function(){
 let avion = anime({
   targets: '#avionJs',
   translateX: [
-    {value: [0, 1900], duration: 3000, delay: 1000},
-    {value: [1900, 1750], duration: 2000, delay: 200}
-  ], 
+    {value: [0, 2500], duration: 3000, delay: 500}/*,
+    {value: [1900, 1750], duration: 2000, delay: 200}*/
+  ], /*
   translateY: [
     {value: [0], duration: 800, delay: 1500},
     {value: [0, -340], duration: 1000, delay: 1500}
-  ],
+  ],*/
   
   direction: 'normal',
   loop: false,
