@@ -155,10 +155,10 @@ body {
     
       
     
-    /* Pour les Grands ecrans */
-    @media screen and (min-width: 900px){
+    /* Pour les grandes tablettes*/
+    @media screen and (min-width: 990px){
         /***** J'y vais (avion + lettres) *****/
-
+/*
         #avionJs{
             position: relative;
             right: 0px;
@@ -180,16 +180,18 @@ body {
             display: inline-block;
             width: 20px;
           }
+*/
         /***** fin J'y vais (avion + lettres) *****/
         
-        
+    /*    
         .nav-item{
             margin-left: 10px;
             margin-right: 10px;
         
         }
-
+*/
         /* Banner Gd ecrans  *************************************************/
+        /*
         #photoBanniere{
             background-image: url('/static/img/patrick-tomasso-j1dj50Td7CQ-unsplash.jpg');
             height: 600px;
@@ -199,7 +201,7 @@ body {
             background-position: center;
             background-size: cover;
         }
-
+*/
         /* fin Banner ********************************************************/
     
     }
@@ -219,9 +221,9 @@ body {
         
         #lettresJS{
             position: relative;
-            left: 40px;
+            /*left: 100px;*/
             width: 100%;
-            font-size: 3em;
+            font-size: 2.8em;
             color: blanchedalmond;
         }
         .letter {
