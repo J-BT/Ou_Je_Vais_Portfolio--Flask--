@@ -171,7 +171,7 @@
         #avionJs{
             position: relative;
             right: 1000px;
-            bottom: 100px;
+            bottom: 150px;
             overflow-x:hidden;
             overflow-y:hidden;
         }
@@ -314,6 +314,13 @@
             color: blanchedalmond;
             font-size: 3em;
     
+        }
+        #avionJs{
+            position: relative;
+            right: 1000px;
+            bottom: 50px;
+            overflow-x:hidden;
+            overflow-y:hidden;
         }
         /*
 
