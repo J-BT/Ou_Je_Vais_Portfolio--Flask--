@@ -31,7 +31,10 @@ let avion = anime({
   
   direction: 'normal',
   loop: false,
-  easing: 'easeOutSine'
+  easing: 'easeOutSine',
+  complete: function() {
+    document.querySelector('#avionJs').style.display = 'none';
+  },
 });
   
 
