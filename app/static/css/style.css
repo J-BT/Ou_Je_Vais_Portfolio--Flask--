@@ -216,7 +216,7 @@ body {
 
         #avionJs{
             position: relative;
-            right: 330px;
+            right: 20vw;
         }
         
         #lettresJS{
@@ -329,4 +329,7 @@ body {
         background-size: cover;
     }
 
-    
+    #avionJs{
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
