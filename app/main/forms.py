@@ -4,16 +4,16 @@ from wtforms import (SubmitField, SelectField)
 
 class Choix_utilisateur(FlaskForm):
     nombre_population = SelectField(
-        'Population') 
+        'Population', render_kw={'class': 'formulaireFlaskPreferences'}) 
     esperance_vie = SelectField(
-        'Esperance de Vie')
+        'Esperance de Vie', render_kw={'class': 'formulaireFlaskPreferences'})
     taux_chomage = SelectField(
-        'Taux de Chômage')  
+        'Taux de Chômage', render_kw={'class': 'formulaireFlaskPreferences'})  
     temperature = SelectField(
-        'Temperature')  
+        'Temperature', render_kw={'class': 'formulaireFlaskPreferences'})  
     meteo = SelectField(
-        'Météo') 
+        'Météo', render_kw={'class': 'formulaireFlaskPreferences'}) 
     choix_submit = SubmitField(
-        'Soumettre')
+        'J\'y vais !')
     
     

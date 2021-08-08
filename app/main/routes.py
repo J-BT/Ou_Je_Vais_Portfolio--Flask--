@@ -78,9 +78,15 @@ def contact():
             'index.html')
     
     elif request.method == 'GET':
+        technologiesUtilisees = {
+            "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
+            "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
+            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
+            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
+        }
         return render_template(
             'contact.html',
-            title = 'Contact')
+            title = 'Contact', technologiesUtilisees = technologiesUtilisees)
 
 
 @bp.route("/Jy_vais", methods= ['GET','POST'] )
@@ -882,15 +888,23 @@ def jy_vais():
     
 ### Si country vide ----> pas pris en compte! 
     elif request.method == 'GET' :
+        technologiesUtilisees = {
+            "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
+            "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
+            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
+            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
+        }
         try:
             return render_template('jy_vais.html',
                                     title = "J'y vais",
                                     pays=countries_for_ranking.to_dict(
                                         orient='records'),
-                                    choix_utilisateur=choix_utilisateur)
+                                    choix_utilisateur=choix_utilisateur,
+                                    technologiesUtilisees=technologiesUtilisees)
         except:
             p = {"France, UK, Japan"}
             return render_template('jy_vais.html',
                                     title = "J'y vais",
                                     pays=p,
-                                    choix_utilisateur=choix_utilisateur)
+                                    choix_utilisateur=choix_utilisateur,
+                                    technologiesUtilisees=technologiesUtilisees)

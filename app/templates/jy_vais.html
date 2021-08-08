@@ -13,15 +13,67 @@
     {%endif %}
   {%endwith%}
 </div>
+
 <!-- Animation JS Ou Je Vais -->
-<div class="col-12 col-md-12 col-lg-12 d-flex" 
+<div class="col-12 col-md-12 col-lg-12 my-3" 
 id="animationOuJeVais"> 
 
+  <div id="avionJs">
+    <img src="{{ url_for('static', filename='img/airplane.png') }}" 
+        height="90"
+        alt=""/>
+  </div>
+
+  <h1 id="lettresJS">
+    <div class="mots" id="QUELLE">
+      <span class="letter" id="lettreDebut">Q</span>
+      <span class="letter" id="lettreDebut">U</span>
+      <span class="letter" id="lettreDebut">E</span>
+      <span class="letter" id="lettreDebut">L</span>
+      <span class="letter" id="lettreDebut">L</span>
+      <span class="letter" id="lettreDebut">E</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="SERA">
+      <span class="letter" id="lettreAvantMilieu">S</span>
+      <span class="letter" id="lettreAvantMilieu">E</span>
+      <span class="letter" id="lettreAvantMilieu">R</span>
+      <span class="letter" id="lettreAvantMilieu">A</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="VOTRE">
+      <span class="letter" id="lettreMilieu">V</span>
+      <span class="letter" id="lettreMilieu">O</span>
+      <span class="letter" id="lettreMilieu">T</span>
+      <span class="letter" id="lettreMilieu">R</span>
+      <span class="letter" id="lettreMilieu">E</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="DESTINATION">
+      <span class="letter" id="lettreBas" >D</span>
+      <span class="letter" id="lettreBas">E</span>
+      <span class="letter" id="lettreBas">S</span>
+      <span class="letter" id="lettreBas">T</span>
+      <span class="letter" id="lettreBas">I</span>
+      <span class="letter" id="lettreBas">N</span>
+      <span class="letter" id="lettreBas">A</span>
+      <span class="letter" id="lettreBas">T</span>
+      <span class="letter" id="lettreBas">I</span>
+      <span class="letter" id="lettreBas">O</span>
+      <span class="letter" id="lettreBas">N</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="?">
+      <span class="letter" id="lettrePointInterro">?</span>
+    </div>
+    <div id="espaceLettres"></div>
+  </h1>
 </div>
 
 
 <!-- Titre Preference + Selecteurs-->
-<div class="col-12 col-md-12 col-lg-12 d-flex flex-column" 
+<div class="col-12 col-md-12 col-lg-12 my-5
+d-flex flex-column" 
 id="preferencesEtTitre"> 
 
     <!-- Barre choix utilisateur -->
@@ -61,9 +113,13 @@ id="preferencesEtTitre">
             {{choix_utilisateur.meteo.label(class="form-control-label")}}<br>
             {{choix_utilisateur.meteo(class="form-control form-control-lg")}}
           </div>
-          <div class="selecteurPreferences" id="move">
+          <div>
+            <div class="selecteurPreferences" id="move">
             {{ choix_utilisateur.choix_submit(class="btn btn-primary") }}
           </div>
+
+          </div>
+          
       </form>
     </div>
   </div>
