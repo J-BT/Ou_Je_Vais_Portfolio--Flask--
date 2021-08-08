@@ -125,6 +125,31 @@
     
     /* Ecran moyens */
     @media screen and (min-width: 600px) {
+    /***** Navbar *************************/
+    .navbar-nav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+
+    }
+    .nav-item{
+        font-size: 1.8em;
+        margin: 10px;
+
+    }
+    .boutonsConnexionInscription{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #boutonsConnexionInscription-item{
+        margin: 10px;
+    }
+    /* fin Navbar *************************/
+
         /***** J'y vais (avion + lettres) *****/
 
         #lettresJS{
