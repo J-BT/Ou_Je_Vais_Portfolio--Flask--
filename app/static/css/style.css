@@ -77,53 +77,7 @@
         overflow-x:hidden;
         overflow-y:hidden;
     }
-    /*
-    #avionJs{
-        position: relative;
-        right: 280px;
-        bottom: 130px;
-    }
-    
-    #lettresJS{
-        width: 80%;
-        position: relative;
-        right: 70px;
-        font-size: 1.7em;
-        color: blanchedalmond;
-    }
-    .letter {
-        position: relative;
-        left: 77px;
-        display: inline-block;
-        opacity: 0;
-      }
-    
-    #lettreAvantMilieu{
-        position: relative;
-        left: 103px;
-    }
 
-    #lettreMilieu{
-        position: relative;
-        left: 93px;
-    }
-
-    #lettreBas{
-        position: relative;
-        left: 35px;
-    }
-
-    #lettrePointInterro{
-        position: relative;
-        left: 135px;
-    }
-
-    
-    #espaceLettres {
-        display: inline-block;
-        width: 700px;
-      }
-    */
     /***** fin J'y vais (avion + lettres) *****/
 
     #titre{
@@ -175,40 +129,7 @@
             overflow-x:hidden;
             overflow-y:hidden;
         }
-        /*
-        #avionJs{
-            position: relative;
-            right: 500px;
-        }
         
-        #lettresJS{
-            position: relative;
-            right: 50px;
-            width: 75%;
-            font-size: 2.5em;
-            color: blanchedalmond;
-        }
-        .letter {
-            display: inline-block;
-            opacity: 0;
-          }
-        #lettreBas{
-            position: relative;
-            left: 70px;
-        }
-        
-        #lettrePointInterro{
-            position: relative;
-            left: 70px;
-
-        }
-        
-
-        #espaceLettres {
-            display: inline-block;
-            width: 10px;
-          }
-        */
         /***** fin J'y vais (avion + lettres) *****/
         .nav-item{
             margin-left: 7px;
@@ -251,29 +172,7 @@
             overflow-x:hidden;
             overflow-y:hidden;
         }
-/*
-        #avionJs{
-            position: relative;
-            right: 0px;
-        }
-        
-        #lettresJS{
-            width: 100%;
-            font-size: 3em;
-            color: blanchedalmond;
-        }
-        .letter {
-            position: relative;
-            left: 80px;
-            display: inline-block;
-            opacity: 0;
-          }
-        
-        #espaceLettres {
-            display: inline-block;
-            width: 20px;
-          }
-*/
+
         /***** fin J'y vais (avion + lettres) *****/
         
     
@@ -322,32 +221,7 @@
             overflow-x:hidden;
             overflow-y:hidden;
         }
-        /*
-
-        #avionJs{
-            position: relative;
-            right: 20vw;
-        }
         
-        #lettresJS{
-            position: relative;
-            
-            width: 100%;
-            font-size: 2.8em;
-            color: blanchedalmond;
-        }
-        .letter {
-            position: relative;
-            left: 80px;
-            display: inline-block;
-            opacity: 0;
-          }
-        
-        #espaceLettres {
-            display: inline-block;
-            width: 20px;
-          }
-          */
         /***** fin J'y vais (avion + lettres) *****/
     
       
