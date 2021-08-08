@@ -194,6 +194,42 @@
     
     /* Pour les grandes tablettes*/
     @media screen and (min-width: 990px){
+    /***** Navbar *************************/
+    .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .nav-item{
+        
+        font-size: 1em;
+        margin: 10px;
+
+    }
+    #navbarButtonsExample{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .boutonsConnexionInscription{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    #boutonsConnexionInscription-item{
+        font-size: 0.8em;
+        margin: 10px;
+        margin-top: 30px;
+    }
+
+ 
+    /* fin Navbar *************************/
         /***** J'y vais (avion + lettres) *****/
         #lettresJS{
             display: flex;
