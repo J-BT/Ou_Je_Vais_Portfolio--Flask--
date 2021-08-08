@@ -278,6 +278,43 @@
     
     /* Pour les très grands ecrans */
     @media screen and (min-width: 1200px) {
+
+    /***** Navbar *************************/
+    .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .nav-item{
+        
+        font-size: 1.5em;
+        margin: 10px;
+
+    }
+    #navbarButtonsExample{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .boutonsConnexionInscription{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    #boutonsConnexionInscription-item{
+        font-size: 1.2em;
+        margin: 10px;
+        margin-top: 35px;
+    }
+
+ 
+    /* fin Navbar *************************/
         
         /***** J'y vais (avion + lettres) *****/
         #lettresJS{
