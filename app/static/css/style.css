@@ -51,6 +51,18 @@
 /* Responsive : Media query *********************************************** */
 /* Pour les petits ecrans */
 @media screen and (max-width: 600px)  {
+    /***** Formulaire contact *************/
+    #blockContact{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    
+
     /***** Navbar *************************/
     .navbar-nav{
         display: flex;
@@ -132,6 +144,15 @@
     
     /* Ecran moyens */
     @media screen and (min-width: 600px) {
+    
+    /***** Formulaire contact *************/
+    #blockContact{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+    }
     /***** Navbar *************************/
     .navbar-nav{
         display: flex;
@@ -206,6 +227,14 @@
     
     /* Pour les grandes tablettes*/
     @media screen and (min-width: 990px){
+    /***** Formulaire contact *************/
+    #blockContact{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+    }
     /***** Navbar *************************/
     .navbar-nav{
         display: flex;
@@ -295,6 +324,14 @@
     
     /* Pour les très grands ecrans */
     @media screen and (min-width: 1200px) {
+    /***** Formulaire contact *************/
+    #blockContact{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
 
     /***** Navbar *************************/
     .navbar-nav{

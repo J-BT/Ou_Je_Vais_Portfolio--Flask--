@@ -14,12 +14,13 @@
   {%endwith%}
       <!-- Formulaire contact -->
 
-      <div class="contact mt-5 pb-5 
-      d-flex flex-row justify-content-around align-items-center" >
+      <div class="contact mt-5 pb-5"
+      id="blockContact" >
 
-        <div class="mx-2 my-2 px-2 px-2 
+        <div class="mx-1 my-2 px-1
         d-flex flex-column justify-content-around align-items-center" 
-        id="formulaireContact" style="width: 100%;">
+        id="formulaireContact" 
+        style="width: 100%;">
 
             <h2 class="pt-5 text-center" style="color: black;">Contactez-moi</h2>
 
@@ -41,7 +42,7 @@
                     <div class="mb-3">
                         <label for="message" class="form-label text-light">Votre message</label>
                         <textarea class="form-control" id="contact_message" rows="6" 
-                        name="contact_message"></textarea
+                        name="contact_message" placeholder="Votre message ici"></textarea
                         onfocus="this.value=''">
                         
                     </div>
@@ -52,7 +53,9 @@
                 </form>
         </div>
 
-        <div class="mx-2 my-2 px-2 px-2 " id="photoContact"
+        <div class="mx-1 my-2 px-1 
+        d-flex flex-column justify-content-around align-items-center" 
+        id="photoContact"
         style="width: 100%;" >
           <figure class="d-inline-block">
             <img src="{{ url_for('static', filename='img/contact_us.jpeg') }}" 
