@@ -245,7 +245,7 @@
         /***** J'y vais (avion + lettres) *****/
         #lettresJS{
             position: relative;
-            right: 72px;
+            right: 30px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
