@@ -1,3 +1,22 @@
+/************** 404 ***********************************/
+
+#photo404{
+    background-image: url('/static/img/thomas-schweighofer-5dB9WGpJbFc-unsplash.jpg');
+    height: 70vh;
+    width: auto;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#banner404{
+    font-size: 5em;
+}
+
+
+
+
 /************** Connexion inscription ***********************************/
 
 #photoConnexion{
