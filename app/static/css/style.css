@@ -16,11 +16,13 @@
     background-size: cover;
 }
 /* lettresJS */
+/*
 #lettresJS{
     position: relative;
     right: 72px;
 
 }
+*/
 /*
 #avionJs{
     position: relative;
@@ -76,6 +78,8 @@
 
     /***** J'y vais (avion + lettres) *****/
     #lettresJS{
+        position: relative;
+        right: 30px;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -156,6 +160,8 @@
         /***** J'y vais (avion + lettres) *****/
 
         #lettresJS{
+            position: relative;
+            right: 72px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -238,6 +244,8 @@
     /* fin Navbar *************************/
         /***** J'y vais (avion + lettres) *****/
         #lettresJS{
+            position: relative;
+            right: 72px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -327,6 +335,8 @@
         
         /***** J'y vais (avion + lettres) *****/
         #lettresJS{
+            position: relative;
+            right: 72px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
