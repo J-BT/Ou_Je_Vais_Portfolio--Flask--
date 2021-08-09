@@ -12,83 +12,63 @@
           {%endfor%}
     {%endif %}
   {%endwith%}
+      <!-- Formulaire contact -->
 
+      <div class="contact mt-5 pb-5"
+      id="blockContact" >
 
-    <!-- Activities -->
-    <div class="container" id="activities">
-    <div class="row">
-        <div class="col-12">
-        <div class="tm-parallax">
-            <header class="tm-parallax-header">
-            <h2 class="">Contact</h2>
-            </header>
+        <div class="mx-1 my-2 px-1
+        d-flex flex-column justify-content-around align-items-center" 
+        id="formulaireContact" 
+        style="width: 100%;">
+
+            <h2 class="pt-5 text-center" style="color: black;">Contactez-moi</h2>
+
+                <form method="POST" class="mt-5">
+                    <div class="mb-3">
+                        <label for="lastname" class="form-label text-light">Votre nom :</label>
+                        <input type="text" name="contact_name" id="contact_name" class="form-control" 
+                        placeholder="ex : Doe" value=""
+                        onfocus="this.value=''">
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="mail" class="form-label text-light">Votre adresse mail :</label>
+                        <input type="email" id="contact_email" name="contact_email" class="form-control" 
+                        placeholder="name@gmail.com" value=""
+                        onfocus="this.value=''">
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label text-light">Votre message</label>
+                        <textarea class="form-control" id="contact_message" rows="6" 
+                        name="contact_message" placeholder="Votre message ici"></textarea
+                        onfocus="this.value=''">
+                        
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit" 
+                        name="submit" id="buttonSubmit">Envoyer</button>
+                    </div>
+                </form>
         </div>
+
+        <div class="mx-1 my-2 px-1 
+        d-flex flex-column justify-content-around align-items-center" 
+        id="photoContact"
+        style="width: 100%;" >
+          <figure class="d-inline-block">
+            <img src="{{ url_for('static', filename='img/contact_us.jpeg') }}" 
+            alt="Image" class="img-fluid" />
+          </figure>
         </div>
+
     </div>
-   
-    <!-- Contact -->
-    <section class="container tm-contact-section" id="contact">
-      <div class="row">
-        <div class="col-xl-5 col-lg-6 col-md-12 tm-contact-left">
-          <div class="tm-contact-form-container ml-auto mr-0">
-            <header>
-              <h2 class="tm-contact-header">Contactez moi </h2>
-            </header>
-            <form class="tm-contact-form" method="POST">
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="contact_name"
-                  name="contact_name"
-                  class="form-control"
-                  placeholder="Nom"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="email"
-                  id="contact_email"
-                  name="contact_email"
-                  class="form-control"
-                  placeholder="Email"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <textarea
-                  rows="5"
-                  id="contact_message"
-                  name="contact_message"
-                  class="form-control"
-                  placeholder="Message"
-                  required
-                ></textarea>
-              </div>
-              <div class="tm-text-right">
-                <button type="submit" class="btn tm-btn tm-btn-big">
-                  Envoyer
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-xl-7 col-lg-6 col-md-12 tm-contact-right">
-          <div class="tm-contact-figure-block">
-            <figure class="d-inline-block">
-              <img src="{{ url_for('static', filename='img/contact_us.jpeg') }}" alt="Image" class="img-fluid" />
-              <figcaption class="tm-contact-figcaption">
-                Vous souhaitez en savoir plus sur le projet ? Vous êtes 
-                recruteur.se et vous souhaitez me contacter ?
-                Ou pour toute autre question ou remarque ...
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
+
+    <!-- Formulaire contact -->
 
 
+    
     
 <!-- -------------------------SCRIPTS--------------------------------------->
     

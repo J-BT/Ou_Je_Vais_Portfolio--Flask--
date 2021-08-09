@@ -21,20 +21,20 @@ document.addEventListener("DOMContentLoaded", function(){
 let avion = anime({
   targets: '#avionJs',
   translateX: [
-    {value: [0, 2500], duration: 3000, delay: 500}/*,
-    {value: [1900, 1750], duration: 2000, delay: 200}*/
-  ], /*
+    {value: [0, 2500], duration: 3000, delay: 500},
+    {value: [2500, 2000], duration: 2000, delay: 200}
+  ], 
   translateY: [
-    {value: [0], duration: 800, delay: 1500},
-    {value: [0, -340], duration: 1000, delay: 1500}
-  ],*/
+    {value: [0], duration: 800, delay: 500},
+    {value: [0, -260], duration: 1000, delay: 1500}
+  ],
   
   direction: 'normal',
   loop: false,
-  easing: 'easeOutSine',
+  easing: 'easeOutSine'/*,
   complete: function() {
     document.querySelector('#avionJs').style.display = 'none';
-  },
+  },*/
 });
   
 

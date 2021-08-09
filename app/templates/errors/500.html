@@ -2,12 +2,19 @@
 
 {% block content %}
 
-<h1> 500 </h1>
+<!-- Background image -->
+<div class="p-5 text-center bg-image mb-5" id="photo404">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 id="banner404">500</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<p class="d-flex justify-content-center align-items-center">
+    <a href="{{ url_for('main.accueil') }}">Go back to the shadow 
+        <i class="devicon-codeigniter-plain colored"></i></a></p>
 
-<h3> I'm too old for this s...</h3>
-
-<h5>An unexpected error has occurred ! </h5>
-<p><a href="{{ url_for('main.accueil') }}">Back</a></p>
 
 {% endblock %}
-

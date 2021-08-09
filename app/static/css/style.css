@@ -1,3 +1,35 @@
+/************** 404 ***********************************/
+
+#photo404{
+    background-image: url('/static/img/thomas-schweighofer-5dB9WGpJbFc-unsplash.jpg');
+    height: 70vh;
+    width: auto;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#banner404{
+    font-size: 5em;
+}
+
+
+
+
+/************** Connexion inscription ***********************************/
+
+#photoConnexion{
+    background-image: url('/static/img/patrick-tomasso-j1dj50Td7CQ-unsplash.jpg');
+    height: 300px;
+    width: auto;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 /*************** Js J'y vais *********************************************/
     
   
@@ -16,12 +48,14 @@
     background-size: cover;
 }
 /* lettresJS */
+/*
 #lettresJS{
     position: relative;
     right: 72px;
 
 }
-
+*/
+/*
 #avionJs{
     position: relative;
     right: 1000px;
@@ -29,7 +63,7 @@
     overflow-x:hidden;
     overflow-y:hidden;
 }
-
+*/
 
 .mots{
     display: flex;
@@ -49,6 +83,18 @@
 /* Responsive : Media query *********************************************** */
 /* Pour les petits ecrans */
 @media screen and (max-width: 600px)  {
+    /***** Formulaire contact *************/
+    #blockContact{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    
+
     /***** Navbar *************************/
     .navbar-nav{
         display: flex;
@@ -76,6 +122,8 @@
 
     /***** J'y vais (avion + lettres) *****/
     #lettresJS{
+        position: relative;
+        right: 30px;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -86,11 +134,14 @@
 
     }
     #avionJs{
+        display: none;
+        /*
         position: relative;
         right: 1000px;
         bottom: 110px;
         overflow-x:hidden;
         overflow-y:hidden;
+        */
     }
 
     /***** fin J'y vais (avion + lettres) *****/
@@ -125,6 +176,15 @@
     
     /* Ecran moyens */
     @media screen and (min-width: 600px) {
+    
+    /***** Formulaire contact *************/
+    #blockContact{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+    }
     /***** Navbar *************************/
     .navbar-nav{
         display: flex;
@@ -153,6 +213,8 @@
         /***** J'y vais (avion + lettres) *****/
 
         #lettresJS{
+            position: relative;
+            right: 30px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -163,11 +225,14 @@
     
         }
         #avionJs{
+            display: none;
+            /*
             position: relative;
             right: 1000px;
             bottom: 150px;
             overflow-x:hidden;
             overflow-y:hidden;
+            */
         }
         
         /***** fin J'y vais (avion + lettres) *****/
@@ -194,6 +259,14 @@
     
     /* Pour les grandes tablettes*/
     @media screen and (min-width: 990px){
+    /***** Formulaire contact *************/
+    #blockContact{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+    }
     /***** Navbar *************************/
     .navbar-nav{
         display: flex;
@@ -232,6 +305,8 @@
     /* fin Navbar *************************/
         /***** J'y vais (avion + lettres) *****/
         #lettresJS{
+            position: relative;
+            right: 30px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
@@ -242,11 +317,14 @@
     
         }
         #avionJs{
+            display: none;
+            /*
             position: relative;
             right: 1000px;
             bottom: 180px;
             overflow-x:hidden;
             overflow-y:hidden;
+            */
         }
 
         /***** fin J'y vais (avion + lettres) *****/
@@ -278,6 +356,14 @@
     
     /* Pour les très grands ecrans */
     @media screen and (min-width: 1200px) {
+    /***** Formulaire contact *************/
+    #blockContact{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
 
     /***** Navbar *************************/
     .navbar-nav{
@@ -318,6 +404,8 @@
         
         /***** J'y vais (avion + lettres) *****/
         #lettresJS{
+            position: relative;
+            right: 72px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
@@ -328,6 +416,7 @@
     
         }
         #avionJs{
+            display: block;
             position: relative;
             right: 1000px;
             bottom: 50px;

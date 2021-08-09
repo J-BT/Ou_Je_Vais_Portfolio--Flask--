@@ -2,19 +2,19 @@
 
 {% block content %}
 
-	<!-- Activities -->
-	<div class="container" id="activities">
-	  <div class="row">
-	    <div class="col-12">
-	      <div class="tm-parallax">
-	        <header class="tm-parallax-header">
-	          <h2 class="">Connexion</h2>
-	        </header>
-	      </div>
-	    </div>
-	  </div>
+	
+    <!-- Background image -->
+    <div class="p-5 text-center bg-image mb-5" id="photoConnexion">
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="text-white">
+              <h1 id="bannerGrosTitre">Connexion</h1>
+          </div>
+      </div>
+      </div>
+    </div>
 
-	  <div class="container">
+	  <div class="container d-flex justify-content-center align-items-center">
         <div class="row" style="margin-top: 40px">
             <div class="col-sm-6">
               <form action="" method="post" novalidate>
@@ -39,7 +39,9 @@
             </div>
         </div>
     </div>
-    <p>Nouveau ? <a href="{{ url_for('auth.register') }}">Cliquez ici pour vous inscrire!</a></p>
+    <p class="d-flex flex-wrap justify-content-center align-items-center">Nouveau ? 
+      <a href="{{ url_for('auth.register') }}" 
+      style="margin-left: 10px ;">Cliquez ici pour vous inscrire!</a></p>
 
 {% endblock %}
 
