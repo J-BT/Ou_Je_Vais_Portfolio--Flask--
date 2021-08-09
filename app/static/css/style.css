@@ -21,7 +21,7 @@
     right: 72px;
 
 }
-
+/*
 #avionJs{
     position: relative;
     right: 1000px;
@@ -29,7 +29,7 @@
     overflow-x:hidden;
     overflow-y:hidden;
 }
-
+*/
 
 .mots{
     display: flex;
@@ -86,11 +86,14 @@
 
     }
     #avionJs{
+        display: none;
+        /*
         position: relative;
         right: 1000px;
         bottom: 110px;
         overflow-x:hidden;
         overflow-y:hidden;
+        */
     }
 
     /***** fin J'y vais (avion + lettres) *****/
@@ -163,11 +166,14 @@
     
         }
         #avionJs{
+            display: none;
+            /*
             position: relative;
             right: 1000px;
             bottom: 150px;
             overflow-x:hidden;
             overflow-y:hidden;
+            */
         }
         
         /***** fin J'y vais (avion + lettres) *****/
@@ -242,11 +248,14 @@
     
         }
         #avionJs{
+            display: none;
+            /*
             position: relative;
             right: 1000px;
             bottom: 180px;
             overflow-x:hidden;
             overflow-y:hidden;
+            */
         }
 
         /***** fin J'y vais (avion + lettres) *****/
@@ -328,6 +337,7 @@
     
         }
         #avionJs{
+            display: block;
             position: relative;
             right: 1000px;
             bottom: 50px;
