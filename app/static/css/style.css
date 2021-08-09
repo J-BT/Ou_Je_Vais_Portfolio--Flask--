@@ -1,3 +1,16 @@
+/************** Connexion inscription ***********************************/
+
+#photoConnexion{
+    background-image: url('/static/img/patrick-tomasso-j1dj50Td7CQ-unsplash.jpg');
+    height: 300px;
+    width: auto;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 /*************** Js J'y vais *********************************************/
     
   
