@@ -51,3 +51,30 @@
 2021-08-10 11:38:02,445 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
 2021-08-10 11:38:50,568 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
 2021-08-10 11:39:24,895 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-10 11:51:23,813 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-10 11:57:50,806 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-10 12:00:28,701 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-10 12:05:32,229 ERROR: Exception on /Lets_go [POST] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2021-08-10 12:05:43,438 ERROR: Exception on /Lets_go [POST] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
+    response = self.make_response(rv)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2021-08-10 12:07:41,403 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-10 12:09:51,500 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]

@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container_flash">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+     {%if messages %}
+          {%for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              <h4 style="text-align:center;">{{ message }}</h4>
+            </div>
+          {%endfor%}
+    {%endif %}
+  {%endwith%}
+</div>
+
+<!-- Animation JS Ou Je Vais -->
+<div class="col-12 col-md-12 col-lg-12 my-3" 
+id="animationOuJeVais"> 
+
+  <div id="avionJs">
+    <img src="{{ url_for('static', filename='img/airplane.png') }}" 
+        height="80"
+        alt=""/>
+  </div>
+
+  <h1 id="lettresJS">
+    <div class="mots" id="QUELLE">
+      <span class="letter" id="lettreDebut">Q</span>
+      <span class="letter" id="lettreDebut">U</span>
+      <span class="letter" id="lettreDebut">E</span>
+      <span class="letter" id="lettreDebut">L</span>
+      <span class="letter" id="lettreDebut">L</span>
+      <span class="letter" id="lettreDebut">E</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="SERA">
+      <span class="letter" id="lettreAvantMilieu">S</span>
+      <span class="letter" id="lettreAvantMilieu">E</span>
+      <span class="letter" id="lettreAvantMilieu">R</span>
+      <span class="letter" id="lettreAvantMilieu">A</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="VOTRE">
+      <span class="letter" id="lettreMilieu">V</span>
+      <span class="letter" id="lettreMilieu">O</span>
+      <span class="letter" id="lettreMilieu">T</span>
+      <span class="letter" id="lettreMilieu">R</span>
+      <span class="letter" id="lettreMilieu">E</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="DESTINATION">
+      <span class="letter" id="lettreBas" >D</span>
+      <span class="letter" id="lettreBas">E</span>
+      <span class="letter" id="lettreBas">S</span>
+      <span class="letter" id="lettreBas">T</span>
+      <span class="letter" id="lettreBas">I</span>
+      <span class="letter" id="lettreBas">N</span>
+      <span class="letter" id="lettreBas">A</span>
+      <span class="letter" id="lettreBas">T</span>
+      <span class="letter" id="lettreBas">I</span>
+      <span class="letter" id="lettreBas">O</span>
+      <span class="letter" id="lettreBas">N</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="?">
+      <span class="letter" id="lettrePointInterro">?</span>
+    </div>
+    <div id="espaceLettres"></div>
+  </h1>
+</div>
+
+
+<!-- Titre Preference + Selecteurs-->
+<div class="col-12 col-md-12 col-lg-12 my-5
+d-flex flex-column" 
+id="preferencesEtTitre"> 
+
+    <!-- Barre choix utilisateur -->
+    <div class="col-12 col-md-12 col-lg-12 
+    d-flex flex-column align-items-center justify-content-center" 
+    id="choix_barre">
+      <i class="fas fa-5x fa-question questionPreferences mx-5 my-3"></i>
+      <h3 class="questionPreferences">Quelles sont vos préférences ?</h3>
+      <p class="questionPreferences">(Pour l'instant) <u>un critère</u> à la fois...</p>
+    </div>
+        
+    <!-- Selecteur critères-->
+    <div class="my-5 col-12 col-md-12 col-lg-12  
+    d-flex flex-row flex-wrap align-items-center justify-content-around"
+    id="barreSelecteurs">
+      <form  action="" method="post" class="col-12 col-md-12 col-lg-12
+      d-flex flex-row flex-wrap align-items-center justify-content-around " 
+      id="formulaireSelecteursPreferences">
+          {{ choix_utilisateur.csrf_token() }}
+          <div class="selecteurPreferences" id="pop">
+          {{choix_utilisateur.nombre_population.label(class="form-control-label")}}<br>
+          {{choix_utilisateur.nombre_population(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="espe">
+          {{choix_utilisateur.esperance_vie.label(class="form-control-label")}}<br>
+          {{choix_utilisateur.esperance_vie(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="cho">
+            {{choix_utilisateur.taux_chomage.label(class="form-control-label")}}<br>
+            {{choix_utilisateur.taux_chomage(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="tempe">
+            {{choix_utilisateur.temperature.label(class="form-control-label")}}<br>
+            {{choix_utilisateur.temperature(class="form-control form-control-lg")}}
+          </div>
+          <div class="selecteurPreferences" id="meteo">
+            {{choix_utilisateur.meteo.label(class="form-control-label")}}<br>
+            {{choix_utilisateur.meteo(class="form-control form-control-lg")}}
+          </div>
+          <div>
+            <div class="selecteurPreferences" id="move">
+            {{ choix_utilisateur.choix_submit(class="btn btn-primary") }}
+          </div>
+
+          </div>
+          
+      </form>
+    </div>
+  </div>
+  <!-- fin Titre Preference + Selecteurs-->
+
+    <!-- Tableau -->
+    <div class="resultat_pays">
+      <div class="resultat">
+        {% if title == "J'y vais" %}
+
+          <div class="my-5 col-12 col-md-12 col-lg-12 
+            d-flex flex-column align-items-center justify-content-center" 
+            id="resultatTitre">
+            <i class="fas fa-5x fa-atlas mx-5 my-3"></i>
+              <h3 class="questionPreferences">Voici les pays disponibles : </h3>
+          </div>
+
+        {% else %}
+
+          <div class="my-5 col-12 col-md-12 col-lg-12 
+            d-flex flex-column align-items-center justify-content-center" 
+            id="resultatTitre">
+            <i class="fas fa-5x fa-atlas mx-5 my-3 "></i>
+              <h3 class="questionPreferences">Votre prochaine destination : {{title}} !!</h3>
+          </div>
+        {% endif %}
+
+
+        <div class="w-100 p-3" id="tableauClassement">
+          <table class="table table-responsive table-hover" 
+          >
+            <thead>
+              <tr>
+                <th scope="col">Pays</th>
+                <th scope="col">Population</th>
+                <th scope="col">Esperance de vie</th>
+                <th scope="col">Taux de chomage (%)</th>
+                <th scope="col">°C Maintenant</th>
+                <th scope="col">°C J-5</th>
+                <th scope="col">Meteo J-5</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%for ce_pays in pays %}
+              <tr>
+                <td>{{ce_pays['country_name']}}</td>
+                <td>{{ce_pays['country_pop']}}</td>
+                <td>{{ce_pays['country_life_exp']}}</td>
+                <td>{{ce_pays['country_unem_rate']}}</td>
+
+                <td>{{ce_pays['country_temp']}}</td>
+                <td>{{ce_pays['country_temp_5d']}}</td>
+                <td>{{ce_pays['country_weather_5d']}}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+</div>
+    
+
+{% endblock %}
