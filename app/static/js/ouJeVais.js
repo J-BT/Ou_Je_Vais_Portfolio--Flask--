@@ -1,11 +1,10 @@
 /* *************** AJAX ************************************************* */
-
-$.ajax({
-  url: "/Lets_go/country_pop/decroissant",
-  success: lectureDuJSON
+$(".testBouton").click(function(){
+  $.ajax({
+    url: "/Lets_go/country_pop/decroissant",
+    success: lectureDuJSON
+  });
 });
-
-
 
 // Affiche les données pays dans un tableau
 function lectureDuJSON(result) {
