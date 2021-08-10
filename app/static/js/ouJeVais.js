@@ -1,10 +1,35 @@
 /* *************** AJAX *********************************************** */
 
-$(document).ready(function(){
-  $(".testBouton").click(function(){
-    $(".paragrapheTest").hide();
-  });
+$.ajax({
+  url: "/Lets_go/country_pop/decroissant",
+  success: lectureDuJSON
 });
+
+
+
+function lectureDuJSON(result) {
+  console.log("Résultat de la requête :", result);
+  donneesAPI = result["data"];
+  colonnes = result["columns"]
+  
+  let pays = 0;
+  /*
+  let nom = 0;
+  for (colonne in colonnes){
+    console.log(colonne[nom]);
+  }
+  */
+  //console.log(colonnes);
+  for (pays in donneesAPI){
+    //colonnes
+    console.log(colonnes[1], colonnes[2], colonnes[3],
+      colonnes[4], colonnes[5], colonnes[6]);
+    //donnees
+    console.log(donneesAPI[pays][1], donneesAPI[pays][2], donneesAPI[pays][3],
+        donneesAPI[pays][4],donneesAPI[pays][5],donneesAPI[pays][6]);
+    pays++;
+  }
+}
 
 
 
