@@ -7,7 +7,7 @@ $.ajax({
 
 
 
-
+// Affiche les données pays dans un tableau
 function lectureDuJSON(result) {
   console.log("Résultat de la requête :", result);
   donneesAPI = result["data"];
@@ -16,19 +16,36 @@ function lectureDuJSON(result) {
   let pays = 0;
   
 
-  //console.log(colonnes);
-  for (pays in donneesAPI){
-    //colonnes
-    console.log(colonnes[1], colonnes[2], colonnes[3],
-      colonnes[4], colonnes[5], colonnes[6]);
-    //donnees
-    console.log(donneesAPI[pays][1], donneesAPI[pays][2], donneesAPI[pays][3],
-        donneesAPI[pays][4],donneesAPI[pays][5],donneesAPI[pays][6]);
-    pays++;
+  for (pays in donneesAPI) {
+    let row = $(
+      '<tr><td>' + donneesAPI[pays][1] + '</td><td>'
+                 + donneesAPI[pays][2] + '</td><td>' 
+                 + donneesAPI[pays][3] + '</td><td>' 
+                 + donneesAPI[pays][4] + '</td><td>' 
+                 + donneesAPI[pays][5] + '</td><td>'
+                 + donneesAPI[pays][6] + '</td><td>' 
+                 + donneesAPI[pays][7] + '</td></tr>');
+    $('#myTable').append(row);
   }
 }
 
+/*
+$.ajax({
+    url: 'data.json',
+    dataType: 'json',
+    success: function(data) {
+        for (var i=0; i<data.length; i++) {
+            var row = $('<tr><td>' + data[i].zipcode+ '</td><td>' 
+            + data[i].city + '</td><td>' + data[i].county + '</td></tr>');
+            $('#myTable').append(row);
+        }
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+        alert('Error: ' + textStatus + ' - ' + errorThrown);
+    }
+});
 
+*/
 /* *************** fin AJAX ********************************************* */
 
 
