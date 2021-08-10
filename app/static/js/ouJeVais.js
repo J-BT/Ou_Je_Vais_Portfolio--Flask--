@@ -1,3 +1,17 @@
+/* *************** AJAX *********************************************** */
+
+$(document).ready(function(){
+  $(".testBouton").click(function(){
+    $(".paragrapheTest").hide();
+  });
+});
+
+
+
+
+/* *************** fin AJAX ******************************************* */
+
+
 /* Navbar fixe */
 document.addEventListener("DOMContentLoaded", function(){
     window.addEventListener('scroll', function() {
