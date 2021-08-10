@@ -1,9 +1,10 @@
-/* *************** AJAX *********************************************** */
+/* *************** AJAX ************************************************* */
 
 $.ajax({
   url: "/Lets_go/country_pop/decroissant",
   success: lectureDuJSON
 });
+
 
 
 
@@ -13,12 +14,8 @@ function lectureDuJSON(result) {
   colonnes = result["columns"]
   
   let pays = 0;
-  /*
-  let nom = 0;
-  for (colonne in colonnes){
-    console.log(colonne[nom]);
-  }
-  */
+  
+
   //console.log(colonnes);
   for (pays in donneesAPI){
     //colonnes
@@ -32,9 +29,7 @@ function lectureDuJSON(result) {
 }
 
 
-
-
-/* *************** fin AJAX ******************************************* */
+/* *************** fin AJAX ********************************************* */
 
 
 /* Navbar fixe */
