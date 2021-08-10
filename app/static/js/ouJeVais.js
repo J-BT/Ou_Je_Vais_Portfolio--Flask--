@@ -6,6 +6,10 @@ $(".testBouton").click(function(){
   });
 });
 
+//Pour effacer checker en dessous
+//$("#myTable > tbody > tr").empty();
+
+
 // Affiche les données pays dans un tableau
 function lectureDuJSON(result) {
   console.log("Résultat de la requête :", result);
