@@ -1,7 +1,4 @@
-2021-08-10 12:16:25,250 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:18:49,533 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:21:23,976 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:21:53,060 ERROR: Exception on /Lets_go [POST] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+2021-08-10 15:33:13,906 ERROR: Exception on /Lets_go/classer_par=country_temp [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,25 +12,14 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/main/routes.py", line 215, in lets_go
-    flash(f'type de selon_pop_plus = {type(jsonify(selon_pop_plus))}', 'info')
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
-    dumps(data, indent=indent, separators=separators) + "\n",
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
-    rv = _json.dumps(obj, **kwargs)
-  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/json/__init__.py", line 100, in default
-    return _json.JSONEncoder.default(self, o)
-  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type DataFrame is not JSON serializable
-2021-08-10 12:23:07,076 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:23:26,336 ERROR: Exception on /Lets_go [POST] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/main/routes.py", line 138, in lets_go
+    selon_pop_plus = countries_for_ranking.sort_values(
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/frame.py", line 5455, in sort_values
+    k = self._get_label_or_level_values(by, axis=axis)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/generic.py", line 1684, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'classer_par=country_temp'
+2021-08-10 15:33:17,760 ERROR: Exception on /Lets_go/classer_par=country_temp [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -47,31 +33,14 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/main/routes.py", line 216, in lets_go
-    popMoinsJson = jsonify(selon_pop_plus)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/json/__init__.py", line 370, in jsonify
-    dumps(data, indent=indent, separators=separators) + "\n",
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/json/__init__.py", line 211, in dumps
-    rv = _json.dumps(obj, **kwargs)
-  File "/usr/lib/python3.8/json/__init__.py", line 234, in dumps
-    return cls(
-  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
-    chunks = self.iterencode(o, _one_shot=True)
-  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
-    return _iterencode(o, 0)
-  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/json/__init__.py", line 100, in default
-    return _json.JSONEncoder.default(self, o)
-  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type DataFrame is not JSON serializable
-2021-08-10 12:24:29,200 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:25:50,876 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:28:01,490 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:28:55,718 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:29:38,224 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:32:44,188 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 12:32:59,527 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 14:21:35,232 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 15:21:54,790 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 15:23:45,257 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
-2021-08-10 15:27:05,493 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/main/routes.py", line 138, in lets_go
+    selon_pop_plus = countries_for_ranking.sort_values(
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/frame.py", line 5455, in sort_values
+    k = self._get_label_or_level_values(by, axis=axis)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/generic.py", line 1684, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'classer_par=country_temp'
+2021-08-10 15:45:04,307 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-10 15:46:17,419 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-10 15:48:14,778 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-10 15:48:58,085 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]

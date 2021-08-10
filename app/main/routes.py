@@ -93,8 +93,12 @@ def contact():
 
 ############  TEST  AJAX ######################################################
 
-@bp.route("/Lets_go", methods= ['POST','GET'] )
-def lets_go():
+# ex : Pour avoir classement pas temperature croissante
+#  Dans l'url taper ----> http://127.0.0.1:5000/Lets_go/country_temp
+
+@bp.route("/Lets_go/<string:classer_par>/<string:type_de_classement>",
+methods= ['POST','GET'] )
+def lets_go(classer_par, type_de_classement):
     try:
 
         les_pays = session.query(Country).filter(
@@ -131,12 +135,21 @@ def lets_go():
         countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
         countries_for_ranking.columns = colonnes
 
+
     except:
         print("Pas encore de valeurs dans Country")
 
+    classement_croissant = ""
+    
+    if type_de_classement == "croissant":
+        classement_croissant = True
+    elif type_de_classement == "decroissant":
+        classement_croissant = False
+    else:
+        return "Erreur"
     selon_pop_plus = countries_for_ranking.sort_values(
-        by=['country_pop'],
-        ascending=False)
+        by=[classer_par],
+        ascending=classement_croissant)
     selon_pop_plus = selon_pop_plus.head(10)
 
     popMoinsJson = selon_pop_plus.to_json(orient="split")
