@@ -3,6 +3,7 @@ from flask import (render_template, redirect, url_for, flash, request)
 from flask_login import (current_user, login_user, logout_user, login_required)
 from werkzeug.urls import url_parse
 import pandas as pd
+import json
 from app.main import bp
 from app.main.forms import (Choix_utilisateur)
 from app.models import (Life_expectancy,
@@ -16,6 +17,7 @@ from app.models import (Life_expectancy,
                         User)
 
 from app.data_visualization import (lineplot_analyse, graph_corr)
+
 
 @bp.route('/')
 @bp.route("/Accueil", methods= ['GET','POST'] )
@@ -190,7 +192,7 @@ def lets_go():
                                     technologiesUtilisees=technologiesUtilisees)
     
 
-        ##################################################################
+    ##################################################################
     ### Si l'utilisateur valide un choix  (via submit button) ####
     ##################################################################
     if choix_utilisateur.validate_on_submit() and request.method == 'POST' :
@@ -212,12 +214,18 @@ def lets_go():
                 by=['country_pop'],
                 ascending=False)
             selon_pop_plus = selon_pop_plus.head(10)
+
+            popMoinsJson = selon_pop_plus.to_json(orient="split")
+            popMoinsJson = json.loads(popMoinsJson)
+            json.dumps(popMoinsJson, indent=4)
+
+            #flash(f'type de selon_pop_plus = {popMoinsJson}', 'info')
             
+            #return render_template('lets_go.html',
+            #                    choix_utilisateur=choix_utilisateur,
+            #                    pays=selon_pop_plus.to_dict(orient='records'))
             
-            
-            return render_template('lets_go.html',
-                                choix_utilisateur=choix_utilisateur,
-                                pays=selon_pop_plus.to_dict(orient='records'))
+            return (popMoinsJson)
         
        
         elif (choix_pop == 'Population -')\
