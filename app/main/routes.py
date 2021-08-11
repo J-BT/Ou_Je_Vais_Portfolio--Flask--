@@ -92,16 +92,17 @@ def contact():
 
 
 ############  TEST  AJAX ######################################################
-@bp.route('/signUp')
-def signUp():
-    return render_template('signUp.html')
+@bp.route('/Jy_vais_new', methods=['GET'])
+def jy_vais_new():
+    return render_template('jy_vais_new.html')
 
-@bp.route('/signUpUser', methods=['POST'])
-def signUpUser():
+@bp.route('/Jy_vais_DATA', methods=['POST'])
+def jy_vais_API():
     if request.method == "POST":
         user =  request.form['username']
         password = request.form['password']
-        return json.dumps({'status':'OK','user':user,'pass':password}, indent=4)
+        return json.dumps({'status':'OK','user':user,'pass':password},
+                        indent=4)
 
 
 # ex : Pour avoir classement pas temperature croissante

@@ -1,11 +1,13 @@
 /* *************** AJAX ************************************************* */
+
+/* ******* POST ******** */
 $(function(){
 	$('#buttonTest').click(function(){
 		var user = $('#inputUsername').val();
 		var pass = $('#inputPassword').val();
 		$.ajax({
-			url: '/signUpUser',
-			data: $('.form-signin').serialize(),
+			url: '/Jy_vais_DATA',
+			data: $('#form_jy_vais').serialize(),
 			type: 'POST',
 			success: function(response){
 				console.log(response);
@@ -18,7 +20,7 @@ $(function(){
 });
 
 
-
+/* ******* GET ******** */
 $(document).ready(function(){
   $(".testBouton").click(function(){
     if(document.getElementById("myTable").rows.length == 1){
