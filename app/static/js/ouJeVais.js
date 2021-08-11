@@ -9,17 +9,36 @@ $(document).ready(function () {
     }); 
 });
 
-/********** Test Selecteur --> /Lets_go en  GET ***********/
+/********** Test Selecteur --> /Jy_vais_API en  GET ***********/
+$(document).ready(function () {
+  //SHOW SELECTED VALUE.
+  $('#poivre').change(function () {
+    if (this.options[this.selectedIndex].value == "pop+"){
+      $.ajax({
+        url: "/Jy_vais_API/country_pop/croissant/",
+        success: lectureDuJSON
+      });
+    }
+    else if (this.options[this.selectedIndex].value == "pop-"){
+      $.ajax({
+        url: "/Jy_vais_API/country_pop/decroissant/",
+        success: lectureDuJSON
+      });
+    }
+  }); 
+});
 
+/*
 $(document).ready(function () {
   //SHOW SELECTED VALUE.
   $('#poivre').change(function () {
     $.ajax({
-      url: "/Lets_go",
+      url: "/Jy_vais_API/country_temp/croissant/",
       success: lectureDuJSON
     });
   }); 
 });
+*/
 
 /******* (fin)  Test Selecteur --> /Lets_go en  GET ********/
 
@@ -51,7 +70,7 @@ $(document).ready(function(){
   $(".testBouton").click(function(){
     if(document.getElementById("myTable").rows.length == 1){
       $.ajax({
-        url: "/Lets_go",
+        url: "/Jy_vais_API/country_temp/croissant/",
         success: lectureDuJSON
       });
     }//fin du if
