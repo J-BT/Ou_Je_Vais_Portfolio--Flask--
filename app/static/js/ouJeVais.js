@@ -1,11 +1,18 @@
 /* *************** AJAX ************************************************* */
 $(document).ready(function(){
   $(".testBouton").click(function(){
-    $.ajax({
-      url: "/Lets_go/country_pop/decroissant",
-      success: lectureDuJSON
-    });
+    if(document.getElementById("myTable").rows.length == 1){
+      $.ajax({
+        url: "/Lets_go/country_pop/decroissant",
+        success: lectureDuJSON
+      });
+    }//fin du if
+    else{
+      $("#myTable > tbody ").empty();
+      document.getElementById("myTable").rows.length = 1;
+    }
   });
+
 });
 //Pour effacer checker en dessous
 //$("#myTable > tbody > tr").empty();
@@ -18,8 +25,7 @@ function lectureDuJSON(result) {
   colonnes = result["columns"]
   
   let pays = 0;
-  
-
+ 
   for (pays in donneesAPI) {
     let row = $(
       '<tr><td>' + donneesAPI[pays][1] + '</td><td>'
