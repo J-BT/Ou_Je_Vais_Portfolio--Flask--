@@ -3,7 +3,7 @@ $(document).ready(function(){
   $(".testBouton").click(function(){
     if(document.getElementById("myTable").rows.length == 1){
       $.ajax({
-        url: "/Lets_go/country_pop/decroissant",
+        url: "/Lets_go",
         success: lectureDuJSON
       });
     }//fin du if
@@ -14,8 +14,7 @@ $(document).ready(function(){
   });
 
 });
-//Pour effacer checker en dessous
-//$("#myTable > tbody > tr").empty();
+
 
 
 // Affiche les données pays dans un tableau
@@ -39,23 +38,7 @@ function lectureDuJSON(result) {
   }
 }
 
-/*
-$.ajax({
-    url: 'data.json',
-    dataType: 'json',
-    success: function(data) {
-        for (var i=0; i<data.length; i++) {
-            var row = $('<tr><td>' + data[i].zipcode+ '</td><td>' 
-            + data[i].city + '</td><td>' + data[i].county + '</td></tr>');
-            $('#myTable').append(row);
-        }
-    },
-    error: function(jqXHR, textStatus, errorThrown){
-        alert('Error: ' + textStatus + ' - ' + errorThrown);
-    }
-});
 
-*/
 /* *************** fin AJAX ********************************************* */
 
 

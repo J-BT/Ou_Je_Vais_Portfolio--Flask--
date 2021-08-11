@@ -1,1 +1,70 @@
 2021-08-11 10:58:10,338 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-11 11:53:15,195 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-11 13:26:25,646 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-11 13:27:13,201 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-11 13:27:21,107 ERROR: Exception on /Lets_go [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: lets_go() missing 2 required positional arguments: 'classer_par' and 'type_de_classement'
+2021-08-11 13:27:23,516 ERROR: Exception on /Lets_go [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: lets_go() missing 2 required positional arguments: 'classer_par' and 'type_de_classement'
+2021-08-11 13:27:24,294 ERROR: Exception on /Lets_go [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: lets_go() missing 2 required positional arguments: 'classer_par' and 'type_de_classement'
+2021-08-11 13:28:10,727 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-11 13:28:15,458 ERROR: Exception on /Lets_go [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/main/routes.py", line 146, in lets_go
+    if type_de_classement == "croissant":
+NameError: name 'type_de_classement' is not defined
+2021-08-11 13:28:57,886 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-11 13:29:45,867 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-11 13:31:27,425 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]

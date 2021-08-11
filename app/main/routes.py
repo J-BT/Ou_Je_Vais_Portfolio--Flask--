@@ -96,9 +96,9 @@ def contact():
 # ex : Pour avoir classement pas temperature croissante
 #  Dans l'url taper ----> http://127.0.0.1:5000/Lets_go/country_temp
 
-@bp.route("/Lets_go/<string:classer_par>/<string:type_de_classement>",
+@bp.route("/Lets_go",
 methods= ['POST','GET'] )
-def lets_go(classer_par, type_de_classement):
+def lets_go():
     try:
 
         les_pays = session.query(Country).filter(
@@ -134,12 +134,14 @@ def lets_go(classer_par, type_de_classement):
             "country_weather_5d"]   
         countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
         countries_for_ranking.columns = colonnes
-
-
+    
     except:
         print("Pas encore de valeurs dans Country")
 
     classement_croissant = ""
+    
+    type_de_classement = "decroissant"
+    classer_par = "country_pop"
     
     if type_de_classement == "croissant":
         classement_croissant = True
