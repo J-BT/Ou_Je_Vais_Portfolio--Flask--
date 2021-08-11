@@ -2,18 +2,26 @@
 /* ******** SELECTEUR ***** */
 
 $(document).ready(function () {
- 
-
-    // SHOW SELECTED VALUE.
+    //SHOW SELECTED VALUE.
     $('#sel').change(function () {
       $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
       console.log(this.options[this.selectedIndex].text);
     }); 
-
-
-  
 });
 
+/********** Test Selecteur --> /Lets_go en  GET ***********/
+
+$(document).ready(function () {
+  //SHOW SELECTED VALUE.
+  $('#poivre').change(function () {
+    $.ajax({
+      url: "/Lets_go",
+      success: lectureDuJSON
+    });
+  }); 
+});
+
+/******* (fin)  Test Selecteur --> /Lets_go en  GET ********/
 
 
 
