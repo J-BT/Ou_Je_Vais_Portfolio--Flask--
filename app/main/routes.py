@@ -1,5 +1,5 @@
 from app import (db, engine, session)
-from flask import (render_template, redirect, url_for, flash, request)
+from flask import (render_template, redirect, url_for, flash, request, json)
 from flask_login import (current_user, login_user, logout_user, login_required)
 from werkzeug.urls import url_parse
 import pandas as pd
@@ -92,6 +92,17 @@ def contact():
 
 
 ############  TEST  AJAX ######################################################
+@bp.route('/signUp')
+def signUp():
+    return render_template('signUp.html')
+
+@bp.route('/signUpUser', methods=['POST'])
+def signUpUser():
+    if request.method == "POST":
+        user =  request.form['username']
+        password = request.form['password']
+        return json.dumps({'status':'OK','user':user,'pass':password}, indent=4)
+
 
 # ex : Pour avoir classement pas temperature croissante
 #  Dans l'url taper ----> http://127.0.0.1:5000/Lets_go/country_temp

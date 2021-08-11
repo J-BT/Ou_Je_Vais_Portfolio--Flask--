@@ -1,4 +1,24 @@
 /* *************** AJAX ************************************************* */
+$(function(){
+	$('#buttonTest').click(function(){
+		var user = $('#inputUsername').val();
+		var pass = $('#inputPassword').val();
+		$.ajax({
+			url: '/signUpUser',
+			data: $('.form-signin').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+
+
 $(document).ready(function(){
   $(".testBouton").click(function(){
     if(document.getElementById("myTable").rows.length == 1){
