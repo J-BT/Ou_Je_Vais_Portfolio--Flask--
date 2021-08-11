@@ -1,4 +1,22 @@
 /* *************** AJAX ************************************************* */
+/* ******** SELECTEUR ***** */
+
+$(document).ready(function () {
+ 
+
+    // SHOW SELECTED VALUE.
+    $('#sel').change(function () {
+      $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
+      console.log(this.options[this.selectedIndex].text);
+    }); 
+
+
+  
+});
+
+
+
+
 
 /* ******* POST ******** */
 $(function(){
