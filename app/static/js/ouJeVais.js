@@ -1,11 +1,12 @@
 /* *************** AJAX ************************************************* */
-$(".testBouton").click(function(){
-  $.ajax({
-    url: "/Lets_go/country_pop/decroissant",
-    success: lectureDuJSON
+$(document).ready(function(){
+  $(".testBouton").click(function(){
+    $.ajax({
+      url: "/Lets_go/country_pop/decroissant",
+      success: lectureDuJSON
+    });
   });
 });
-
 //Pour effacer checker en dessous
 //$("#myTable > tbody > tr").empty();
 
