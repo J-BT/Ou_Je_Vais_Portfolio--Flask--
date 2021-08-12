@@ -16,6 +16,7 @@ $(document).ready(function () {
   /***************************************************************** */
   $('#critere_classement').change(function () {
     let critere = this.options[this.selectedIndex].value;
+
     if (this.options[this.selectedIndex].text.includes("elevé") || 
     this.options[this.selectedIndex].text.includes("déprimante")){
       $.ajax({
@@ -29,73 +30,12 @@ $(document).ready(function () {
         url: "/Classement_pays/"+critere+"/croissant/",
         success: lectureDuJSON
       });
-    }//fin if
-
-  /*
-  //Population  + ....................................
-  $('#critere_classement').change(function () {
-    if (this.options[this.selectedIndex].value == "pop+"){
-      $.ajax({
-        url: "/Classement_pays/country_pop/croissant/",
-        success: lectureDuJSON
-      });
-    }//fin if
-
-    //Population - ....................................
-    else if (this.options[this.selectedIndex].value == "pop-"){
-      $.ajax({
-        url: "/Classement_pays/country_pop/decroissant/",
-        success: lectureDuJSON
-      });
     }//fin else if
 
-
-    //Esperance de vie +  ....................................
-    else if (this.options[this.selectedIndex].value == "pop-"){
-      $.ajax({
-        url: "/Classement_pays/country_life_exp/croissant/",
-        success: lectureDuJSON
-      });
-    }//fin else if
-
-    //Esperance de vie -  ....................................
-    else if (this.options[this.selectedIndex].value == "pop-"){
-      $.ajax({
-        url: "/Classement_pays/country_life_exp/decroissant/",
-        success: lectureDuJSON
-      });
-    }//fin else if
-
-    //Taux de chomage +  ....................................
-    else if (this.options[this.selectedIndex].value == "pop-"){
-      $.ajax({
-        url: "/Classement_pays/country_unem_rate/croissant/",
-        success: lectureDuJSON
-      });
-    }//fin else if
-
-    //Taux de chomage -  ....................................
-    else if (this.options[this.selectedIndex].value == "pop-"){
-      $.ajax({
-        url: "/Classement_pays/country_unem_rate/decroissant/",
-        success: lectureDuJSON
-      });
-    }//fin else if
-*/
+  
   }); //fin $('#critere_classement').change()
 });//fin $(document).ready()
 
-/*
-$(document).ready(function () {
-  //SHOW SELECTED VALUE.
-  $('#critere_classement').change(function () {
-    $.ajax({
-      url: "/Classement_pays/country_temp/croissant/",
-      success: lectureDuJSON
-    });
-  }); 
-});
-*/
 
 /******* (fin)  Test Selecteur --> /Lets_go en  GET ********/
 
@@ -143,7 +83,14 @@ $(document).ready(function(){
 
 // Affiche les données pays dans un tableau
 function lectureDuJSON(result) {
+  // Si la table n'est pas vide --> on la vide puis reinitialise nb de lignes
+  if(document.getElementById("myTable").rows.length > 1){
+    $("#myTable > tbody ").empty();
+    document.getElementById("myTable").rows.length = 1;
+  }
+
   console.log("Résultat de la requête :", result);
+  console.log(document.getElementById("myTable").rows.length);
   donneesAPI = result["data"];
   colonnes = result["columns"]
   
