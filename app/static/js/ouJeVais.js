@@ -11,27 +11,84 @@ $(document).ready(function () {
 
 /********** Test Selecteur --> /Classement_pays en  GET ***********/
 $(document).ready(function () {
-  //SHOW SELECTED VALUE.
-  $('#poivre').change(function () {
+  /***************************************************************** */
+  // Affiche tableau classsment pays en AJAX selon les critres choisis
+  /***************************************************************** */
+  $('#critere_classement').change(function () {
+    let critere = this.options[this.selectedIndex].value;
+    if (this.options[this.selectedIndex].text.includes("elevé") || 
+    this.options[this.selectedIndex].text.includes("déprimante")){
+      $.ajax({
+        url: "/Classement_pays/"+critere+"/decroissant/",
+        success: lectureDuJSON
+      });
+    }//fin if
+    else if (this.options[this.selectedIndex].text.includes("faible") || 
+    this.options[this.selectedIndex].text.includes("favorable")){
+      $.ajax({
+        url: "/Classement_pays/"+critere+"/croissant/",
+        success: lectureDuJSON
+      });
+    }//fin if
+
+  /*
+  //Population  + ....................................
+  $('#critere_classement').change(function () {
     if (this.options[this.selectedIndex].value == "pop+"){
       $.ajax({
         url: "/Classement_pays/country_pop/croissant/",
         success: lectureDuJSON
       });
-    }
+    }//fin if
+
+    //Population - ....................................
     else if (this.options[this.selectedIndex].value == "pop-"){
       $.ajax({
         url: "/Classement_pays/country_pop/decroissant/",
         success: lectureDuJSON
       });
-    }
-  }); 
-});
+    }//fin else if
+
+
+    //Esperance de vie +  ....................................
+    else if (this.options[this.selectedIndex].value == "pop-"){
+      $.ajax({
+        url: "/Classement_pays/country_life_exp/croissant/",
+        success: lectureDuJSON
+      });
+    }//fin else if
+
+    //Esperance de vie -  ....................................
+    else if (this.options[this.selectedIndex].value == "pop-"){
+      $.ajax({
+        url: "/Classement_pays/country_life_exp/decroissant/",
+        success: lectureDuJSON
+      });
+    }//fin else if
+
+    //Taux de chomage +  ....................................
+    else if (this.options[this.selectedIndex].value == "pop-"){
+      $.ajax({
+        url: "/Classement_pays/country_unem_rate/croissant/",
+        success: lectureDuJSON
+      });
+    }//fin else if
+
+    //Taux de chomage -  ....................................
+    else if (this.options[this.selectedIndex].value == "pop-"){
+      $.ajax({
+        url: "/Classement_pays/country_unem_rate/decroissant/",
+        success: lectureDuJSON
+      });
+    }//fin else if
+*/
+  }); //fin $('#critere_classement').change()
+});//fin $(document).ready()
 
 /*
 $(document).ready(function () {
   //SHOW SELECTED VALUE.
-  $('#poivre').change(function () {
+  $('#critere_classement').change(function () {
     $.ajax({
       url: "/Classement_pays/country_temp/croissant/",
       success: lectureDuJSON
