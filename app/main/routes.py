@@ -93,9 +93,9 @@ def contact():
 
 ##### API ###################################################################
 
-@bp.route("/Jy_vais_API/<string:classer_par>/<string:type_de_classement>/", 
+@bp.route("/Classement_pays/<string:classer_par>/<string:type_de_classement>/", 
     methods= ['GET'] )
-def jy_vais_API(classer_par, type_de_classement):
+def classement_pays(classer_par, type_de_classement):
     """
     Donne acces à la table Pays.
     Dans l'url remplacer par l'un des mots suivants :

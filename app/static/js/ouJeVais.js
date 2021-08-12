@@ -9,19 +9,19 @@ $(document).ready(function () {
     }); 
 });
 
-/********** Test Selecteur --> /Jy_vais_API en  GET ***********/
+/********** Test Selecteur --> /Classement_pays en  GET ***********/
 $(document).ready(function () {
   //SHOW SELECTED VALUE.
   $('#poivre').change(function () {
     if (this.options[this.selectedIndex].value == "pop+"){
       $.ajax({
-        url: "/Jy_vais_API/country_pop/croissant/",
+        url: "/Classement_pays/country_pop/croissant/",
         success: lectureDuJSON
       });
     }
     else if (this.options[this.selectedIndex].value == "pop-"){
       $.ajax({
-        url: "/Jy_vais_API/country_pop/decroissant/",
+        url: "/Classement_pays/country_pop/decroissant/",
         success: lectureDuJSON
       });
     }
@@ -33,7 +33,7 @@ $(document).ready(function () {
   //SHOW SELECTED VALUE.
   $('#poivre').change(function () {
     $.ajax({
-      url: "/Jy_vais_API/country_temp/croissant/",
+      url: "/Classement_pays/country_temp/croissant/",
       success: lectureDuJSON
     });
   }); 
@@ -70,7 +70,7 @@ $(document).ready(function(){
   $(".testBouton").click(function(){
     if(document.getElementById("myTable").rows.length == 1){
       $.ajax({
-        url: "/Jy_vais_API/country_temp/croissant/",
+        url: "/Classement_pays/country_temp/croissant/",
         success: lectureDuJSON
       });
     }//fin du if
