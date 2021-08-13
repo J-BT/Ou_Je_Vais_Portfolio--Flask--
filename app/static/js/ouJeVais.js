@@ -1,29 +1,11 @@
 /* *************** AJAX ************************************************* */
 
-///////////////////////////////////////////////////////////////////////
-//////////// Utiliser ça pour afficher titre tableau //////////////////
-///////////////////////////////////////////////////////////////////////
-/*
-(Dans .js)
-$(document).ready(function () {
-    //SHOW SELECTED VALUE.
-    $('#sel').change(function () {
-      $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
-      
-    }); 
-});
-(Dans .html)
-<p id="msg"></p>
-
-*/
-
-
 
 /**********  Remplissage tableau via /Classement_pays en  GET ***********/
 
-  /***************************************************************** */
-  // Affiche tableau classsment pays en AJAX selon les critres choisis
-  /***************************************************************** */
+/***************************************************************** */
+// Affiche tableau classsment pays en AJAX selon les critres choisis
+/***************************************************************** */
 $(document).ready(function () {
   $('#critere_classement').change(function () {
     let critere = this.options[this.selectedIndex].value;
@@ -60,8 +42,14 @@ function lectureDuJSON(result) {
   colonnes = result["columns"]
   
   let pays = 0;
- 
+  let premiereDestination = "";
+  let paysNumero = 1;
+
   for (pays in donneesAPI) {
+    if (paysNumero == 1){
+      premiereDestination = donneesAPI[pays][1];
+    }
+    paysNumero++;
     let row = $(
       '<tr><td>' + donneesAPI[pays][1] + '</td><td>'
                  + donneesAPI[pays][2] + '</td><td>' 
@@ -72,6 +60,10 @@ function lectureDuJSON(result) {
                  + donneesAPI[pays][7] + '</td></tr>');
     $('#myTable').append(row);
   }
+  // Puis on change titre du tableau 
+  $('.questionPreferencesAJAX').empty();
+  $('.questionPreferencesAJAX').text('Les données vous conseillent : ' 
+  + premiereDestination);
 }
 
 

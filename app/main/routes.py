@@ -230,14 +230,12 @@ def jy_vais_AJAX():
         }
         try:
             return render_template('jy_vais_AJAX.html',
-                                    title = "J'y vais",
                                     pays=countries_for_ranking.to_dict(
                                         orient='records'),
                                     technologiesUtilisees=technologiesUtilisees)
         except:
             p = {"France, UK, Japan"}
             return render_template('jy_vais_AJAX.html',
-                                    title = "J'y vais",
                                     pays=p,
                                     technologiesUtilisees=technologiesUtilisees)
 

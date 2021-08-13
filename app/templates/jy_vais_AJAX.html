@@ -95,10 +95,10 @@ id="preferencesEtTitre">
 
       </form>
     -->
-      <select class="my-5 col-12 col-md-12 col-lg-12  
+      <select class="form-select my-5 col-12 col-md-12 col-lg-12  
       d-flex flex-row flex-wrap align-items-center justify-content-around"
-      id="critere_classement" >
-        <option value="">--Choisissez un critère s'il vous plait--</option>
+      id="critere_classement" aria-label="Default select example">
+        <option selected>--Choisissez un critère s'il vous plait--</option>
         <option value="country_pop">Population -- elevée</option>
         <option value="country_pop">Population -- faible</option>
       
@@ -121,25 +121,16 @@ id="preferencesEtTitre">
 <!-- Tableau -->
 <div class="resultat_pays">
   <div class="resultat">
-    {% if title == "J'y vais" %}
+    
 
-      <div class="my-5 col-12 col-md-12 col-lg-12 
-        d-flex flex-column align-items-center justify-content-center" 
-        id="resultatTitre">
-        <i class="fas fa-5x fa-atlas mx-5 my-3"></i>
-          <h3 class="questionPreferences">Voici les pays disponibles : </h3>
-      </div>
-
-    {% else %}
-
-      <div class="my-5 col-12 col-md-12 col-lg-12 
-        d-flex flex-column align-items-center justify-content-center" 
-        id="resultatTitre">
-        <i class="fas fa-5x fa-atlas mx-5 my-3 "></i>
-          <h3 class="questionPreferences">Votre prochaine destination : {{title}} !!</h3>
-      </div>
-    {% endif %}
-
+    <div class="my-5 col-12 col-md-12 col-lg-12 
+      d-flex flex-column align-items-center justify-content-center" 
+      id="resultatTitre">
+      <i class="fas fa-5x fa-atlas mx-5 my-3"></i>
+        <h3>
+           <p class="questionPreferencesAJAX">Voici les pays disponibles : </p>
+        </h3>
+    </div>
 
     <div class="w-100 p-3" id="tableauClassement">
       <table class="table table-responsive table-hover " id="myTable"
