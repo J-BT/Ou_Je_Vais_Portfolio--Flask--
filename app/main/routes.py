@@ -91,7 +91,7 @@ def contact():
             title = 'Contact', technologiesUtilisees = technologiesUtilisees)
 
 
-##### API ###################################################################
+##### AJAX ###################################################################
 
 @bp.route("/Classement_pays/<string:classer_par>/<string:type_de_classement>/", 
     methods= ['GET'] )
@@ -177,88 +177,6 @@ def classement_pays(classer_par, type_de_classement):
 
     return (classement_pays)
 
-
-############  TEST  AJAX ######################################################
-@bp.route('/Jy_vais_new', methods=['GET'])
-def jy_vais_new():
-    return render_template('jy_vais_new.html')
-
-@bp.route('/Jy_vais_DATA', methods=['POST'])
-def jy_vais_DATA():
-    if request.method == "POST":
-        user =  request.form['username']
-        password = request.form['password']
-        return json.dumps({'status':'OK','user':user,'pass':password},
-                        indent=4)
-
-
-# ex : Pour avoir classement pas temperature croissante
-#  Dans l'url taper ----> http://127.0.0.1:5000/Lets_go/country_temp
-
-@bp.route("/Lets_go",
-methods= ['POST','GET'] )
-def lets_go():
-    try:
-
-        les_pays = session.query(Country).filter(
-            Country.country_pop.isnot(None),
-            Country.country_life_exp.isnot(None),
-            Country.country_unem_rate.isnot(None),
-            Country.country_temp.isnot(None),
-            Country.country_temp_5d.isnot(None),
-            Country.country_weather_5d.isnot(None),
-                                            )
-        p_valeurs_pr_classement = {}
-        index = 1
-        for ce_pays in les_pays:
-            p_valeurs_pr_classement[index] = [
-                ce_pays.id_country,
-                ce_pays.country_name,
-                ce_pays.pop_etudie.pop_value,
-                ce_pays.espe_etudiee.l_e_value,
-                ce_pays.chom_etudie.u_r_value,
-                ce_pays.temp_etudie.temp_value,
-                ce_pays.temp_5j_etudiee.temp_5days_value,
-                ce_pays.weather_5j_etudie.weather_5days_w_main]
-            index += 1
-
-        colonnes = [
-            "id_country",
-            "country_name",
-            "country_pop",
-            "country_life_exp",
-            "country_unem_rate",
-            "country_temp",
-            "country_temp_5d",
-            "country_weather_5d"]   
-        countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
-        countries_for_ranking.columns = colonnes
-    
-    except:
-        print("Pas encore de valeurs dans Country")
-
-    classement_croissant = ""
-    
-    type_de_classement = "decroissant"
-    classer_par = "country_pop"
-    
-    if type_de_classement == "croissant":
-        classement_croissant = True
-    elif type_de_classement == "decroissant":
-        classement_croissant = False
-    else:
-        return "Erreur"
-    selon_pop_plus = countries_for_ranking.sort_values(
-        by=[classer_par],
-        ascending=classement_croissant)
-    selon_pop_plus = selon_pop_plus.head(10)
-
-    popMoinsJson = selon_pop_plus.to_json(orient="split")
-    popMoinsJson = json.loads(popMoinsJson)
-    json.dumps(popMoinsJson, indent=4)
-
-    return (popMoinsJson)
-
 @bp.route("/Jy_vais_AJAX", methods= ['GET'] )
 def jy_vais_AJAX():
     
@@ -281,7 +199,7 @@ def jy_vais_AJAX():
                                     technologiesUtilisees=technologiesUtilisees)
 
 
-########### fin TEST AJAX #####################################################
+########### fin  AJAX #########################################################
 
 @bp.route("/Jy_vais", methods= ['GET','POST'] )
 def jy_vais():
