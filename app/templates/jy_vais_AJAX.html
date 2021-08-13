@@ -70,59 +70,108 @@ id="animationOuJeVais">
   </h1>
 </div>
 
-<select id="critere_classement">
-  <option value="">--Choisissez un critère s'il vous plait--</option>
-  <option value="country_pop">Population -- elevée</option>
-  <option value="country_pop">Population -- faible</option>
+<!-- Titre Preference + Selecteurs-->
+<div class="col-12 col-md-12 col-lg-12 my-5
+d-flex flex-column" 
+id="preferencesEtTitre"> 
 
-  <option value="country_life_exp">Esperance de vie -- elevée</option>
-  <option value="country_life_exp">Esperance de vie -- faible</option>
-
-  <option value="country_unem_rate">Taux de chômage -- elevé</option>
-  <option value="country_unem_rate">Taux de chômage -- faible</option>
-
-  <option value="country_temp">Température -- elevée</option>
-  <option value="country_temp">Température -- faible</option>
-
-  <option value="country_weather_5d">Météo -- favorable</option>
-  <option value="country_weather_5d">Météo -- déprimante</option>
-</select>
-
-
-
-        <div class="w-100 p-3" id="tableauClassement">
-          <table class="table table-responsive table-hover" id="myTable">
-            <thead>
-              <tr>
-                <th scope="col">Pays</th>
-                <th scope="col">Population</th>
-                <th scope="col">Esperance de vie</th>
-                <th scope="col">Taux de chomage (%)</th>
-                <th scope="col">°C Maintenant</th>
-                <th scope="col">°C J-5</th>
-                <th scope="col">Meteo J-5</th>
-              </tr>
-            </thead>
-            <tbody>
-              {%for ce_pays in pays %}
-              <tr>
-                <td>{{ce_pays['country_name']}}</td>
-                <td>{{ce_pays['country_pop']}}</td>
-                <td>{{ce_pays['country_life_exp']}}</td>
-                <td>{{ce_pays['country_unem_rate']}}</td>
-
-                <td>{{ce_pays['country_temp']}}</td>
-                <td>{{ce_pays['country_temp_5d']}}</td>
-                <td>{{ce_pays['country_weather_5d']}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <!-- Barre choix utilisateur -->
+    <div class="col-12 col-md-12 col-lg-12 
+    d-flex flex-column align-items-center justify-content-center" 
+    id="choix_barre">
+      <i class="fas fa-5x fa-question questionPreferences mx-5 my-3"></i>
+      <h3 class="questionPreferences">Quelles sont vos préférences ?</h3>
+      <p class="questionPreferences">(Pour l'instant) <u>un critère</u> à la fois...</p>
     </div>
+        
+    <!-- Selecteur critères-->
+    <div class="my-5 col-12 col-md-12 col-lg-12  
+    d-flex flex-row flex-wrap align-items-center justify-content-around"
+    id="barreSelecteurs">
+    <!--
+      <form  action="" method="post" class="col-12 col-md-12 col-lg-12
+      d-flex flex-row flex-wrap align-items-center justify-content-around " 
+      id="formulaireSelecteursPreferences">
 
+      </form>
+    -->
+      <select class="my-5 col-12 col-md-12 col-lg-12  
+      d-flex flex-row flex-wrap align-items-center justify-content-around"
+      id="critere_classement" >
+        <option value="">--Choisissez un critère s'il vous plait--</option>
+        <option value="country_pop">Population -- elevée</option>
+        <option value="country_pop">Population -- faible</option>
+      
+        <option value="country_life_exp">Esperance de vie -- elevée</option>
+        <option value="country_life_exp">Esperance de vie -- faible</option>
+      
+        <option value="country_unem_rate">Taux de chômage -- elevé</option>
+        <option value="country_unem_rate">Taux de chômage -- faible</option>
+      
+        <option value="country_temp">Température -- elevée</option>
+        <option value="country_temp">Température -- faible</option>
+      
+        <option value="country_weather_5d">Météo -- favorable</option>
+        <option value="country_weather_5d">Météo -- déprimante</option>
+      </select>
+      
+    </div>
+  </div>
+  <!-- fin Titre Preference + Selecteurs-->
+<!-- Tableau -->
+<div class="resultat_pays">
+  <div class="resultat">
+    {% if title == "J'y vais" %}
+
+      <div class="my-5 col-12 col-md-12 col-lg-12 
+        d-flex flex-column align-items-center justify-content-center" 
+        id="resultatTitre">
+        <i class="fas fa-5x fa-atlas mx-5 my-3"></i>
+          <h3 class="questionPreferences">Voici les pays disponibles : </h3>
+      </div>
+
+    {% else %}
+
+      <div class="my-5 col-12 col-md-12 col-lg-12 
+        d-flex flex-column align-items-center justify-content-center" 
+        id="resultatTitre">
+        <i class="fas fa-5x fa-atlas mx-5 my-3 "></i>
+          <h3 class="questionPreferences">Votre prochaine destination : {{title}} !!</h3>
+      </div>
+    {% endif %}
+
+
+    <div class="w-100 p-3" id="tableauClassement">
+      <table class="table table-responsive table-hover " id="myTable"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Pays</th>
+            <th scope="col">Population</th>
+            <th scope="col">Esperance de vie</th>
+            <th scope="col">Taux de chomage (%)</th>
+            <th scope="col">°C Maintenant</th>
+            <th scope="col">°C J-5</th>
+            <th scope="col">Meteo J-5</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for ce_pays in pays %}
+          <tr>
+            <td>{{ce_pays['country_name']}}</td>
+            <td>{{ce_pays['country_pop']}}</td>
+            <td>{{ce_pays['country_life_exp']}}</td>
+            <td>{{ce_pays['country_unem_rate']}}</td>
+
+            <td>{{ce_pays['country_temp']}}</td>
+            <td>{{ce_pays['country_temp_5d']}}</td>
+            <td>{{ce_pays['country_weather_5d']}}</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-    
 
 {% endblock %}

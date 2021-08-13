@@ -450,7 +450,7 @@
     }
 
     /*****************Selecteurs Preferences *********************************/
-    #formulaireSelecteursPreferences{
+    #formulaireSelecteursPreferences, #critere_classement{
         width: 50%;
     }
     .selecteurPreferences{
