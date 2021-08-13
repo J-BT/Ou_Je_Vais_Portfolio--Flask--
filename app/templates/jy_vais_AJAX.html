@@ -104,7 +104,18 @@ id="animationOuJeVais">
               </tr>
             </thead>
             <tbody>
-              
+              {%for ce_pays in pays %}
+              <tr>
+                <td>{{ce_pays['country_name']}}</td>
+                <td>{{ce_pays['country_pop']}}</td>
+                <td>{{ce_pays['country_life_exp']}}</td>
+                <td>{{ce_pays['country_unem_rate']}}</td>
+
+                <td>{{ce_pays['country_temp']}}</td>
+                <td>{{ce_pays['country_temp_5d']}}</td>
+                <td>{{ce_pays['country_weather_5d']}}</td>
+              </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>

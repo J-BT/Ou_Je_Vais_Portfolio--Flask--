@@ -91,7 +91,8 @@ def contact():
             title = 'Contact', technologiesUtilisees = technologiesUtilisees)
 
 
-##### AJAX ###################################################################
+##### J'y vais avec AJAX #######################################################
+################################################################################
 
 @bp.route("/Classement_pays/<string:classer_par>/<string:type_de_classement>/", 
     methods= ['GET'] )
@@ -179,8 +180,48 @@ def classement_pays(classer_par, type_de_classement):
 
 @bp.route("/Jy_vais_AJAX", methods= ['GET'] )
 def jy_vais_AJAX():
-    
     if request.method == 'GET' :
+        #--- Affiche un tableau au lancement de la page avec pays dispo ---- #
+        try:
+
+            les_pays = session.query(Country).filter(
+                Country.country_pop.isnot(None),
+                Country.country_life_exp.isnot(None),
+                Country.country_unem_rate.isnot(None),
+                Country.country_temp.isnot(None),
+                Country.country_temp_5d.isnot(None),
+                Country.country_weather_5d.isnot(None),
+                                                )
+            p_valeurs_pr_classement = {}
+            index = 1
+            for ce_pays in les_pays:
+                p_valeurs_pr_classement[index] = [
+                    ce_pays.id_country,
+                    ce_pays.country_name,
+                    ce_pays.pop_etudie.pop_value,
+                    ce_pays.espe_etudiee.l_e_value,
+                    ce_pays.chom_etudie.u_r_value,
+                    ce_pays.temp_etudie.temp_value,
+                    ce_pays.temp_5j_etudiee.temp_5days_value,
+                    ce_pays.weather_5j_etudie.weather_5days_w_main]
+                index += 1
+
+            colonnes = [
+                "id_country",
+                "country_name",
+                "country_pop",
+                "country_life_exp",
+                "country_unem_rate",
+                "country_temp",
+                "country_temp_5d",
+                "country_weather_5d"]   
+            countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
+            countries_for_ranking.columns = colonnes
+    
+        except:
+            print("Pas encore de valeurs dans Country")
+
+
         technologiesUtilisees = {
             "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
             "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
@@ -188,18 +229,26 @@ def jy_vais_AJAX():
             "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
         }
         try:
-            return render_template('lets_go.html',
+            return render_template('jy_vais_AJAX.html',
                                     title = "J'y vais",
+                                    pays=countries_for_ranking.to_dict(
+                                        orient='records'),
                                     technologiesUtilisees=technologiesUtilisees)
         except:
             p = {"France, UK, Japan"}
-            return render_template('lets_go.html',
+            return render_template('jy_vais_AJAX.html',
                                     title = "J'y vais",
                                     pays=p,
                                     technologiesUtilisees=technologiesUtilisees)
 
 
-########### fin  AJAX #########################################################
+########### fin J'y vais avec AJAX #############################################
+################################################################################
+
+
+
+##### J'y vais sans AJAX #######################################################
+################################################################################
 
 @bp.route("/Jy_vais", methods= ['GET','POST'] )
 def jy_vais():
@@ -1020,3 +1069,6 @@ def jy_vais():
                                     pays=p,
                                     choix_utilisateur=choix_utilisateur,
                                     technologiesUtilisees=technologiesUtilisees)
+
+########### fin J'y vais sans AJAX #############################################
+################################################################################
