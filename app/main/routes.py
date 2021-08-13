@@ -23,7 +23,7 @@ from app.data_visualization import (lineplot_analyse, graph_corr)
 @bp.route("/Accueil", methods= ['GET','POST'] )
 def accueil():
     technologiesUtilisees = {
-        "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
+        "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
         "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
         "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
         "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
@@ -81,7 +81,7 @@ def contact():
     
     elif request.method == 'GET':
         technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
+            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
             "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
             "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
             "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
@@ -223,7 +223,7 @@ def jy_vais_AJAX():
 
 
         technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
+            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
             "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
             "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
             "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
@@ -1048,7 +1048,7 @@ def jy_vais():
 ### Si country vide ----> pas pris en compte! 
     elif request.method == 'GET' :
         technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
+            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
             "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
             "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
             "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]

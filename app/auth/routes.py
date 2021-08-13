@@ -25,7 +25,14 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('main.accueil')
         return redirect(next_page)
-    return render_template('auth/connexion.html', title='Sign In', form=form)
+    technologiesUtilisees = {
+        "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
+        "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
+        "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
+        "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
+    }
+    return render_template('auth/connexion.html', title='Sign In', form=form,
+    technologiesUtilisees=technologiesUtilisees)
 
 
 @bp.route("/Register", methods=["GET", "POST"])
@@ -40,7 +47,14 @@ def register():
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('auth.login'))
-    return render_template('auth/inscription.html', title='Register', form=form)
+    technologiesUtilisees = {
+        "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
+        "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
+        "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
+        "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
+    }
+    return render_template('auth/inscription.html', title='Register', form=form,
+    technologiesUtilisees=technologiesUtilisees)
 
 
 @bp.route('/Logout')
