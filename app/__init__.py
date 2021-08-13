@@ -55,6 +55,12 @@ technologiesUtilisees = {
             "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
             "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
         }
+nb_elements_max = max(len(technologie) \
+        for technologie in technologiesUtilisees.values())
+plus_longue_liste_techno = [technologie \
+    for technologie in technologiesUtilisees.values() \
+        if len(technologie) == nb_elements_max]
+
 
 
 from app import models, data_mining, data_visualization

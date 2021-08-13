@@ -17,7 +17,7 @@ from app.models import (Life_expectancy,
                         User)
 
 from app.data_visualization import (lineplot_analyse, graph_corr)
-from app.__init__ import technologiesUtilisees
+from app.__init__ import (technologiesUtilisees, plus_longue_liste_techno)
 
 
 @bp.route('/')
@@ -25,7 +25,8 @@ from app.__init__ import technologiesUtilisees
 def accueil():
 
     return render_template('index.html', title="Page d'Accueil",
-     technologiesUtilisees=technologiesUtilisees)
+    technologiesUtilisees = technologiesUtilisees,
+    plus_longue_liste_techno=plus_longue_liste_techno)
 
 
 @bp.route("/Contact", methods= ['GET','POST'] )
@@ -78,7 +79,9 @@ def contact():
        
         return render_template(
             'contact.html',
-            title = 'Contact', technologiesUtilisees = technologiesUtilisees)
+            title = 'Contact',
+            technologiesUtilisees = technologiesUtilisees,
+             plus_longue_liste_techno = plus_longue_liste_techno)
 
 
 ##### J'y vais avec AJAX #######################################################
@@ -215,12 +218,14 @@ def jy_vais_AJAX():
             return render_template('jy_vais_AJAX.html',
                                     pays=countries_for_ranking.to_dict(
                                         orient='records'),
-                                    technologiesUtilisees=technologiesUtilisees)
+                                        technologiesUtilisees = technologiesUtilisees,
+                                        plus_longue_liste_techno=plus_longue_liste_techno)
         except:
             p = {"France, UK, Japan"}
             return render_template('jy_vais_AJAX.html',
                                     pays=p,
-                                    technologiesUtilisees=technologiesUtilisees)
+                                    technologiesUtilisees = technologiesUtilisees,
+                                    plus_longue_liste_techno=plus_longue_liste_techno)
 
 
 ########### fin J'y vais avec AJAX #############################################
@@ -1037,14 +1042,16 @@ def jy_vais():
                                     pays=countries_for_ranking.to_dict(
                                         orient='records'),
                                     choix_utilisateur=choix_utilisateur,
-                                    technologiesUtilisees=technologiesUtilisees)
+                                    technologiesUtilisees = technologiesUtilisees,
+                                    plus_longue_liste_techno=plus_longue_liste_techno)
         except:
             p = {"France, UK, Japan"}
             return render_template('jy_vais.html',
                                     title = "J'y vais",
                                     pays=p,
                                     choix_utilisateur=choix_utilisateur,
-                                    technologiesUtilisees=technologiesUtilisees)
+                                    technologiesUtilisees = technologiesUtilisees,
+                                    plus_longue_liste_techno=plus_longue_liste_techno)
 
 ########### fin J'y vais sans AJAX #############################################
 ################################################################################
