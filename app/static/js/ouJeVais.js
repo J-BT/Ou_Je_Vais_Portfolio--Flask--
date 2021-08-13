@@ -1,19 +1,30 @@
 /* *************** AJAX ************************************************* */
-/* ******** SELECTEUR ***** */
 
+///////////////////////////////////////////////////////////////////////
+//////////// Utiliser ça pour afficher titre tableau //////////////////
+///////////////////////////////////////////////////////////////////////
+/*
+(Dans .js)
 $(document).ready(function () {
     //SHOW SELECTED VALUE.
     $('#sel').change(function () {
       $('#msg').text('Selected Item: ' + this.options[this.selectedIndex].text);
-      console.log(this.options[this.selectedIndex].text);
+      
     }); 
 });
+(Dans .html)
+<p id="msg"></p>
 
-/********** Test Selecteur --> /Classement_pays en  GET ***********/
-$(document).ready(function () {
+*/
+
+
+
+/**********  Remplissage tableau via /Classement_pays en  GET ***********/
+
   /***************************************************************** */
   // Affiche tableau classsment pays en AJAX selon les critres choisis
   /***************************************************************** */
+$(document).ready(function () {
   $('#critere_classement').change(function () {
     let critere = this.options[this.selectedIndex].value;
 
@@ -31,54 +42,8 @@ $(document).ready(function () {
         success: lectureDuJSON
       });
     }//fin else if
-
-  
   }); //fin $('#critere_classement').change()
 });//fin $(document).ready()
-
-
-/******* (fin)  Test Selecteur --> /Lets_go en  GET ********/
-
-
-
-
-/* ******* POST ******** */
-$(function(){
-	$('#buttonTest').click(function(){
-		var user = $('#inputUsername').val();
-		var pass = $('#inputPassword').val();
-		$.ajax({
-			url: '/Jy_vais_DATA',
-			data: $('#form_jy_vais').serialize(),
-			type: 'POST',
-			success: function(response){
-				console.log(response);
-			},
-			error: function(error){
-				console.log(error);
-			}
-		});
-	});
-});
-
-
-/* ******* GET ******** */
-$(document).ready(function(){
-  $(".testBouton").click(function(){
-    if(document.getElementById("myTable").rows.length == 1){
-      $.ajax({
-        url: "/Classement_pays/country_temp/croissant/",
-        success: lectureDuJSON
-      });
-    }//fin du if
-    else{
-      $("#myTable > tbody ").empty();
-      document.getElementById("myTable").rows.length = 1;
-    }
-  });
-
-});
-
 
 
 // Affiche les données pays dans un tableau
@@ -108,6 +73,59 @@ function lectureDuJSON(result) {
     $('#myTable').append(row);
   }
 }
+
+
+/******* (fin)  Remplissage tableau via /Classement_pays en  GET ********/
+
+
+////////////////////
+// Pour plus tard //
+////////////////////
+/* ******* POST ******** */
+/*
+(Dans .js)
+
+$(function(){
+	$('#buttonTest').click(function(){
+		var user = $('#inputUsername').val();
+		var pass = $('#inputPassword').val();
+		$.ajax({
+			url: '/Jy_vais_DATA',
+			data: $('#form_jy_vais').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+(Dans .html)
+
+<div class="container">
+  <form class=""  role="form" id="form_jy_vais">
+      <h2 class="form-signin-heading">Please Sign Up</h2>
+      
+      <input type="email" id="inputUsername" name="username" class="form-control"
+      placeholder="Email address" required autofocus>
+      
+      <input type="password" id="inputPassword" name="password" 
+      class="form-control" placeholder="Password" required>       
+      
+      <button class="btn btn-lg btn-primary btn-block" 
+      type="button" id="buttonTest">Register</button>
+</form>   
+</div>  
+*/
+
+
+
+
+
+
 
 
 /* *************** fin AJAX ********************************************* */

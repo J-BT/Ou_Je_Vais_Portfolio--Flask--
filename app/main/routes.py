@@ -259,89 +259,9 @@ def lets_go():
 
     return (popMoinsJson)
 
-@bp.route("/Jy_vais_AJAX", methods= ['GET','POST'] )
+@bp.route("/Jy_vais_AJAX", methods= ['GET'] )
 def jy_vais_AJAX():
     
-### Création countries_for_ranking
-# On crée DF Country sans valeurs nulles : countries_for_ranking
-# Afin de lire la table country avec valeur foreign keys
-### Si Country sans valeurs -----> pas pris en compte
-    try:
-
-        les_pays = session.query(Country).filter(
-            Country.country_pop.isnot(None),
-            Country.country_life_exp.isnot(None),
-            Country.country_unem_rate.isnot(None),
-            Country.country_temp.isnot(None),
-            Country.country_temp_5d.isnot(None),
-            Country.country_weather_5d.isnot(None),
-                                            )
-        p_valeurs_pr_classement = {}
-        index = 1
-        for ce_pays in les_pays:
-            p_valeurs_pr_classement[index] = [
-                ce_pays.id_country,
-                ce_pays.country_name,
-                ce_pays.pop_etudie.pop_value,
-                ce_pays.espe_etudiee.l_e_value,
-                ce_pays.chom_etudie.u_r_value,
-                ce_pays.temp_etudie.temp_value,
-                ce_pays.temp_5j_etudiee.temp_5days_value,
-                ce_pays.weather_5j_etudie.weather_5days_w_main]
-            index += 1
-
-        colonnes = [
-            "id_country",
-            "country_name",
-            "country_pop",
-            "country_life_exp",
-            "country_unem_rate",
-            "country_temp",
-            "country_temp_5d",
-            "country_weather_5d"]   
-        countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
-        countries_for_ranking.columns = colonnes
-    
-    except:
-        print("Pas encore de valeurs dans Country")
-
-        
-   
-# ### *****On recupere le choix de l'utilisateur
-    choix_utilisateur = Choix_utilisateur()
-    pop_choix =[
-        ('Ignorer','Ignorer'),
-        ('Population +','Population +'),
-        ('Population -','Population -')
-                   ]
-    espe_vie_choix =[
-        ('Ignorer','Ignorer'),
-        ('Esp.de vie +','Esp.de vie +'),
-        ('Esp.de vie -','Esp.de vie -')
-                   ]
-    chom_choix =[
-        ('Ignorer','Ignorer'),
-        ('Chomage +','Chomage +'),
-        ('Chomage -','Chomage -')
-                   ]
-    tempe_choix =[
-        ('Ignorer','Ignorer'),
-        ('Temperature +','Temperature +'),
-        ('Temperature -','Temperature -')
-                   ]
-    meteo_choix =[
-        ('Ignorer','Ignorer'),
-        ('Météo +','Météo +'),
-        ('Météo -','Météo -')
-                   ]
-    
-    choix_utilisateur.nombre_population.choices = pop_choix
-    choix_utilisateur.esperance_vie.choices = espe_vie_choix
-    choix_utilisateur.taux_chomage.choices = chom_choix
-    choix_utilisateur.temperature.choices = tempe_choix
-    choix_utilisateur.meteo.choices = meteo_choix
-   
-
     if request.method == 'GET' :
         technologiesUtilisees = {
             "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
@@ -352,16 +272,12 @@ def jy_vais_AJAX():
         try:
             return render_template('lets_go.html',
                                     title = "J'y vais",
-                                    pays=countries_for_ranking.to_dict(
-                                        orient='records'),
-                                    choix_utilisateur=choix_utilisateur,
                                     technologiesUtilisees=technologiesUtilisees)
         except:
             p = {"France, UK, Japan"}
             return render_template('lets_go.html',
                                     title = "J'y vais",
                                     pays=p,
-                                    choix_utilisateur=choix_utilisateur,
                                     technologiesUtilisees=technologiesUtilisees)
 
 
