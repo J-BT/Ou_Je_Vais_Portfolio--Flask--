@@ -17,17 +17,12 @@ from app.models import (Life_expectancy,
                         User)
 
 from app.data_visualization import (lineplot_analyse, graph_corr)
+from app.__init__ import technologiesUtilisees
 
 
 @bp.route('/')
 @bp.route("/Accueil", methods= ['GET','POST'] )
 def accueil():
-    technologiesUtilisees = {
-        "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
-        "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-        "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-        "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-    }
 
     return render_template('index.html', title="Page d'Accueil",
      technologiesUtilisees=technologiesUtilisees)
@@ -80,12 +75,7 @@ def contact():
             'index.html')
     
     elif request.method == 'GET':
-        technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
-            "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-        }
+       
         return render_template(
             'contact.html',
             title = 'Contact', technologiesUtilisees = technologiesUtilisees)
@@ -221,13 +211,6 @@ def jy_vais_AJAX():
         except:
             print("Pas encore de valeurs dans Country")
 
-
-        technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
-            "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-        }
         try:
             return render_template('jy_vais_AJAX.html',
                                     pays=countries_for_ranking.to_dict(
@@ -1047,12 +1030,7 @@ def jy_vais():
     
 ### Si country vide ----> pas pris en compte! 
     elif request.method == 'GET' :
-        technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
-            "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-        }
+      
         try:
             return render_template('jy_vais.html',
                                     title = "J'y vais",

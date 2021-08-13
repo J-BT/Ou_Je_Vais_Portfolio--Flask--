@@ -6,7 +6,7 @@ from werkzeug.urls import url_parse
 from app.auth import bp
 from app.auth.forms import (LoginForm, RegistrationForm)
 from app.models import (User)
-
+from app.__init__ import technologiesUtilisees
 
 
 @bp.route("/Login", methods=["GET", "POST"])
@@ -25,12 +25,7 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('main.accueil')
         return redirect(next_page)
-    technologiesUtilisees = {
-        "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
-        "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-        "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-        "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-    }
+   
     return render_template('auth/connexion.html', title='Sign In', form=form,
     technologiesUtilisees=technologiesUtilisees)
 
@@ -47,12 +42,7 @@ def register():
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('auth.login'))
-    technologiesUtilisees = {
-        "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
-        "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-        "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-        "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-    }
+   
     return render_template('auth/inscription.html', title='Register', form=form,
     technologiesUtilisees=technologiesUtilisees)
 

@@ -49,4 +49,12 @@ def create_app(config_class=Config):
         
     return app
 
+technologiesUtilisees = {
+            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap"],
+            "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
+            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
+            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
+        }
+
+
 from app import models, data_mining, data_visualization
