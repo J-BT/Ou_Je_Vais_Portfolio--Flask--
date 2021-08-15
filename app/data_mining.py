@@ -59,7 +59,7 @@ def get_population():
     population['Value'] = population['Value'].apply(
         lambda x: int(x))
     
-    #Reindexons la df
+    #Let's reindex the dataframe
     new_index = [] 
     for index in range(1, len(population.index)+1):
         new_index.append(index)
@@ -85,7 +85,7 @@ def get_unemployment_rate():
         lambda x: x.upper())
     taux_chomage['Value'] = taux_chomage['Value'].apply(
         lambda x: round(x, 2))
-    #Reindexons la df
+    #Let's reindex the dataframe
     new_index = [] 
     for index in range(1, len(taux_chomage.index)+1):
         new_index.append(index)
@@ -103,10 +103,10 @@ def get_life_expectancy():
     espe_vie+= f"{code_pays_oecd}/"
     get_from_oecd(espe_vie)
     espe = get_from_oecd(espe_vie)
-    # On importe que les données supérieures à 2000
+    # Importation of data > 2000
     masque = (espe.Year >= 2000)
     espe_2000_2018 = espe[masque]
-    #Classement pour table Esp^
+    # Life expectancy table ranking
     espe_2000_2018 = espe_2000_2018.sort_values(by=['Country','Year'],
                                                 ascending=True)
     espe_2000_2018 = espe_2000_2018[['Country','Year','Value']]
@@ -114,7 +114,7 @@ def get_life_expectancy():
         lambda x: x.upper())
     espe_2000_2018['Value'] = espe_2000_2018['Value'].apply(
         lambda x: round(x, 2))
-    #Reindexons la df
+    #Let's reindex the dataframe
     new_index = [] 
     for index in range(1, len(espe_2000_2018.index)+1):
         new_index.append(index)
@@ -124,35 +124,34 @@ def get_life_expectancy():
 
 def get_timestamp_for_5_days():
     """
-    Crée un dictionnaire de la forme {jour : timestamp} donc les valeurs
-    correspondent aux timestamp des 5 derniers jours à la même heure.
+    Create a dictionnary {day : timestamp}. This means the following
+    values stand for the last 5 days at the same hour.
     
     ***********************************************************
-    *****Le format timestamp correspond aux millisecondes *****
+    *****    The timestanp format is in  milliseconds     *****
     ***********************************************************
     ___________________________________________________________________
     >>>>>> 432000 = 5*24h | 86400 =  24h | 3600 = 1h <<<<<<<<<<<<<<<<<<
     ------------------------------------------------------------------
     {
-    jour-5 : x + 86400*0
-    jour-4 : x + 86400*1
-    jour-3 : x + 86400*2
-    jour-2 : x + 86400*3
-    jour-1 : x + 86400*4
+    day-5 : x + 86400*0
+    day-4 : x + 86400*1
+    day-3 : x + 86400*2
+    day-2 : x + 86400*3
+    day-1 : x + 86400*4
     }
-    où x = timestamp actuel - 432000
+    where x = actual time - 432000
     
-    --- exemple ---
-    si datetime actuel = Timestamp('2020-11-12 13:52:19.670039')
-    on a timestamp actuel = 1605189139
-    x = 1605189139 - 5 jours = 1605189139 - 432000 = 1604757139
-        L> 1604757139 correspond à 11/07/2020 @ 1:52pm (UTC)
+    --- for example ---
+    if actual time = Timestamp('2020-11-12 13:52:19.670039') = 1605189139
+    x = 1605189139 - 5 days = 1605189139 - 432000 = 1604757139
+        L> where 1604757139 equal 11/07/2020 @ 1:52pm (UTC)
     
-    jour-5 : x + 86400*0 = 1604757139  # 07/11/2020 @ 13:52 (UTC)
-    jour-4 : x + 86400*1 = 1604843539  # 08/11/2020 @ 13:52 (UTC)
-    jour-3 : x + 86400*2 = 1604929939  # 09/11/2020 @ 13:52 (UTC)
-    jour-2 : x + 86400*3 = 1605016339  # 10/11_2020 @ 13:52 (UTC)
-    jour-1 : x + 86400*4 = 1605102739  # 11/11/2020 @ 13:52 (UTC)
+    day-5 : x + 86400*0 = 1604757139  # 07/11/2020 @ 13:52 (UTC)
+    day-4 : x + 86400*1 = 1604843539  # 08/11/2020 @ 13:52 (UTC)
+    day-3 : x + 86400*2 = 1604929939  # 09/11/2020 @ 13:52 (UTC)
+    day-2 : x + 86400*3 = 1605016339  # 10/11_2020 @ 13:52 (UTC)
+    day-1 : x + 86400*4 = 1605102739  # 11/11/2020 @ 13:52 (UTC)
 
     
     """
@@ -160,13 +159,13 @@ def get_timestamp_for_5_days():
     datestamps_5_jours = {}
     
     datetime_now_for_humans = pd.Timestamp.now()
-    # L> par ex: Timestamp('2020-11-12 13:27:58.668275')
+    # L> for instance x: Timestamp('2020-11-12 13:27:58.668275')
     
-    # On converti en format timestamp
+    # We convert in timestamp format
     datetime_now_for_machines = pd.Timestamp.timestamp(
         datetime_now_for_humans)
     datetime_now_for_machines = int(datetime_now_for_machines)
-    # L> par ex : 1605187678.668275
+    # L> for example : 1605187678.668275
     m_5days = datetime_now_for_machines - 432000
     
     for i in range(5, 0, -1):
@@ -205,12 +204,12 @@ def capitales_etudiee_oecd():
     for pays in infos_pays.keys():
         nom_pays_open_weather_majuscules.append(pays.upper())
     
-    ### Creation set pour trouver elements similaire entre 2 listes villes
+    ### Creation of a set in order to find similar cities within lists
     pays_ocde = set(nom_pays_ocde_majuscules)
     pays_open_weather = set(nom_pays_open_weather_majuscules)
     pays_communs_pour_projet = pays_ocde.intersection(pays_open_weather)
     
-    ### On transforme ce set en list
+    ### Converting set in list
     pays_communs_pour_projet = list(pays_communs_pour_projet)
     pays_communs_pour_projet.sort(reverse=False)
     
@@ -224,10 +223,10 @@ def capitales_etudiee_oecd():
 
 def get_latitute_and_longitude():
     """
-    Importe les capitales étudiée et donne leur latitute et longitude
+    Imports capitals and shows their latitute and longitude
     
     ---format----
-    { PAYS : ["Capitale", [latitude, longitude]] }
+    { COUNTRY : ["Capital", [latitude, longitude]] }
     
     """
     lat_long_capitales ={}
@@ -243,16 +242,19 @@ def get_latitute_and_longitude():
 
 def get_temperature():
     """
-    Recupération des températures actuelles au sein des capitales des pays
-    analysés par l'ocde'
+    Collection of actual temperatures in the captitals of countries belonging
+    to the OECD
     """
     capitales_monde = []
     def temperatures_du_monde(villes):
         """
-        Permet d'intererroger l'API d'OpenWeather et d'extraire
-        les temperatures actuelles des pays selectionnés
-        --> Retourne une liste de dictionnaire de la forme :
-            {pays} : {temperature}
+        Gets some informations from OpenWeatherMap API about actual temperatures
+        within OECD countries.
+        The function return a list of dictionnary as following.
+        <---- Format ----> 
+        [{country1} : {temperature1},
+         {country2} : {temperature2},
+         ...]
         """
         def temperature_actuelle_pays(ville):
             API_key_1 = os.environ.get('CLE_OPENWEATHER_1')
@@ -263,7 +265,7 @@ def get_temperature():
             resultat = reponse.json()
             infos_pays = {}
             try:
-                # nom du pays
+                # country name
                 pays = resultat['sys']['country']
             except:
                 pays = "erreur"
@@ -274,13 +276,13 @@ def get_temperature():
             except:
                 ville = 'erreur'
             try:
-                # temperature actuelle en Kelvin
+                # actual temperatures in Kelvin
                 temperature_kelvin = resultat['main']['temp']
             except:
                 temperature_kelvin = 'erreur'
             
             try:
-                # temperature actuelle en °C
+                # actual temperatures in °C
                 temperature_c = round((temperature_kelvin - 273.15), 2)
             except:
                 temperature_c = 'erreur'
@@ -329,7 +331,7 @@ def get_temperature():
     temp_part1.columns = temp_columns
     countries_temperature = temp_part1
     
-### suppression des erreurs df temperatures
+### errors' suppression inside temperature dataframe
     masque = (countries_temperature['temp_country'] != 'erreur') &\
         (countries_temperature['temp_today'] != 'erreur') &\
         (countries_temperature['temp_value'] != 'erreur')
@@ -339,63 +341,51 @@ def get_temperature():
 
 def get_historical_5_previous_days():
     """
-    Afin de créer les 2 DF :
+    In order to retrieve the 5 last days weather statements (day by day,
+    hour by hour) and to store them inside the 2 following panda's dataframes:
         - Five_days_previous_temperatures  (historique temperatures)
         - Five_days_previous_weather (historique méteo)
-    Et recupérer les informations relatives à la temperature et au temps
-    heure par heure au au cours des 5 jours précedents l'appel de la 
-    fonction, nous allons :
+    
+    This function: 
         
-    1) Importer les latitutes et longitudes des capitales des pays
-    étudiés
+    1) Imports latitudes and longitudes of OECD ,capitals cities
     
-    2) Invoquer pandas.Timestamp.now pour connaitre la date (av heure & min)
-        actuelle au format Timestamp
-        
-    3) Nous allons soustraire 5 jours au format Timestamp
-        le resultat sera nommé timestamp_5_days_b
-    4) Nous allons soustraire 4 jours au format Timestamp
-        le resultat sera nommé timestamp_4_days_b
-    5) Nous allons soustraire 3 jours au format Timestamp
-        le resultat sera nommé timestamp_3_days_b
-    6) Nous allons soustraire 2 jours au format Timestamp
-        le resultat sera nommé timestamp_2_days_b
-    7) Nous allons soustraire 1 jour au format Timestamp
-        le resultat sera nommé timestamp_1_days_b        
-    
-    8) Grâce à un systeme de boucle nous allons recupérer les informations 
-    souhaitée  grâce à l'entry point :
-             _________________________________________________
-    _______|| UTILISATION DE L'API pour historique 5 jours ||___________
-    
+    2) Uses pandas.Timestamp.now() to convert actual time in Timestamp format
+
+    3) Creates 5 variables corresponding respectively to the actual time -5 days,
+    -4 days, ..., -1 days 
+     
+    4) Gets weather informations thanks to the API entry point :
+         ______________________________________________________________
+    ____|| API Instruction for use for 5 last days historical weather ||________
+
         'http://api.openweathermap.org/data/2.5/onecall/timemachine?'+
         'lat={lat}&lon={long}&dt={timestamp}&appid={API key}'
     ==================================================================== 
-    Infos recupérées :
+    Retrieved infos :
         
-        - date jour j / h (TimeStamp) --> [hourly][dt]
-        - temperature au jour j / h  ---> [hourly][temp]
+        - date (hourly) j / h (TimeStamp) --> [hourly][dt]
+        - temperature (hourly) j / h  ---> [hourly][temp]
         
-        - temps au jour(id) j / h ----------> [hourly][weather][id]
-            (temps clair : 800)
-            (11-25% nuages : 801)
-            (25-50% nuages : 802)
+        - weather condition (id) j / h ----------> [hourly][weather][id]
+            (clear : 800)
+            (11-25% cloudy : 801)
+            (25-50% cloudy : 802)
         
-        - temps au jour j (id) / h ----------> [hourly][weather][id]
-        - temps au jour j  / h ----------> [hourly][weather][main]
+        - weather condition (word) j  / h ----------> [hourly][weather][main]
             ("rain", "snow", "clear")
-        - temps au jour j (description) / h 
+        - weather condition (details) / h 
                 -----> [hourly][weather][description]
     =======================================================================
     """
-    # recup latitude et longitudes des capitales des pays analysés
+    # Retrieving countries' latitude and longitude
     lat_long_capitales = get_latitute_and_longitude()
-    # recuperation des timestamps des 5 jours
+    # retieving of hte last 5 days timestamps
     datestamp_5j = get_timestamp_for_5_days()
     
     # dico_test = {}
-    #crée pour pouvoir indexer dataframe puis tabl
-    # index = 1
+    # creation of a dictionnary to set an in dex to the dataframe
+
     ligne = 1
     longitude, latitude, timestamp = 0, 0, 0
     infos_meteo_24h = {}
@@ -424,9 +414,10 @@ def get_historical_5_previous_days():
                 ville = cap_lat_lon[0]
                 
                 for i in range(len(resultat["hourly"])):
-                    #on change format datetime ms--->datetime
+                    #format conversion datetime ms--->datetime
+
                     datetime_ts = resultat["hourly"][i]["dt"]
-                    #on change format datetime ms--->datetime
+                    #format conversiont datetime ms--->datetime
                     datetime = pd.to_datetime(datetime_ts, unit='s')
                     temperature = resultat["hourly"][i]["temp"]
                     weather_id = resultat["hourly"][i]["weather"][0]["id"]
@@ -447,7 +438,7 @@ def get_historical_5_previous_days():
                                           'NaN', 'NaN']
                 ligne += 1
     
-    # Creation DF avec historiques temperatures
+    # Creation of DF with historical temperatures
     historical_temperatures_5days = pd.DataFrame(
         infos_temperature_24h.values())
     colonnes = ["temp_5days_country","temp_5days_city",
@@ -457,7 +448,7 @@ def get_historical_5_previous_days():
                                                   'temp_5days_date'],
                                               ascending=True)
     
-    # Creation DF avec historiques temps
+    # Creation of DF with historical weather
     historical_weather_5days = pd.DataFrame(infos_meteo_24h.values())
     colonnes = ["weather_5days_country","weather_5days_city",
                 "weather_5days_date", "weather_5days_w_id",
@@ -467,12 +458,13 @@ def get_historical_5_previous_days():
                                              'weather_5days_date'],
                                          ascending=True)
     
-    #On retire les 'NaN' pour df temp
+    
+    # removing of 'NaN' values
     sans_NaN = (historical_temperatures_5days['temp_5days_date'] != 'NaN') &\
             (historical_temperatures_5days['temp_5days_value'] != 'NaN') 
     historical_temperatures_5days = historical_temperatures_5days[sans_NaN]
     
-    #On retire les 'NaN' pour df weather
+    # removing of 'NaN' values
     sans_NaN = (historical_weather_5days['weather_5days_date'] != 'NaN') &\
             (historical_weather_5days['weather_5days_w_id'] != 'NaN') &\
             (historical_weather_5days['weather_5days_w_main'] != 'NaN')&\
@@ -499,7 +491,8 @@ def get_countries_populated():
         lambda x: x.upper())
     pays_analyses = pays_analyses.sort_values(by=['country_name'],
                                               ascending=True)
-    #On ajoute les nouvelles colonnes
+  
+    # adding new columns
     pays_analyses['country_pop'] = None
     pays_analyses['country_life_exp'] = None
     pays_analyses['country_unem_rate'] = None
@@ -524,7 +517,7 @@ def get_countries_populated():
     chom_2017 = taux_chomage[mask_2017]
     
     ###---------------------------------------------------------------
-    # Colonnes country_temp_5d & country_weather_5d
+    # country_temp_5d & country_weather_5d column
     #-----------------------------------------------------------------
     ts_moins_5j =  temp_5j_av['temp_5days_date'][12]
 
@@ -535,12 +528,13 @@ def get_countries_populated():
     meteo_5days_av_midi = meteo_5j_av[mask_midi]
     
     
-    # #La condition selctionne les pays traité par l'ocde
+
+    # Condition = only select countries within OECD 
     condition = pays_analyses['country_name'].isin(
         espe_2000_2018['l_e_country'])
     
  
-    ### Peuplement df Country -> population
+    ### Let's populate df Country -> population
     for index_pays, ligne_pays in pays_analyses.iterrows():
         # print(f'Index: {index}, ligne_pays: {ligne_pays.values[0]}')
         # ligne_pays.values[1]= 33
@@ -548,29 +542,29 @@ def get_countries_populated():
             # print(f'Index: {index}, ligne_pays: {ligne_espe.values}')
             if ligne_pays[0] == ligne_pop[1]:
                 ligne_pays[1] = ligne_pop[0]
-    ### Peuplement df Country -> life expectancy
+    ### Let's populate df Country -> life expectancy
         for index_espe_vie, ligne_espe in espe_2017.iterrows():
             # print(f'Index: {index_espe_vie}, ligne_pays: {ligne_espe.values}')
             if ligne_pays[0] == ligne_espe[1]:
                 ligne_pays[2] = ligne_espe[0]
                 
-    ### Peuplement df Country -> unemployment_rate
+    ### Let's populate df Country -> unemployment_rate
         for index_chom, ligne_chom in chom_2017.iterrows():
             # print(f'Index: {index}, ligne_pays: {ligne_espe.values}')
             if ligne_pays[0] == ligne_chom[1]:
                 ligne_pays[3] = ligne_chom[0]
     
-    ### TEMPERATURE ACTUELLE
+    ### Let's populate -> actual temperature
         for index_temp, ligne_temp in temp_actuelle.iterrows():
             if ligne_pays[0] == ligne_temp[1]:
                 ligne_pays[4] = ligne_temp[0]
      
-    ### TEMPERATURE IL Y A 5J A MIDI 
+    ### Let's populate-> 5 last days temperatures 
         for index_temp5j, ligne_temp5j in temp_5days_av_midi.iterrows():
             if ligne_pays[0] == ligne_temp5j[1]:
                 ligne_pays[5] = ligne_temp5j[0]
     
-    ### METEO IL Y A 5J A MIDI
+    ### Let's populate-> 5 last days weather conditions
         for index_meteo5j, ligne_meteo5j in meteo_5days_av_midi.iterrows():
             if ligne_pays[0] == ligne_meteo5j[1]:
                 ligne_pays[6] = ligne_meteo5j[0]
