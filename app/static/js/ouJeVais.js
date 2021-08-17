@@ -30,10 +30,10 @@ function forGraphDisplay(result) {
     labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
     nYear++;
   }
-  /*
+  
   console.log(donneesAPI);
   console.log(countryName);
-
+  /*
   console.log(dataForGraph[0] + "   " + labelForGraph[0]);
   console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
   */
@@ -73,9 +73,7 @@ function forGraphDisplay(result) {
           }
       }
   });
-
-  
-  
+  myChart.clear();
 }//end function 
 
 
