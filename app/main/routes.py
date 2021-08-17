@@ -86,6 +86,138 @@ def contact():
 
 ##### J'y vais avec AJAX #######################################################
 ################################################################################
+@bp.route("/Analyse_par_pays/<string:critere>/<string:pays>/", 
+    methods= ['GET'] )
+def analyse_par_pays(critere, pays):
+    """
+    Donne acces à la table.
+    Dans l'url remplacer par l'un des mots suivants :
+
+    [critere] :
+        - temperature
+        - population
+        - life_expectancy
+        - unemployment_rate
+
+    [pays] : 
+        - FRANCE
+        - JAPAN
+        - BRAZIL
+        - ...
+            
+    """
+
+    #------Temperature----------------------------------------
+    if critere == "temperature":
+        table = Temperature
+
+        temperature = session.query(table).filter(
+            table.id_temperature.isnot(None),
+            table.temp_country.isnot(None),
+            table.temp_today.isnot(None),
+            table.temp_value.isnot(None))
+        p_valeurs_pr_classement = {}
+        index = 1
+
+        
+        for ce_pays in temperature:
+            p_valeurs_pr_classement[index] = [
+                ce_pays.id_temperature,
+                ce_pays.temp_country,
+                ce_pays.temp_today,
+                ce_pays.temp_value]
+            index += 1
+
+    #------Population----------------------------------------
+    elif critere == "population":
+        table = Population
+
+        population = session.query(table).filter(
+            table.id_population.isnot(None),
+            table.pop_country.isnot(None),
+            table.pop_year.isnot(None),
+            table.pop_value.isnot(None))
+        p_valeurs_pr_classement = {}
+        index = 1
+
+        
+        for ce_pays in population:
+            p_valeurs_pr_classement[index] = [
+                ce_pays.id_population,
+                ce_pays.pop_country,
+                ce_pays.pop_year,
+                ce_pays.pop_value]
+            index += 1
+
+    #------Life_expectancy----------------------------------------
+    elif critere == "life_expectancy":
+        table = Life_expectancy
+
+        life_expectancy = session.query(table).filter(
+            table.id_life_expe.isnot(None),
+            table.l_e_country.isnot(None),
+            table.l_e_year.isnot(None),
+            table.l_e_value.isnot(None))
+        p_valeurs_pr_classement = {}
+        index = 1
+
+        
+        for ce_pays in life_expectancy:
+            p_valeurs_pr_classement[index] = [
+                ce_pays.id_life_expe,
+                ce_pays.l_e_country,
+                ce_pays.l_e_year,
+                ce_pays.l_e_value]
+            index += 1
+    
+    #------Unemployment_rate----------------------------------------
+    elif critere == "unemployment_rate":
+        table = Unemployment_rate
+        
+        unemployment_rate = session.query(table).filter(
+            table.id_unemp_rate.isnot(None),
+            table.u_r_country.isnot(None),
+            table.u_r_year.isnot(None),
+            table.u_r_value.isnot(None))
+        p_valeurs_pr_classement = {}
+        index = 1
+
+        
+        for ce_pays in unemployment_rate:
+            p_valeurs_pr_classement[index] = [
+                ce_pays.id_unemp_rate,
+                ce_pays.u_r_country,
+                ce_pays.u_r_year,
+                ce_pays.u_r_value]
+            index += 1
+    #------end conditionnals----------------------------------------
+
+    colonnes = [
+        "id",
+        "country",
+        "year",
+        "value"]   
+    countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
+    countries_for_ranking.columns = colonnes
+            
+       
+
+    mask = countries_for_ranking['country'] == pays
+    countries_for_ranking = countries_for_ranking[mask]
+
+    classement = countries_for_ranking.sort_values(
+        by=["year"],
+        ascending=True)
+
+    classement_pays = classement.to_json(orient="split")
+    classement_pays = json.loads(classement_pays)
+    json.dumps(classement_pays, indent=4)
+
+    return (classement_pays)
+
+
+
+
 
 @bp.route("/Classement_pays/<string:classer_par>/<string:type_de_classement>/", 
     methods= ['GET'] )
