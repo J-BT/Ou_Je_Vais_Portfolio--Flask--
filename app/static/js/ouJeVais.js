@@ -1,8 +1,41 @@
 /* ******** Chart.js *****************/
 
+$(document).ready(function () {
+  $('.graphButton').click(function() {
+  
+    $.ajax({
+      url: "/Analyse_par_pays/population/JAPAN/",
+      success: forGraphDisplay
+    });
+    
+    
+  }); //fin $('#critere_classement').change()
+});//fin $(document).ready()
 
+function forGraphDisplay(result) {
+  
+  donneesAPI = result["data"];
+  colonnes = result["columns"];
+  let paysNumero = 1;
 
+  for (pays in donneesAPI) {
+    if (paysNumero == 1){
+      premiereDestination = donneesAPI[pays][1];
+    }
+    paysNumero++;
+    let row = '<'
+                 + donneesAPI[pays][1] + '|' 
+                 + donneesAPI[pays][2] + '|'  
+                 + donneesAPI[pays][3] + '>';
+    
+                console.log(row);       
+  }
+  console.log(typeof premiereDestination);
+  console.log(premiereDestination);
 
+  //console.log("Résultat de la requête :", donneesAPI);
+  
+}//end function 
 
 
 /* *************** AJAX ************************************************* */
