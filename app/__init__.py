@@ -50,7 +50,7 @@ def create_app(config_class=Config):
     return app
 
 technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap", "jQuery","Chart.js"],
+            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap", "jQuery","Chart.js","Anime.js"],
             "backend" : ["Python", "Flask", "Pandas","Jupyter", "Seaborn", "Matplotlib"],
             "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
             "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git", "GitHub"]
