@@ -16,24 +16,18 @@ function forGraphDisplay(result) {
   
   donneesAPI = result["data"];
   colonnes = result["columns"];
-  let paysNumero = 1;
 
-  for (pays in donneesAPI) {
-    if (paysNumero == 1){
-      premiereDestination = donneesAPI[pays][1];
-    }
-    paysNumero++;
+
+  for (year in donneesAPI) {
+    
     let row = '<'
-                 + donneesAPI[pays][1] + '|' 
-                 + donneesAPI[pays][2] + '|'  
-                 + donneesAPI[pays][3] + '>';
+                 + donneesAPI[year][1] + '|' 
+                 + donneesAPI[year][2] + '|'  
+                 + donneesAPI[year][3] + '>';
     
                 console.log(row);       
   }
-  console.log(typeof premiereDestination);
-  console.log(premiereDestination);
-
-  //console.log("Résultat de la requête :", donneesAPI);
+  console.log(donneesAPI);
   
 }//end function 
 
