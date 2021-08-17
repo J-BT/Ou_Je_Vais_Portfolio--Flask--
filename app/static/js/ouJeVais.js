@@ -17,17 +17,45 @@ function forGraphDisplay(result) {
   donneesAPI = result["data"];
   colonnes = result["columns"];
 
+  let countryName = "";
+  let dataForGraph = new Array();
+  let labelForGraph = new Array();
+  let nYear = 1;
 
   for (year in donneesAPI) {
-    
+    if(nYear == 1){
+      countryName = donneesAPI[year][1];
+    } 
+    dataForGraph.push(parseInt(donneesAPI[year][3])); //value
+    labelForGraph.push(parseInt(donneesAPI[year][2])); //year
+
+    /*
     let row = '<'
                  + donneesAPI[year][1] + '|' 
                  + donneesAPI[year][2] + '|'  
                  + donneesAPI[year][3] + '>';
     
-                console.log(row);       
+                console.log(row);     
+    */ 
+    nYear++;
   }
+
   console.log(donneesAPI);
+  console.log(countryName);
+
+  console.log(dataForGraph[0] + "   " + labelForGraph[0]);
+  console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
+  /*
+  dataForGraph.forEach(function(data){
+      console.log(data);
+      console.log(typeof data);
+  })
+
+  labelForGraph.forEach(function(year){
+    console.log(year);
+    console.log(typeof year);
+})
+  */
   
 }//end function 
 
