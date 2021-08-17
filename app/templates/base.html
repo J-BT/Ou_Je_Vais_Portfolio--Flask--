@@ -72,7 +72,7 @@
               </li>
             
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('main.jy_vais') }}">Où je vais ?</a>
+                <a class="nav-link" href="{{ url_for('main.jy_vais_AJAX') }}">Où je vais ?</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('main.contact') }}">Contact</a>
@@ -156,19 +156,18 @@
                       </thead>
 
                       <tbody>
-                          
+
 
                           
                           {%for techno in plus_longue_liste_techno %}
-                            {%for tech in techno %}
                             <tr>
                               <td>{{technologiesUtilisees['frontend'][loop.index - 1]}}</td>
                               <td>{{technologiesUtilisees['backend'][loop.index - 1]}}</td>
                               <td>{{technologiesUtilisees['bdd'][loop.index - 1]}}</td>
                               <td>{{technologiesUtilisees['serveur'][loop.index - 1 ]}}</td>   
                             </tr> 
-                            {% endfor %} 
-                          {% endfor %}
+                          {% endfor %} 
+                         
                            
                       </tbody>
 
