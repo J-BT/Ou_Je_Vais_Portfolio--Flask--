@@ -1,4 +1,4 @@
-### Imports bibliotheques 
+### Import libraries 
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
@@ -6,7 +6,7 @@ import matplotlib.patches as mpatches
 import seaborn as sns
 plt.style.use('classic')
 
-### imports modules
+### import modules
 try:
     from app import engine
 except:
@@ -38,8 +38,12 @@ def lineplot_analyse(donnees, abscisse, ordonnee, fichier):
 
 def graph_corr(donnees, fichier):
     """
-    Possibilité de filtrer la df avant de faire le .corr() pour choisir 
-    quelles colonnes inspecter
+    Creates a correlation matrix among :
+    - temperatures
+    - life expectancy
+    - population
+    - unemployment rate
+
     """
     
     graphique = sns.clustermap(donnees.corr(method ='pearson'))

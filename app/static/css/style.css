@@ -83,6 +83,19 @@
 /* Responsive : Media query *********************************************** */
 /* Pour les petits ecrans */
 @media screen and (max-width: 600px)  {
+     /* ********  Bouton + Selecteur  *******/
+     
+    #critere_classement{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+
+    }
+    /* ********  fin Bouton + Selecteur  *******/
+    
     /***** Formulaire contact *************/
     #blockContact{
         display: flex;
@@ -177,6 +190,17 @@
     /* Ecran moyens */
     @media screen and (min-width: 600px) {
     
+    /* Selecteur */
+    #critere_classement{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+
+    }
+    
     /***** Formulaire contact *************/
     #blockContact{
         display: flex;
@@ -259,6 +283,17 @@
     
     /* Pour les grandes tablettes*/
     @media screen and (min-width: 990px){
+
+    /* Selecteur */
+    #critere_classement{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+
+    }
     /***** Formulaire contact *************/
     #blockContact{
         display: flex;
@@ -356,6 +391,17 @@
     
     /* Pour les très grands ecrans */
     @media screen and (min-width: 1200px) {
+    
+    /* Selecteur */
+    #critere_classement{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+
+    }
     /***** Formulaire contact *************/
     #blockContact{
         display: flex;
@@ -446,10 +492,24 @@
     }
 
     #aProposTableau{
+        font-size: 0.9em;
         max-width: 90%;
     }
 
     /*****************Selecteurs Preferences *********************************/
+    #vers_ancienne_version{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        width: 80%;
+        margin-top: 20px;
+        margin-bottom: 0px;
+        margin-right: 50px;
+        margin-left: 50px;
+        font-size: 0.3em!important;
+
+    }
     #formulaireSelecteursPreferences{
         width: 50%;
     }
@@ -499,3 +559,13 @@
 
 
     
+    .modal-dialog, .modal-content, .modal-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+   

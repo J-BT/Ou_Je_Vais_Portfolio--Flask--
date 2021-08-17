@@ -1,8 +1,9 @@
 from app import (db, engine, session)
-from flask import (render_template, redirect, url_for, flash, request)
+from flask import (render_template, redirect, url_for, flash, request, json)
 from flask_login import (current_user, login_user, logout_user, login_required)
 from werkzeug.urls import url_parse
 import pandas as pd
+import json
 from app.main import bp
 from app.main.forms import (Choix_utilisateur)
 from app.models import (Life_expectancy,
@@ -16,19 +17,16 @@ from app.models import (Life_expectancy,
                         User)
 
 from app.data_visualization import (lineplot_analyse, graph_corr)
+from app.__init__ import (technologiesUtilisees, plus_longue_liste_techno)
+
 
 @bp.route('/')
 @bp.route("/Accueil", methods= ['GET','POST'] )
 def accueil():
-    technologiesUtilisees = {
-        "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
-        "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-        "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-        "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-    }
 
     return render_template('index.html', title="Page d'Accueil",
-     technologiesUtilisees=technologiesUtilisees)
+    technologiesUtilisees = technologiesUtilisees,
+    plus_longue_liste_techno=plus_longue_liste_techno)
 
 
 @bp.route("/Contact", methods= ['GET','POST'] )
@@ -78,16 +76,165 @@ def contact():
             'index.html')
     
     elif request.method == 'GET':
-        technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
-            "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-        }
+       
         return render_template(
             'contact.html',
-            title = 'Contact', technologiesUtilisees = technologiesUtilisees)
+            title = 'Contact',
+            technologiesUtilisees = technologiesUtilisees,
+             plus_longue_liste_techno = plus_longue_liste_techno)
 
+
+##### J'y vais avec AJAX #######################################################
+################################################################################
+
+@bp.route("/Classement_pays/<string:classer_par>/<string:type_de_classement>/", 
+    methods= ['GET'] )
+def classement_pays(classer_par, type_de_classement):
+    """
+    Donne acces à la table Pays.
+    Dans l'url remplacer par l'un des mots suivants :
+
+    [classer_par] : 
+            - id_country
+            - country_name
+            - country_pop
+            - country_life_exp
+            - country_unem_rate
+            - country_temp
+            - country_temp_5d
+            - country_weather_5d
+
+
+    [type_de_classement] :
+            - croissant
+            - decroissant
+
+    """
+    try:
+
+        les_pays = session.query(Country).filter(
+            Country.country_pop.isnot(None),
+            Country.country_life_exp.isnot(None),
+            Country.country_unem_rate.isnot(None),
+            Country.country_temp.isnot(None),
+            Country.country_temp_5d.isnot(None),
+            Country.country_weather_5d.isnot(None),
+                                            )
+        p_valeurs_pr_classement = {}
+        index = 1
+        for ce_pays in les_pays:
+            p_valeurs_pr_classement[index] = [
+                ce_pays.id_country,
+                ce_pays.country_name,
+                ce_pays.pop_etudie.pop_value,
+                ce_pays.espe_etudiee.l_e_value,
+                ce_pays.chom_etudie.u_r_value,
+                ce_pays.temp_etudie.temp_value,
+                ce_pays.temp_5j_etudiee.temp_5days_value,
+                ce_pays.weather_5j_etudie.weather_5days_w_main]
+            index += 1
+
+        colonnes = [
+            "id_country",
+            "country_name",
+            "country_pop",
+            "country_life_exp",
+            "country_unem_rate",
+            "country_temp",
+            "country_temp_5d",
+            "country_weather_5d"]   
+        countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
+        countries_for_ranking.columns = colonnes
+    
+    except:
+        print("Pas encore de valeurs dans Country")
+
+    classement_croissant = ""
+    
+    #type_de_classement = "decroissant"
+    #classer_par = "country_pop"
+    
+    if type_de_classement == "croissant":
+        classement_croissant = True
+    elif type_de_classement == "decroissant":
+        classement_croissant = False
+    else:
+        return "Erreur"
+    classement = countries_for_ranking.sort_values(
+        by=[classer_par],
+        ascending=classement_croissant)
+    classement = classement.head(10)
+
+    classement_pays = classement.to_json(orient="split")
+    classement_pays = json.loads(classement_pays)
+    json.dumps(classement_pays, indent=4)
+
+    return (classement_pays)
+
+@bp.route("/Jy_vais_AJAX", methods= ['GET'] )
+def jy_vais_AJAX():
+    if request.method == 'GET' :
+        #--- Affiche un tableau au lancement de la page avec pays dispo ---- #
+        try:
+
+            les_pays = session.query(Country).filter(
+                Country.country_pop.isnot(None),
+                Country.country_life_exp.isnot(None),
+                Country.country_unem_rate.isnot(None),
+                Country.country_temp.isnot(None),
+                Country.country_temp_5d.isnot(None),
+                Country.country_weather_5d.isnot(None),
+                                                )
+            p_valeurs_pr_classement = {}
+            index = 1
+            for ce_pays in les_pays:
+                p_valeurs_pr_classement[index] = [
+                    ce_pays.id_country,
+                    ce_pays.country_name,
+                    ce_pays.pop_etudie.pop_value,
+                    ce_pays.espe_etudiee.l_e_value,
+                    ce_pays.chom_etudie.u_r_value,
+                    ce_pays.temp_etudie.temp_value,
+                    ce_pays.temp_5j_etudiee.temp_5days_value,
+                    ce_pays.weather_5j_etudie.weather_5days_w_main]
+                index += 1
+
+            colonnes = [
+                "id_country",
+                "country_name",
+                "country_pop",
+                "country_life_exp",
+                "country_unem_rate",
+                "country_temp",
+                "country_temp_5d",
+                "country_weather_5d"]   
+            countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
+            countries_for_ranking.columns = colonnes
+    
+        except:
+            print("Pas encore de valeurs dans Country")
+
+        try:
+            return render_template('jy_vais_AJAX.html',
+                                    pays=countries_for_ranking.to_dict(
+                                        orient='records'),
+                                        technologiesUtilisees = technologiesUtilisees,
+                                        plus_longue_liste_techno=plus_longue_liste_techno)
+        except:
+            p = {"France, UK, Japan"}
+            return render_template('jy_vais_AJAX.html',
+                                    pays=p,
+                                    technologiesUtilisees = technologiesUtilisees,
+                                    plus_longue_liste_techno=plus_longue_liste_techno)
+
+
+########### fin J'y vais avec AJAX #############################################
+################################################################################
+
+
+
+##### J'y vais sans AJAX #######################################################
+################################################################################
 
 @bp.route("/Jy_vais", methods= ['GET','POST'] )
 def jy_vais():
@@ -888,23 +1035,23 @@ def jy_vais():
     
 ### Si country vide ----> pas pris en compte! 
     elif request.method == 'GET' :
-        technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Boostrap"],
-            "backend" : ["Python", "Flask", "Pandas", "Matplotlib"],
-            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git / GitHub"]
-        }
+      
         try:
             return render_template('jy_vais.html',
                                     title = "J'y vais",
                                     pays=countries_for_ranking.to_dict(
                                         orient='records'),
                                     choix_utilisateur=choix_utilisateur,
-                                    technologiesUtilisees=technologiesUtilisees)
+                                    technologiesUtilisees = technologiesUtilisees,
+                                    plus_longue_liste_techno=plus_longue_liste_techno)
         except:
             p = {"France, UK, Japan"}
             return render_template('jy_vais.html',
                                     title = "J'y vais",
                                     pays=p,
                                     choix_utilisateur=choix_utilisateur,
-                                    technologiesUtilisees=technologiesUtilisees)
+                                    technologiesUtilisees = technologiesUtilisees,
+                                    plus_longue_liste_techno=plus_longue_liste_techno)
+
+########### fin J'y vais sans AJAX #############################################
+################################################################################

@@ -49,4 +49,18 @@ def create_app(config_class=Config):
         
     return app
 
+technologiesUtilisees = {
+            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap", "jQuery","Chart.js"],
+            "backend" : ["Python", "Flask", "Pandas","Jupyter", "Seaborn", "Matplotlib"],
+            "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
+            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git", "GitHub"]
+        }
+nb_elements_max = max(len(technologie) \
+        for technologie in technologiesUtilisees.values())
+plus_longue_liste_techno = [technologie \
+    for technologie in technologiesUtilisees.values() \
+        if len(technologie) == nb_elements_max]
+plus_longue_liste_techno = plus_longue_liste_techno[0]
+
+
 from app import models, data_mining, data_visualization

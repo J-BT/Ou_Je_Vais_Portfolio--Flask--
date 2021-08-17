@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container_flash">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+     {%if messages %}
+          {%for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              <h4 style="text-align:center;">{{ message }}</h4>
+            </div>
+          {%endfor%}
+    {%endif %}
+  {%endwith%}
+</div>
+
+<!-- Animation JS Ou Je Vais -->
+<div class="col-12 col-md-12 col-lg-12 my-3" 
+id="animationOuJeVais"> 
+
+  <div id="avionJs">
+    <img src="{{ url_for('static', filename='img/airplane.png') }}" 
+        height="80"
+        alt=""/>
+  </div>
+
+  <h1 id="lettresJS">
+    <div class="mots" id="QUELLE">
+      <span class="letter" id="lettreDebut">Q</span>
+      <span class="letter" id="lettreDebut">U</span>
+      <span class="letter" id="lettreDebut">E</span>
+      <span class="letter" id="lettreDebut">L</span>
+      <span class="letter" id="lettreDebut">L</span>
+      <span class="letter" id="lettreDebut">E</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="SERA">
+      <span class="letter" id="lettreAvantMilieu">S</span>
+      <span class="letter" id="lettreAvantMilieu">E</span>
+      <span class="letter" id="lettreAvantMilieu">R</span>
+      <span class="letter" id="lettreAvantMilieu">A</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="VOTRE">
+      <span class="letter" id="lettreMilieu">V</span>
+      <span class="letter" id="lettreMilieu">O</span>
+      <span class="letter" id="lettreMilieu">T</span>
+      <span class="letter" id="lettreMilieu">R</span>
+      <span class="letter" id="lettreMilieu">E</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="DESTINATION">
+      <span class="letter" id="lettreBas" >D</span>
+      <span class="letter" id="lettreBas">E</span>
+      <span class="letter" id="lettreBas">S</span>
+      <span class="letter" id="lettreBas">T</span>
+      <span class="letter" id="lettreBas">I</span>
+      <span class="letter" id="lettreBas">N</span>
+      <span class="letter" id="lettreBas">A</span>
+      <span class="letter" id="lettreBas">T</span>
+      <span class="letter" id="lettreBas">I</span>
+      <span class="letter" id="lettreBas">O</span>
+      <span class="letter" id="lettreBas">N</span>
+    </div>
+    <div id="espaceLettres"></div>
+    <div class="mots" id="?">
+      <span class="letter" id="lettrePointInterro">?</span>
+    </div>
+    <div id="espaceLettres"></div>
+  </h1>
+</div>
+
+<!-- Titre Preference + Selecteurs-->
+<div class="col-12 col-md-12 col-lg-12 my-5
+d-flex flex-column" 
+id="preferencesEtTitre"> 
+
+    <!-- Barre choix utilisateur -->
+    <div class="col-12 col-md-12 col-lg-12 
+    d-flex flex-column align-items-center justify-content-center" 
+    id="choix_barre">
+      <i class="fas fa-5x fa-question questionPreferences mx-5 my-3"></i>
+      <h3 class="questionPreferences">Quelles sont vos préférences ?</h3>
+      <p class="questionPreferences">(Pour l'instant) <u>un critère</u> à la fois...</p>
+    </div>
+
+    <div class="" id="vers_ancienne_version">
+      <a href="{{ url_for('main.jy_vais') }}">
+        <button type="button" class="btn btn-secondary btn-sm" id="toOldVersionBtn"
+        style="background-color: #708394;">
+        vers ancienne version
+        </button>
+      </a>
+    </div>
+    <!-- Selecteur critères-->
+    <div class="my-5 col-12 col-md-12 col-lg-12  
+    d-flex flex-row flex-wrap align-items-center justify-content-around"
+    id="barreSelecteurs">
+    
+      <select class="form-select my-3 col-12 col-md-12 col-lg-12 "
+      id="critere_classement" aria-label="Default select example">
+        <option selected>--Choisissez un critère s'il vous plait--</option>
+        <option value="country_pop">Population -- elevée</option>
+        <option value="country_pop">Population -- faible</option>
+      
+        <option value="country_life_exp">Esperance de vie -- elevée</option>
+        <option value="country_life_exp">Esperance de vie -- faible</option>
+      
+        <option value="country_unem_rate">Taux de chômage -- elevé</option>
+        <option value="country_unem_rate">Taux de chômage -- faible</option>
+      
+        <option value="country_temp">Température -- elevée</option>
+        <option value="country_temp">Température -- faible</option>
+      
+        <option value="country_weather_5d">Météo -- favorable</option>
+        <option value="country_weather_5d">Météo -- déprimante</option>
+      </select>
+      
+    </div>
+  </div>
+
+  <!-- fin Titre Preference + Selecteurs-->
+<!-- Tableau -->
+<div class="resultat_pays">
+  <div class="resultat">
+    
+
+    <div class="my-5 col-12 col-md-12 col-lg-12 
+      d-flex flex-column align-items-center justify-content-center" 
+      id="resultatTitre">
+      <i class="fas fa-5x fa-atlas mx-5 my-3"></i>
+        <h3>
+           <p class="questionPreferencesAJAX">Voici les pays disponibles : </p>
+        </h3>
+    </div>
+
+    <div class="w-100 p-3" id="tableauClassement">
+      <table class="table table-responsive table-hover " id="myTable"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Pays</th>
+            <th scope="col">Population</th>
+            <th scope="col">Esperance de vie</th>
+            <th scope="col">Taux de chomage (%)</th>
+            <th scope="col">°C Maintenant</th>
+            <th scope="col">°C J-5</th>
+            <th scope="col">Meteo J-5</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for ce_pays in pays %}
+          <tr>
+            <td>{{ce_pays['country_name']}}</td>
+            <td>{{ce_pays['country_pop']}}</td>
+            <td>{{ce_pays['country_life_exp']}}</td>
+            <td>{{ce_pays['country_unem_rate']}}</td>
+
+            <td>{{ce_pays['country_temp']}}</td>
+            <td>{{ce_pays['country_temp_5d']}}</td>
+            <td>{{ce_pays['country_weather_5d']}}</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -6,7 +6,7 @@ from werkzeug.urls import url_parse
 from app.auth import bp
 from app.auth.forms import (LoginForm, RegistrationForm)
 from app.models import (User)
-
+from app.__init__ import (technologiesUtilisees, plus_longue_liste_techno)
 
 
 @bp.route("/Login", methods=["GET", "POST"])
@@ -25,7 +25,10 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('main.accueil')
         return redirect(next_page)
-    return render_template('auth/connexion.html', title='Sign In', form=form)
+   
+    return render_template('auth/connexion.html', title='Sign In', form=form,
+    technologiesUtilisees = technologiesUtilisees,
+    plus_longue_liste_techno=plus_longue_liste_techno)
 
 
 @bp.route("/Register", methods=["GET", "POST"])
@@ -40,7 +43,11 @@ def register():
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('auth.login'))
-    return render_template('auth/inscription.html', title='Register', form=form)
+   
+    return render_template('auth/inscription.html', title='Register',
+    form=form,
+    technologiesUtilisees = technologiesUtilisees,
+    plus_longue_liste_techno=plus_longue_liste_techno)
 
 
 @bp.route('/Logout')

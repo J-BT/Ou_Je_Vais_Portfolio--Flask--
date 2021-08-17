@@ -1,8 +1,6 @@
 # Cache
 /__pycache__
-# Environnement Virtuel
-/OuJeVaisFromScratch
-/Ou_Je_Vais_Portfolio--Flask--
+
 /logs
 /migrations
 

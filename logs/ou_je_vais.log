@@ -1,14 +1,23 @@
-2021-08-08 00:56:45,141 ERROR: Exception on /Jy_vais [POST] [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py:1891]
+2021-08-13 08:05:03,537 ERROR: Exception on /Jy_vais [POST] [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py", line 1953, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py", line 1968, in finalize_request
-    response = self.make_response(rv)
-  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py", line 2097, in make_response
-    raise TypeError(
-TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
-2021-08-08 20:29:50,426 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
-2021-08-08 20:29:50,492 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
-2021-08-08 20:29:51,315 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/Ou_Je_Vais_Portfolio--Flask--/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/main/routes.py", line 217, in jy_vais
+    selon_pop_plus = countries_for_ranking.sort_values(
+UnboundLocalError: local variable 'countries_for_ranking' referenced before assignment
+2021-08-13 08:11:02,127 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+2021-08-13 08:11:02,362 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+2021-08-13 08:11:02,402 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+2021-08-17 13:22:49,154 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+2021-08-17 13:22:49,300 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+2021-08-17 13:22:49,419 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
