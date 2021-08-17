@@ -83,20 +83,21 @@ id="preferencesEtTitre">
       <h3 class="questionPreferences">Quelles sont vos préférences ?</h3>
       <p class="questionPreferences">(Pour l'instant) <u>un critère</u> à la fois...</p>
     </div>
-        
+
+    <div class="" id="vers_ancienne_version">
+      <a href="{{ url_for('main.jy_vais') }}">
+        <button type="button" class="btn btn-secondary btn-sm" id="toOldVersionBtn"
+        style="background-color: #708394;">
+        vers ancienne version
+        </button>
+      </a>
+    </div>
     <!-- Selecteur critères-->
     <div class="my-5 col-12 col-md-12 col-lg-12  
     d-flex flex-row flex-wrap align-items-center justify-content-around"
     id="barreSelecteurs">
-    <!--
-      <form  action="" method="post" class="col-12 col-md-12 col-lg-12
-      d-flex flex-row flex-wrap align-items-center justify-content-around " 
-      id="formulaireSelecteursPreferences">
-
-      </form>
-    -->
-      <select class="form-select my-5 col-12 col-md-12 col-lg-12  
-      d-flex flex-row flex-wrap align-items-center justify-content-around"
+    
+      <select class="form-select my-3 col-12 col-md-12 col-lg-12 "
       id="critere_classement" aria-label="Default select example">
         <option selected>--Choisissez un critère s'il vous plait--</option>
         <option value="country_pop">Population -- elevée</option>
@@ -117,6 +118,7 @@ id="preferencesEtTitre">
       
     </div>
   </div>
+
   <!-- fin Titre Preference + Selecteurs-->
 <!-- Tableau -->
 <div class="resultat_pays">
