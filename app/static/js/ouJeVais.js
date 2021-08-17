@@ -27,35 +27,54 @@ function forGraphDisplay(result) {
       countryName = donneesAPI[year][1];
     } 
     dataForGraph.push(parseInt(donneesAPI[year][3])); //value
-    labelForGraph.push(parseInt(donneesAPI[year][2])); //year
-
-    /*
-    let row = '<'
-                 + donneesAPI[year][1] + '|' 
-                 + donneesAPI[year][2] + '|'  
-                 + donneesAPI[year][3] + '>';
-    
-                console.log(row);     
-    */ 
+    labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
     nYear++;
   }
-
+  /*
   console.log(donneesAPI);
   console.log(countryName);
 
   console.log(dataForGraph[0] + "   " + labelForGraph[0]);
   console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
-  /*
-  dataForGraph.forEach(function(data){
-      console.log(data);
-      console.log(typeof data);
-  })
-
-  labelForGraph.forEach(function(year){
-    console.log(year);
-    console.log(typeof year);
-})
   */
+  
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: labelForGraph,
+          datasets: [{
+              label: 'population of JAPAN',
+              data: dataForGraph,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+
+  
   
 }//end function 
 
