@@ -204,8 +204,8 @@ def analyse_par_pays(critere, pays):
 
     mask = countries_for_ranking['country'] == pays
     countries_for_ranking = countries_for_ranking[mask]
-    mask2 = countries_for_ranking['year'] > 2009
-    countries_for_ranking = countries_for_ranking[mask2]
+    #mask2 = countries_for_ranking['year'] > 2009
+    #countries_for_ranking = countries_for_ranking[mask2]
 
     classement = countries_for_ranking.sort_values(
         by=["year"],

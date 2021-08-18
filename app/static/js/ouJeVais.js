@@ -66,9 +66,12 @@ function forGraphDisplay(result) {
           }]
       },
       options: {
+          responsive: true,
           scales: {
               y: {
-                  beginAtZero: true
+                  beginAtZero: true,
+                  max: 140000000,
+                  min: 100000000
               }
           }
       }
