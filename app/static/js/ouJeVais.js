@@ -44,7 +44,7 @@ function forGraphDisplay(result) {
       data: {
           labels: labelForGraph,
           datasets: [{
-              label: 'population of JAPAN',
+              label: 'Population of JAPAN',
               data: dataForGraph,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
@@ -77,6 +77,79 @@ function forGraphDisplay(result) {
       }
   });
   myChart.clear();
+
+  $.ajax({
+    url: "/Analyse_par_pays/life_expectancy/JAPAN/",
+    success: forGraphDisplay2
+  });
+
+}//end function 
+
+function forGraphDisplay2(result) {
+  
+  donneesAPI = result["data"];
+  colonnes = result["columns"];
+
+  let countryName = "";
+  let dataForGraph = new Array();
+  let labelForGraph = new Array();
+  let nYear = 1;
+
+  for (year in donneesAPI) {
+    if(nYear == 1){
+      countryName = donneesAPI[year][1];
+    } 
+    dataForGraph.push(parseInt(donneesAPI[year][3])); //value
+    labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
+    nYear++;
+  }
+  
+  console.log(donneesAPI);
+  console.log(countryName);
+  /*
+  console.log(dataForGraph[0] + "   " + labelForGraph[0]);
+  console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
+  */
+  
+  var ctx2 = document.getElementById('myChart2').getContext('2d');
+  var myChart2 = new Chart(ctx2, {
+      type: 'line',
+      data: {
+          labels: labelForGraph,
+          datasets: [{
+              label: 'Life Expectancy of JAPAN',
+              data: dataForGraph,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              y: {
+                  beginAtZero: true
+                  
+              }
+          }
+      }
+  });
+  myChart2.clear();
+
 }//end function 
 
 
