@@ -567,5 +567,19 @@
     }
 
 
+    #canvasContainer{
+        display: flex;
+        /*flex-wrap: wrap;*/
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
 
-   
+    #graphTest, #graphTest2{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100% !important;
+        height:600px !important;
+    }

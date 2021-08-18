@@ -67,7 +67,7 @@ function forGraphDisplay(result) {
       },
       options: {
           responsive: true,
-          //maintainAspectRatio: false,
+          maintainAspectRatio: true,
           legend: {
             position: top,
           },
@@ -148,7 +148,7 @@ function forGraphDisplay2(result) {
       },
       options: {
           responsive: true,
-          //maintainAspectRatio: false,
+          maintainAspectRatio: true,
           legend: {
             position: top,
           },
