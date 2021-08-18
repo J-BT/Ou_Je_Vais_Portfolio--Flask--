@@ -67,6 +67,14 @@ function forGraphDisplay(result) {
       },
       options: {
           responsive: true,
+          //maintainAspectRatio: false,
+          legend: {
+            position: top,
+          },
+          title:{
+            display: true,
+            text: 'Population of JAPAN'
+          },
           scales: {
               y: {
                   beginAtZero: true,
@@ -140,9 +148,19 @@ function forGraphDisplay2(result) {
       },
       options: {
           responsive: true,
+          //maintainAspectRatio: false,
+          legend: {
+            position: top,
+          },
+          title:{
+            display: true,
+            text: 'Life Expectancy of JAPAN'
+          },
           scales: {
               y: {
-                  beginAtZero: true
+                  beginAtZero: true,
+                  max: 90,
+                  min: 60
                   
               }
           }
