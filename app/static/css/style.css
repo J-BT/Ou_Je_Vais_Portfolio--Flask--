@@ -568,18 +568,24 @@
 
 
     #canvasContainer{
-        display: flex;
+        display: flex !important;
         /*flex-wrap: wrap;*/
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 500px !important;
     }
 
     #graphTest, #graphTest2{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
         width: 100% !important;
-        height:600px !important;
+        height:auto !important;
+        /*
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+        */
     }
