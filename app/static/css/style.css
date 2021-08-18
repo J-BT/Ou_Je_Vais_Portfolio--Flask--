@@ -566,26 +566,31 @@
         align-items: center;
     }
 
-
+    /* ********  Chart.js ***********/
     #canvasContainer{
         display: flex !important;
-        /*flex-wrap: wrap;*/
+        flex-wrap: wrap !important;
         flex-direction: row !important;
-        justify-content: space-around !important;
+        justify-content: space-between !important;
         align-items: center !important;
         width: 100% !important;
-        height: 500px !important;
+        height: 600px !important;
     }
 
     #graphTest, #graphTest2{
         display: flex !important;
         flex-direction: row !important;
-        justify-content: space-between !important;
+        justify-content: center !important;
         align-items: center !important;
-        width: 100% !important;
-        height:auto !important;
-        /*
-        margin-left: 20px !important;
-        margin-right: 20px !important;
-        */
+        width: 600px !important;
+        height: auto !important;
     }
+    /*
+    #graphTest{
+        margin-right: 30px !important;
+    }
+    #graphTest2{
+        margin-left: 30px !important;
+    }
+    */
+    /* ********  fin Chart.js ***********/
