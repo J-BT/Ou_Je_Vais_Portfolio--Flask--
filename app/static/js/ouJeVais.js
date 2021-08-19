@@ -1,340 +1,342 @@
 /* ******** Chart.js *****************/
-let premiereDestination = "JAPAN";
+let pays = "JAPAN";
 
 $(document).ready(function () {
   $('.graphButton').click(function() {
     
     // Puis on change titre du tableau 
     $('#graphCountry').empty();
-    $('#graphCountry').text(premiereDestination);
+    $('#graphCountry').text(pays);
     
-    $.ajax({
-      url: "/Analyse_par_pays/population/"+premiereDestination+"/",
-      success: forGraphDisplay
-    });
-    
+    //APPEL FONCTION
+    displayCountryCharts(pays);
     
   }); //fin $('#critere_classement').change()
 });//fin $(document).ready()
 
-function forGraphDisplay(result) {
-  
-  donneesAPI = result["data"];
-  colonnes = result["columns"];
-
-  let countryName = "";
-  let dataForGraph = new Array();
-  let labelForGraph = new Array();
-  let nYear = 1;
-
-  for (year in donneesAPI) {
-    if(nYear == 1){
-      countryName = donneesAPI[year][1];
-    } 
-    dataForGraph.push(parseInt(donneesAPI[year][3])); //value
-    labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
-    nYear++;
-  }
-  
-  console.log(donneesAPI);
-  console.log(countryName);
-  /*
-  console.log(dataForGraph[0] + "   " + labelForGraph[0]);
-  console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
-  */
-  
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: labelForGraph,
-          datasets: [{
-              label: 'Population of '+premiereDestination+'',
-              data: dataForGraph,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          legend: {
-            position: top,
-          },
-          title:{
-            display: true,
-            text: 'Population of '+premiereDestination+''
-          },
-          scales: {
-              y: {
-                  beginAtZero: true,
-                  max: 140000000,
-                  min: 100000000
-              }
-          }
-      }
-  });
-  myChart.clear();
-
+function displayCountryCharts(premiereDestination){
   $.ajax({
-    url: "/Analyse_par_pays/life_expectancy/"+premiereDestination+"/",
-    success: forGraphDisplay2
+    url: "/Analyse_par_pays/population/"+premiereDestination+"/",
+    success: forGraphDisplay
   });
 
-}//end function forGraphDisplay
+  function forGraphDisplay(result) {
+    
+    donneesAPI = result["data"];
+    colonnes = result["columns"];
 
-function forGraphDisplay2(result) {
-  
-  donneesAPI = result["data"];
-  colonnes = result["columns"];
+    let countryName = "";
+    let dataForGraph = new Array();
+    let labelForGraph = new Array();
+    let nYear = 1;
 
-  let countryName = "";
-  let dataForGraph = new Array();
-  let labelForGraph = new Array();
-  let nYear = 1;
+    for (year in donneesAPI) {
+      if(nYear == 1){
+        countryName = donneesAPI[year][1];
+      } 
+      dataForGraph.push(parseInt(donneesAPI[year][3])); //value
+      labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
+      nYear++;
+    }
+    
+    console.log(donneesAPI);
+    console.log(countryName);
+    /*
+    console.log(dataForGraph[0] + "   " + labelForGraph[0]);
+    console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
+    */
+    
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labelForGraph,
+            datasets: [{
+                label: 'Population of '+premiereDestination+'',
+                data: dataForGraph,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+              position: top,
+            },
+            title:{
+              display: true,
+              text: 'Population of '+premiereDestination+''
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 140000000,
+                    min: 100000000
+                }
+            }
+        }
+    });
+    myChart.clear();
 
-  for (year in donneesAPI) {
-    if(nYear == 1){
-      countryName = donneesAPI[year][1];
-    } 
-    dataForGraph.push(parseInt(donneesAPI[year][3])); //value
-    labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
-    nYear++;
-  }
-  
-  console.log(donneesAPI);
-  console.log(countryName);
-  /*
-  console.log(dataForGraph[0] + "   " + labelForGraph[0]);
-  console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
-  */
-  
-  var ctx2 = document.getElementById('myChart2').getContext('2d');
-  var myChart2 = new Chart(ctx2, {
-      type: 'line',
-      data: {
-          labels: labelForGraph,
-          datasets: [{
-              label: 'Life Expectancy of '+premiereDestination+'',
-              data: dataForGraph,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          legend: {
-            position: top,
-          },
-          title:{
-            display: true,
-            text: 'Life Expectancy of '+premiereDestination+''
-          },
-          scales: {
-              y: {
-                  beginAtZero: true,
-                  max: 90,
-                  min: 60
-                  
-              }
-          }
-      }
-  });
-  myChart2.clear();
-  $.ajax({
-    url: "/Analyse_par_pays/unemployment_rate/"+premiereDestination+"/",
-    success: forGraphDisplay3
-  });
+    $.ajax({
+      url: "/Analyse_par_pays/life_expectancy/"+premiereDestination+"/",
+      success: forGraphDisplay2
+    });
 
-}//end function forGraphDisplay2
+  }//end function forGraphDisplay
 
-function forGraphDisplay3(result) {
-  
-  donneesAPI = result["data"];
-  colonnes = result["columns"];
+  function forGraphDisplay2(result) {
+    
+    donneesAPI = result["data"];
+    colonnes = result["columns"];
 
-  let countryName = "";
-  let dataForGraph = new Array();
-  let labelForGraph = new Array();
-  let nYear = 1;
+    let countryName = "";
+    let dataForGraph = new Array();
+    let labelForGraph = new Array();
+    let nYear = 1;
 
-  for (year in donneesAPI) {
-    if(nYear == 1){
-      countryName = donneesAPI[year][1];
-    } 
-    dataForGraph.push(parseInt(donneesAPI[year][3])); //value
-    labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
-    nYear++;
-  }
-  
-  console.log(donneesAPI);
-  console.log(countryName);
-  /*
-  console.log(dataForGraph[0] + "   " + labelForGraph[0]);
-  console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
-  */
-  
-  var ctx3 = document.getElementById('myChart3').getContext('2d');
-  var myChart3 = new Chart(ctx3, {
-      type: 'line',
-      data: {
-          labels: labelForGraph,
-          datasets: [{
-              label: 'Unemployment rate of '+premiereDestination+'',
-              data: dataForGraph,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          legend: {
-            position: top,
-          },
-          title:{
-            display: true,
-            text: 'Unemployment rate of '+premiereDestination+''
-          },
-          scales: {
-              y: {
-                  beginAtZero: true
-                  
-              }
-          }
-      }
-  });
-  myChart3.clear();
-  $.ajax({
-    url: "/Analyse_par_pays/unemployment_rate/BRAZIL/",
-    success: forGraphDisplay4
-  });
-  
-}//end function forGraphDisplay3
+    for (year in donneesAPI) {
+      if(nYear == 1){
+        countryName = donneesAPI[year][1];
+      } 
+      dataForGraph.push(parseInt(donneesAPI[year][3])); //value
+      labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
+      nYear++;
+    }
+    
+    console.log(donneesAPI);
+    console.log(countryName);
+    /*
+    console.log(dataForGraph[0] + "   " + labelForGraph[0]);
+    console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
+    */
+    
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+    var myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: labelForGraph,
+            datasets: [{
+                label: 'Life Expectancy of '+premiereDestination+'',
+                data: dataForGraph,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+              position: top,
+            },
+            title:{
+              display: true,
+              text: 'Life Expectancy of '+premiereDestination+''
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 90,
+                    min: 60
+                    
+                }
+            }
+        }
+    });
+    myChart2.clear();
+    $.ajax({
+      url: "/Analyse_par_pays/unemployment_rate/"+premiereDestination+"/",
+      success: forGraphDisplay3
+    });
 
+  }//end function forGraphDisplay2
 
-function forGraphDisplay4(result) {
-  
-  donneesAPI = result["data"];
-  colonnes = result["columns"];
+  function forGraphDisplay3(result) {
+    
+    donneesAPI = result["data"];
+    colonnes = result["columns"];
 
-  let countryName = "";
-  let dataForGraph = new Array();
-  let labelForGraph = new Array();
-  let nYear = 1;
+    let countryName = "";
+    let dataForGraph = new Array();
+    let labelForGraph = new Array();
+    let nYear = 1;
 
-  for (year in donneesAPI) {
-    if(nYear == 1){
-      countryName = donneesAPI[year][1];
-    } 
-    dataForGraph.push(parseInt(donneesAPI[year][3])); //value
-    labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
-    nYear++;
-  }
-  
-  console.log(donneesAPI);
-  console.log(countryName);
-  /*
-  console.log(dataForGraph[0] + "   " + labelForGraph[0]);
-  console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
-  */
-  
-  var ctx4 = document.getElementById('myChart4').getContext('2d');
-  var myChart4 = new Chart(ctx4, {
-      type: 'line',
-      data: {
-          labels: labelForGraph,
-          datasets: [{
-              label: 'Unemployment rate of BRAZIL',
-              data: dataForGraph,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          legend: {
-            position: top,
-          },
-          title:{
-            display: true,
-            text: 'Unemployment rate of BRAZIL'
-          },
-          scales: {
-              y: {
-                  beginAtZero: true
-                  
-              }
-          }
-      }
-  });
-  myChart4.clear();
-  
-}//end function forGraphDisplay4
+    for (year in donneesAPI) {
+      if(nYear == 1){
+        countryName = donneesAPI[year][1];
+      } 
+      dataForGraph.push(parseInt(donneesAPI[year][3])); //value
+      labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
+      nYear++;
+    }
+    
+    console.log(donneesAPI);
+    console.log(countryName);
+    /*
+    console.log(dataForGraph[0] + "   " + labelForGraph[0]);
+    console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
+    */
+    
+    var ctx3 = document.getElementById('myChart3').getContext('2d');
+    var myChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: labelForGraph,
+            datasets: [{
+                label: 'Unemployment rate of '+premiereDestination+'',
+                data: dataForGraph,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+              position: top,
+            },
+            title:{
+              display: true,
+              text: 'Unemployment rate of '+premiereDestination+''
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                    
+                }
+            }
+        }
+    });
+    myChart3.clear();
+    $.ajax({
+      url: "/Analyse_par_pays/unemployment_rate/BRAZIL/",
+      success: forGraphDisplay4
+    });
+    
+  }//end function forGraphDisplay3
 
 
+  function forGraphDisplay4(result) {
+    
+    donneesAPI = result["data"];
+    colonnes = result["columns"];
+
+    let countryName = "";
+    let dataForGraph = new Array();
+    let labelForGraph = new Array();
+    let nYear = 1;
+
+    for (year in donneesAPI) {
+      if(nYear == 1){
+        countryName = donneesAPI[year][1];
+      } 
+      dataForGraph.push(parseInt(donneesAPI[year][3])); //value
+      labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
+      nYear++;
+    }
+    
+    console.log(donneesAPI);
+    console.log(countryName);
+    /*
+    console.log(dataForGraph[0] + "   " + labelForGraph[0]);
+    console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
+    */
+    
+    var ctx4 = document.getElementById('myChart4').getContext('2d');
+    var myChart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: labelForGraph,
+            datasets: [{
+                label: 'Unemployment rate of BRAZIL',
+                data: dataForGraph,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+              position: top,
+            },
+            title:{
+              display: true,
+              text: 'Unemployment rate of BRAZIL'
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                    
+                }
+            }
+        }
+    });
+    myChart4.clear();
+    
+  }//end function forGraphDisplay4
+}//end displayCountryCharts
 
 /* *************** AJAX ************************************************* */
 
