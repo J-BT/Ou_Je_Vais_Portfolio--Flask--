@@ -86,10 +86,18 @@ def contact():
 
 ##### J'y vais avec AJAX #######################################################
 ################################################################################
+@bp.route("/Message_flash_AJAX/<string:classer_par>/<string:type_de_classement>/",
+ methods= ['GET'] )
+def message_flash_AJAX(classer_par, type_de_classemen):
+
+    flash(f'Vous avez choisi'+ classer_par +' '+ type_de_classement +'', 'success')
+    message = {"200" : "OK"}
+    json.dumps(message, indent=4)
+    return message
+
 
 @bp.route("/Temperatures_5_jours/<string:pays>/",
     methods= ['GET'] )
-
 def temperatures_5_jours(pays):
     table = Temperature_5days
 
