@@ -465,13 +465,18 @@ function displayCountryCharts(premiereDestination){
     let dataForGraph = new Array();
     let labelForGraph = new Array();
     let nDate = 1;
-
+    let TimestampToDate = "";
     for (date in donneesAPI) {
       if(nDate == 1){
         countryName = donneesAPI[date][1];
       } 
       dataForGraph.push(parseInt(donneesAPI[date][3])); //value
-      labelForGraph.push(donneesAPI[date][2].toString()); //date (as label)
+      date = new Date(donneesAPI[date][2]); // timestamps converting
+      TimestampToDate = date.getDate()+
+          "/"+date.getMonth()+
+          "/"+date.getFullYear()+
+          " "+date.getHours()+"h";
+      labelForGraph.push(TimestampToDate.toString()); //date (as label)
       nDate++;
     }
     
