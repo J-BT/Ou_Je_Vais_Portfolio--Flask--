@@ -83,6 +83,44 @@
 /* Responsive : Media query *********************************************** */
 /* Pour les petits ecrans */
 @media screen and (max-width: 600px)  {
+    /* ********  Chart.js ***********/
+    #blockCharts{
+        display: none;
+    }
+
+    .graphContainerContainer{
+        display: flex ;
+        flex-direction: column ;
+        justify-content: center ;
+        align-items: center ;
+        width: 100% ;
+        height: 700px;
+    }
+
+    #canvasContainer{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: auto !important;
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+    }
+
+    #graphTest, #graphTest2{
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 600px !important;
+        height: auto !important;
+        margin-right: 30px !important;
+        margin-left: 30px !important;
+    }
+    
+    /* ********  fin Chart.js ***********/
      /* ********  Bouton + Selecteur  *******/
      
     #critere_classement{
@@ -189,6 +227,44 @@
     
     /* Ecran moyens */
     @media screen and (min-width: 600px) {
+    /* ********  Chart.js ***********/
+    #blockCharts{
+        display: none;
+    }
+
+    .graphContainerContainer{
+        display: flex ;
+        flex-direction: column ;
+        justify-content: center ;
+        align-items: center ;
+        width: 100% ;
+        height: 700px;
+    }
+
+    #canvasContainer{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: auto !important;
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+    }
+
+    #graphTest, #graphTest2{
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 600px !important;
+        height: auto !important;
+        margin-right: 30px !important;
+        margin-left: 30px !important;
+    }
+    
+    /* ********  fin Chart.js ***********/
     
     /* Selecteur */
     #critere_classement{
@@ -283,6 +359,44 @@
     
     /* Pour les grandes tablettes*/
     @media screen and (min-width: 990px){
+    /* ********  Chart.js ***********/
+    #blockCharts{
+        display: none;
+    }
+
+    .graphContainerContainer{
+        display: flex ;
+        flex-direction: column ;
+        justify-content: center ;
+        align-items: center ;
+        width: 100% ;
+        height: 700px;
+    }
+
+    #canvasContainer{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: auto !important;
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+    }
+
+    #graphTest, #graphTest2{
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 600px !important;
+        height: auto !important;
+        margin-right: 30px !important;
+        margin-left: 30px !important;
+    }
+    
+    /* ********  fin Chart.js ***********/
 
     /* Selecteur */
     #critere_classement{
@@ -391,6 +505,44 @@
     
     /* Pour les très grands ecrans */
     @media screen and (min-width: 1200px) {
+    /* ********  Chart.js ***********/
+    #blockCharts{
+        display: none;
+    }
+
+    .graphContainerContainer{
+        display: flex ;
+        flex-direction: column ;
+        justify-content: center ;
+        align-items: center ;
+        width: 100% ;
+        height: 700px;
+    }
+
+    #canvasContainer{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: auto !important;
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+    }
+
+    #graphTest, #graphTest2{
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 600px !important;
+        height: auto !important;
+        margin-right: 30px !important;
+        margin-left: 30px !important;
+    }
+    
+    /* ********  fin Chart.js ***********/
     
     /* Selecteur */
     #critere_classement{
@@ -566,46 +718,4 @@
         align-items: center;
     }
 
-    /* ********  Chart.js ***********/
-    #blockCharts{
-        display: none;
-    }
     
-    .graphContainerContainer{
-        display: flex ;
-        flex-direction: column ;
-        justify-content: center ;
-        align-items: center ;
-        width: 100% ;
-        height: 700px;
-    }
-
-    #canvasContainer{
-        display: flex !important;
-        flex-wrap: wrap !important;
-        flex-direction: row !important;
-        justify-content: space-around !important;
-        align-items: center !important;
-        width: 100% !important;
-        height: auto !important;
-        margin-top: 15px !important;
-        margin-bottom: 15px !important;
-    }
-
-    #graphTest, #graphTest2{
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        align-items: center !important;
-        width: 600px !important;
-        height: auto !important;
-    }
-    /*
-    #graphTest{
-        margin-right: 30px !important;
-    }
-    #graphTest2{
-        margin-left: 30px !important;
-    }
-    */
-    /* ********  fin Chart.js ***********/
