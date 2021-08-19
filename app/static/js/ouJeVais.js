@@ -246,8 +246,90 @@ function forGraphDisplay3(result) {
       }
   });
   myChart3.clear();
+  $.ajax({
+    url: "/Analyse_par_pays/unemployment_rate/BRAZIL/",
+    success: forGraphDisplay4
+  });
   
 }//end function forGraphDisplay3
+
+
+function forGraphDisplay4(result) {
+  
+  donneesAPI = result["data"];
+  colonnes = result["columns"];
+
+  let countryName = "";
+  let dataForGraph = new Array();
+  let labelForGraph = new Array();
+  let nYear = 1;
+
+  for (year in donneesAPI) {
+    if(nYear == 1){
+      countryName = donneesAPI[year][1];
+    } 
+    dataForGraph.push(parseInt(donneesAPI[year][3])); //value
+    labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
+    nYear++;
+  }
+  
+  console.log(donneesAPI);
+  console.log(countryName);
+  /*
+  console.log(dataForGraph[0] + "   " + labelForGraph[0]);
+  console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
+  */
+  
+  var ctx4 = document.getElementById('myChart4').getContext('2d');
+  var myChart4 = new Chart(ctx4, {
+      type: 'line',
+      data: {
+          labels: labelForGraph,
+          datasets: [{
+              label: 'Unemployment rate of BRAZIL',
+              data: dataForGraph,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          legend: {
+            position: top,
+          },
+          title:{
+            display: true,
+            text: 'Unemployment rate of BRAZIL'
+          },
+          scales: {
+              y: {
+                  beginAtZero: true
+                  
+              }
+          }
+      }
+  });
+  myChart4.clear();
+  
+}//end function forGraphDisplay4
+
+
 
 /* *************** AJAX ************************************************* */
 
