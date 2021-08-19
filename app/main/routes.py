@@ -86,6 +86,61 @@ def contact():
 
 ##### J'y vais avec AJAX #######################################################
 ################################################################################
+
+@bp.route("/Temperatures_5_jours/<string:pays>/",
+    methods= ['GET'] )
+
+def temperatures_5_jours(pays):
+    table = Temperature_5days
+
+    temperature_5_jours = session.query(table).filter(
+        table.id_temp_5days.isnot(None),
+        table.temp_5days_country.isnot(None),
+        table.temp_5days_city.isnot(None),
+        table.temp_5days_date.isnot(None),
+        table.temp_5days_value.isnot(None))
+    p_valeurs_pr_classement = {}
+    index = 1
+
+    
+    for ce_pays in temperature_5_jours:
+        p_valeurs_pr_classement[index] = [
+            ce_pays.id_temp_5days,
+            ce_pays.temp_5days_country,
+            ce_pays.temp_5days_city,
+            ce_pays.temp_5days_date,
+            ce_pays.temp_5days_value]
+        index += 1
+
+    colonnes = [
+        "id",
+        "country",
+        "city",
+        "date",
+        "value"]   
+    countries_for_ranking = pd.DataFrame(p_valeurs_pr_classement).T
+    countries_for_ranking.columns = colonnes
+
+            
+    mask = countries_for_ranking['country'] == pays
+    countries_for_ranking = countries_for_ranking[mask]
+
+    #mask2 = countries_for_ranking['year'] > 2009
+    #countries_for_ranking = countries_for_ranking[mask2]
+
+    classement = countries_for_ranking.sort_values(
+        by=["date"],
+        ascending=True)
+
+    classement_pays = classement.to_json(orient="split")
+    classement_pays = json.loads(classement_pays)
+    json.dumps(classement_pays, indent=4)
+
+    return (classement_pays)
+
+
+
+
 @bp.route("/Analyse_par_pays/<string:critere>/<string:pays>/", 
     methods= ['GET'] )
 def analyse_par_pays(critere, pays):
