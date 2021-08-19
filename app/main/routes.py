@@ -88,7 +88,7 @@ def contact():
 ################################################################################
 @bp.route("/Message_flash_AJAX/<string:classer_par>/<string:type_de_classement>/",
  methods= ['GET'] )
-def message_flash_AJAX(classer_par, type_de_classemen):
+def message_flash_AJAX(classer_par, type_de_classement):
 
     flash(f'Vous avez choisi'+ classer_par +' '+ type_de_classement +'', 'success')
     message = {"200" : "OK"}
