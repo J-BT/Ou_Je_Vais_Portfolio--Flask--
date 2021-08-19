@@ -1,5 +1,9 @@
 /* *************** AJAX ************************************************* */
-
+//Obligé de créer variables globale, sinon .destroy() ne fonctionne pas
+let myChart = "";
+let myChart2 = "";
+let myChart3 = "";
+let myChart4 = "";
 
 /**********  Remplissage tableau via /Classement_pays en  GET ***********/
 
@@ -64,6 +68,7 @@ function lectureDuJSON(result) {
   $('.questionPreferencesAJAX').empty();
   $('.questionPreferencesAJAX').text('Les données vous conseillent : ' 
   + premiereDestination);
+
   displayCountryCharts(premiereDestination);
 }//fin lectureDuJSON
 
@@ -221,8 +226,8 @@ function displayCountryCharts(premiereDestination){
     console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
     */
     
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    let ctx = document.getElementById('myChart').getContext('2d');
+    myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labelForGraph,
@@ -267,8 +272,7 @@ function displayCountryCharts(premiereDestination){
             }
         }
     });
-    myChart.clear();
-
+    
     $.ajax({
       url: "/Analyse_par_pays/life_expectancy/"+premiereDestination+"/",
       success: forGraphDisplay2
@@ -302,8 +306,9 @@ function displayCountryCharts(premiereDestination){
     console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
     */
     
-    var ctx2 = document.getElementById('myChart2').getContext('2d');
-    var myChart2 = new Chart(ctx2, {
+    
+    let ctx2 = document.getElementById('myChart2').getContext('2d');
+    myChart2 = new Chart(ctx2, {
         type: 'line',
         data: {
             labels: labelForGraph,
@@ -349,7 +354,7 @@ function displayCountryCharts(premiereDestination){
             }
         }
     });
-    myChart2.clear();
+   
     $.ajax({
       url: "/Analyse_par_pays/unemployment_rate/"+premiereDestination+"/",
       success: forGraphDisplay3
@@ -383,8 +388,8 @@ function displayCountryCharts(premiereDestination){
     console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
     */
     
-    var ctx3 = document.getElementById('myChart3').getContext('2d');
-    var myChart3 = new Chart(ctx3, {
+    let ctx3 = document.getElementById('myChart3').getContext('2d');
+    myChart3 = new Chart(ctx3, {
         type: 'line',
         data: {
             labels: labelForGraph,
@@ -428,7 +433,7 @@ function displayCountryCharts(premiereDestination){
             }
         }
     });
-    myChart3.clear();
+   
     $.ajax({
       url: "/Analyse_par_pays/unemployment_rate/BRAZIL/",
       success: forGraphDisplay4
@@ -463,8 +468,8 @@ function displayCountryCharts(premiereDestination){
     console.log(typeof dataForGraph[0] + "   " + typeof labelForGraph[0]);
     */
     
-    var ctx4 = document.getElementById('myChart4').getContext('2d');
-    var myChart4 = new Chart(ctx4, {
+    let ctx4 = document.getElementById('myChart4').getContext('2d');
+    myChart4 = new Chart(ctx4, {
         type: 'line',
         data: {
             labels: labelForGraph,
@@ -508,9 +513,16 @@ function displayCountryCharts(premiereDestination){
             }
         }
     });
-    myChart4.clear();
+    
+    
     
   }//end function forGraphDisplay4
+
+ 
+  myChart.destroy();
+  myChart2.destroy();
+  myChart3.destroy();
+  myChart4.destroy();
 }//end displayCountryCharts
 
 /************************************************************************* */
