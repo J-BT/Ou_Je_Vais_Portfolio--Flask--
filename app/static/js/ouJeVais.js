@@ -227,6 +227,9 @@ function displayCountryCharts(premiereDestination){
     */
     
     let ctx = document.getElementById('myChart').getContext('2d');
+    if (myChart != ""){
+      myChart.destroy();
+    }
     myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -308,6 +311,9 @@ function displayCountryCharts(premiereDestination){
     
     
     let ctx2 = document.getElementById('myChart2').getContext('2d');
+    if (myChart2 != ""){
+      myChart2.destroy();
+    }
     myChart2 = new Chart(ctx2, {
         type: 'line',
         data: {
@@ -389,6 +395,9 @@ function displayCountryCharts(premiereDestination){
     */
     
     let ctx3 = document.getElementById('myChart3').getContext('2d');
+    if (myChart3 != ""){
+      myChart3.destroy();
+    }
     myChart3 = new Chart(ctx3, {
         type: 'line',
         data: {
@@ -469,6 +478,9 @@ function displayCountryCharts(premiereDestination){
     */
     
     let ctx4 = document.getElementById('myChart4').getContext('2d');
+    if (myChart4 != ""){
+      myChart4.destroy();
+    }
     myChart4 = new Chart(ctx4, {
         type: 'line',
         data: {
@@ -513,16 +525,8 @@ function displayCountryCharts(premiereDestination){
             }
         }
     });
-    
-    
-    
   }//end function forGraphDisplay4
 
- 
-  myChart.destroy();
-  myChart2.destroy();
-  myChart3.destroy();
-  myChart4.destroy();
 }//end displayCountryCharts
 
 /************************************************************************* */
