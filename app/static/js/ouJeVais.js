@@ -404,7 +404,7 @@ function displayCountryCharts(premiereDestination){
       myChart3.destroy();
     }
     myChart3 = new Chart(ctx3, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: labelForGraph,
             datasets: [{
