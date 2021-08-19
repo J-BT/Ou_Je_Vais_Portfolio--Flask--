@@ -21,16 +21,30 @@ $(document).ready(function () {
         url: "/Classement_pays/"+critere+"/decroissant/",
         success: lectureDuJSON
       });
+      if(!type_classement.includes("Taux de chômage -- elevé")){
+        alertify.success("Vous avez choisi : " + String(type_classement) +"");
+      }
+      else{
+        alertify.error("Vous avez choisi : " + String(type_classement) +"");
+      }
+    
     }//fin if
+
     else if (type_classement.includes("faible") || 
     type_classement.includes("favorable")){
       $.ajax({
         url: "/Classement_pays/"+critere+"/croissant/",
         success: lectureDuJSON
-      });
+      }); 
+
+      if(!type_classement.includes("Taux de chômage -- faible")){
+        alertify.error("Vous avez choisi : " + String(type_classement) +"");
+      }
+      else{
+        alertify.success("Vous avez choisi : " + String(type_classement) +"");
+      }
     }//fin else if
-  
-  alert("Vous avez choisi : " + String(type_classement) +"");
+
   }); //fin $('#critere_classement').change()
 });//fin $(document).ready()
 
