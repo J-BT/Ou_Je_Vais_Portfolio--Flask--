@@ -94,13 +94,13 @@
         justify-content: center ;
         align-items: center ;
         width: 100% ;
-        height: 700px;
+        height: 1300px;
     }
 
     #canvasContainer{
         display: flex !important;
         flex-wrap: wrap !important;
-        flex-direction: row !important;
+        flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
@@ -111,10 +111,10 @@
 
     #graphTest, #graphTest2{
         display: flex !important;
-        flex-direction: row !important;
+        flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
-        width: 40vw !important;
+        width: 80vw !important;
         height: auto !important;
         margin-right: 30px !important;
         margin-left: 30px !important;
@@ -238,7 +238,7 @@
         justify-content: center ;
         align-items: center ;
         width: 100% ;
-        height: 1300px;
+        height: 1480px;
     }
 
     #canvasContainer{
@@ -262,6 +262,8 @@
         height: auto !important;
         margin-right: 30px !important;
         margin-left: 30px !important;
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
     }
     
     /* ********  fin Chart.js ***********/
