@@ -39,6 +39,11 @@ function lectureDuJSON(result) {
     $("#myTable > tbody ").empty();
     document.getElementById("myTable").rows.length = 1;
   }
+  const blockCharts = document.querySelector("#blockCharts");
+  if (blockCharts.style.display != "block"){
+    blockCharts.style.display = "block";
+  }
+
 
   console.log("Résultat de la requête :", result);
   console.log(document.getElementById("myTable").rows.length);

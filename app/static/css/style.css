@@ -567,6 +567,10 @@
     }
 
     /* ********  Chart.js ***********/
+    #blockCharts{
+        display: none;
+    }
+    
     .graphContainerContainer{
         display: flex ;
         flex-direction: column ;
