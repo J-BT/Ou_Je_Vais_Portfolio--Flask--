@@ -1,21 +1,3 @@
-/* ******** Chart.js *****************/
-let pays = "JAPAN";
-
-$(document).ready(function () {
-  $('.graphButton').click(function() {
-    
-    // Puis on change titre du tableau 
-    $('#graphCountry').empty();
-    $('#graphCountry').text(pays);
-    
-    //APPEL FONCTION
-    displayCountryCharts(pays);
-    
-  }); //fin $('#critere_classement').change()
-});//fin $(document).ready()
-
-
-
 /* *************** AJAX ************************************************* */
 
 
@@ -82,7 +64,8 @@ function lectureDuJSON(result) {
   $('.questionPreferencesAJAX').empty();
   $('.questionPreferencesAJAX').text('Les données vous conseillent : ' 
   + premiereDestination);
-}
+  displayCountryCharts(premiereDestination);
+}//fin lectureDuJSON
 
 
 /******* (fin)  Remplissage tableau via /Classement_pays en  GET ********/
@@ -210,6 +193,9 @@ function displayCountryCharts(premiereDestination){
   });
 
   function forGraphDisplay(result) {
+    // On change titre du tableau 
+    $('#graphCountry').empty();
+    $('#graphCountry').text(premiereDestination);
     
     donneesAPI = result["data"];
     colonnes = result["columns"];
@@ -274,9 +260,9 @@ function displayCountryCharts(premiereDestination){
             },
             scales: {
                 y: {
-                    beginAtZero: true,
+                    beginAtZero: true/*,
                     max: 140000000,
-                    min: 100000000
+                    min: 100000000*/
                 }
             }
         }
@@ -355,9 +341,9 @@ function displayCountryCharts(premiereDestination){
             },
             scales: {
                 y: {
-                    beginAtZero: true,
+                    beginAtZero: true/*,
                     max: 90,
-                    min: 60
+                    min: 60*/
                     
                 }
             }
