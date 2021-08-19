@@ -93,3 +93,4 @@ Traceback (most recent call last):
     raise KeyError(key) from err
 KeyError: ('id', 'country', 'date', 'value')
 2021-08-19 17:53:46,509 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-19 18:00:20,743 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]

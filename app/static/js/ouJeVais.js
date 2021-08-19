@@ -449,7 +449,7 @@ function displayCountryCharts(premiereDestination){
     });
    
     $.ajax({
-      url: "/Analyse_par_pays/unemployment_rate/BRAZIL/",
+      url: "/Temperatures_5_jours/"+premiereDestination+"/",
       success: forGraphDisplay4
     });
     
@@ -464,15 +464,15 @@ function displayCountryCharts(premiereDestination){
     let countryName = "";
     let dataForGraph = new Array();
     let labelForGraph = new Array();
-    let nYear = 1;
+    let nDate = 1;
 
-    for (year in donneesAPI) {
-      if(nYear == 1){
-        countryName = donneesAPI[year][1];
+    for (date in donneesAPI) {
+      if(nDate == 1){
+        countryName = donneesAPI[date][1];
       } 
-      dataForGraph.push(parseInt(donneesAPI[year][3])); //value
-      labelForGraph.push(donneesAPI[year][2].toString()); //year (as label)
-      nYear++;
+      dataForGraph.push(parseInt(donneesAPI[date][3])); //value
+      labelForGraph.push(donneesAPI[date][2].toString()); //date (as label)
+      nDate++;
     }
     
     console.log(donneesAPI);
@@ -491,7 +491,7 @@ function displayCountryCharts(premiereDestination){
         data: {
             labels: labelForGraph,
             datasets: [{
-                label: 'Unemployment rate of BRAZIL',
+                label: 'Temperatures 5 jours '+premiereDestination+'/',
                 data: dataForGraph,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -520,7 +520,7 @@ function displayCountryCharts(premiereDestination){
             },
             title:{
               display: true,
-              text: 'Unemployment rate of BRAZIL'
+              text: 'Temperatures 5 jours '+premiereDestination+'/'
             },
             scales: {
                 y: {
