@@ -125,8 +125,8 @@ def temperatures_5_jours(pays):
     mask = countries_for_ranking['country'] == pays
     countries_for_ranking = countries_for_ranking[mask]
 
-    #mask2 = countries_for_ranking['year'] > 2009
-    #countries_for_ranking = countries_for_ranking[mask2]
+    
+    countries_for_ranking = countries_for_ranking[['id','country','date','value']]
 
     classement = countries_for_ranking.sort_values(
         by=["date"],

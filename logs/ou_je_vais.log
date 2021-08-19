@@ -25,3 +25,71 @@
 2021-08-19 17:43:21,938 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
 2021-08-19 17:45:02,083 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
 2021-08-19 17:45:55,791 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-19 17:51:17,727 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-19 17:51:29,643 ERROR: Exception on /Temperatures_5_jours/JAPAN/ [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3080, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 98, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index_class_helper.pxi", line 89, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'country'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/main/routes.py", line 129, in temperatures_5_jours
+    mask2 = countries_for_ranking['id']['country']['date']['value']
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/series.py", line 853, in __getitem__
+    return self._get_value(key)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/series.py", line 961, in _get_value
+    loc = self.index.get_loc(label)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3082, in get_loc
+    raise KeyError(key) from err
+KeyError: 'country'
+2021-08-19 17:51:56,623 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-19 17:52:02,409 ERROR: Exception on /Temperatures_5_jours/JAPAN/ [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3080, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 4554, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 4562, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('id', 'country', 'date', 'value')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/main/routes.py", line 129, in temperatures_5_jours
+    mask2 = countries_for_ranking['id','country','date','value']
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/frame.py", line 3024, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3082, in get_loc
+    raise KeyError(key) from err
+KeyError: ('id', 'country', 'date', 'value')
+2021-08-19 17:53:46,509 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
