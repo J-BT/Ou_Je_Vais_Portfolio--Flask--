@@ -2,18 +2,6 @@
 
 {% block content %}
 
-<div class="container_flash">
-  {% with messages = get_flashed_messages(with_categories=true) %}
-     {%if messages %}
-          {%for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-              <h4 style="text-align:center;">{{ message }}</h4>
-            </div>
-          {%endfor%}
-    {%endif %}
-  {%endwith%}
-</div>
-
 <!-- Animation JS Ou Je Vais -->
 <div class="col-12 col-md-12 col-lg-12 my-3" 
 id="animationOuJeVais"> 

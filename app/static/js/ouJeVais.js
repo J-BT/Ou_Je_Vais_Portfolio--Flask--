@@ -13,21 +13,24 @@ let myChart4 = "";
 $(document).ready(function () {
   $('#critere_classement').change(function () {
     let critere = this.options[this.selectedIndex].value;
-
-    if (this.options[this.selectedIndex].text.includes("elevé") || 
-    this.options[this.selectedIndex].text.includes("déprimante")){
+    let type_classement = this.options[this.selectedIndex].text;
+    
+    if (type_classement.includes("elevé") || 
+    type_classement.includes("déprimante")){
       $.ajax({
         url: "/Classement_pays/"+critere+"/decroissant/",
         success: lectureDuJSON
       });
     }//fin if
-    else if (this.options[this.selectedIndex].text.includes("faible") || 
-    this.options[this.selectedIndex].text.includes("favorable")){
+    else if (type_classement.includes("faible") || 
+    type_classement.includes("favorable")){
       $.ajax({
         url: "/Classement_pays/"+critere+"/croissant/",
         success: lectureDuJSON
       });
     }//fin else if
+  
+  alert("Vous avez choisi : " + String(type_classement) +"");
   }); //fin $('#critere_classement').change()
 });//fin $(document).ready()
 
@@ -542,3 +545,5 @@ function displayCountryCharts(premiereDestination){
 /************************************************************************* */
 /************************* fin  Display charts *************************** */
 /************************************************************************* */
+
+ 
