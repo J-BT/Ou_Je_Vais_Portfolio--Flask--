@@ -50,10 +50,13 @@ def create_app(config_class=Config):
     return app
 
 technologiesUtilisees = {
-            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap", "jQuery","Chart.js"],
-            "backend" : ["Python", "Flask", "Pandas","Jupyter", "Seaborn", "Matplotlib"],
+            "frontend" : ["HTML", "CSS", "Javascript", "Bootstrap",
+             "jQuery","Chart.js","Anime.js", "Alertify.js"],
+            "backend" : ["Python", "Flask", "Pandas","Jupyter",
+             "Seaborn", "Matplotlib","Numpy"],
             "bdd" : ["PostgreSQL", "SQLAlchemy", "PgAdmin"],
-            "serveur" : ["Digital Ocean", "Ubuntu Server", "NGINX", "Git", "GitHub"]
+            "serveur" : ["Digital Ocean", "Ubuntu Server",
+             "NGINX", "Git", "GitHub"]
         }
 nb_elements_max = max(len(technologie) \
         for technologie in technologiesUtilisees.values())
