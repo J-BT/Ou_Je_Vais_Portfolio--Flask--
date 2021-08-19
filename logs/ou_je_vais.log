@@ -1,4 +1,4 @@
-2021-08-19 21:00:38,307 ERROR: Exception on /Temperatures_5_jours/JAPAN/ [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
+2021-08-19 21:11:05,381 ERROR: Exception on /Temperatures_5_jours/GREECE/ [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -31,3 +31,5 @@ Traceback (most recent call last):
   File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/sqlalchemy/orm/attributes.py", line 1406, in _default_value
     assert self.key not in dict_, (
 AssertionError: _default_value should only be invoked for an uninitialized or expired attribute
+2021-08-19 21:11:41,998 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-19 21:13:22,896 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]

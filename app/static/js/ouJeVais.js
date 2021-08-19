@@ -21,7 +21,8 @@ $(document).ready(function () {
         url: "/Classement_pays/"+critere+"/decroissant/",
         success: lectureDuJSON
       });
-      if(!type_classement.includes("Taux de chômage -- elevé")){
+      if(!type_classement.includes("Taux de chômage -- elevé") &&
+      !type_classement.includes("déprimante")){
         alertify.success("Vous avez choisi : " + String(type_classement) +"");
       }
       else{
@@ -37,7 +38,8 @@ $(document).ready(function () {
         success: lectureDuJSON
       }); 
 
-      if(!type_classement.includes("Taux de chômage -- faible")){
+      if(!type_classement.includes("Taux de chômage -- faible") &&
+      !type_classement.includes("favorable")){
         alertify.error("Vous avez choisi : " + String(type_classement) +"");
       }
       else{
