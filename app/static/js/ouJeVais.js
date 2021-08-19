@@ -1,10 +1,15 @@
 /* ******** Chart.js *****************/
+let premiereDestination = "JAPAN";
 
 $(document).ready(function () {
   $('.graphButton').click(function() {
-  
+    
+    // Puis on change titre du tableau 
+    $('#graphCountry').empty();
+    $('#graphCountry').text(premiereDestination);
+    
     $.ajax({
-      url: "/Analyse_par_pays/population/JAPAN/",
+      url: "/Analyse_par_pays/population/"+premiereDestination+"/",
       success: forGraphDisplay
     });
     
@@ -44,7 +49,7 @@ function forGraphDisplay(result) {
       data: {
           labels: labelForGraph,
           datasets: [{
-              label: 'Population of JAPAN',
+              label: 'Population of '+premiereDestination+'',
               data: dataForGraph,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
@@ -73,7 +78,7 @@ function forGraphDisplay(result) {
           },
           title:{
             display: true,
-            text: 'Population of JAPAN'
+            text: 'Population of '+premiereDestination+''
           },
           scales: {
               y: {
@@ -87,7 +92,7 @@ function forGraphDisplay(result) {
   myChart.clear();
 
   $.ajax({
-    url: "/Analyse_par_pays/life_expectancy/JAPAN/",
+    url: "/Analyse_par_pays/life_expectancy/"+premiereDestination+"/",
     success: forGraphDisplay2
   });
 
@@ -125,7 +130,7 @@ function forGraphDisplay2(result) {
       data: {
           labels: labelForGraph,
           datasets: [{
-              label: 'Life Expectancy of JAPAN',
+              label: 'Life Expectancy of '+premiereDestination+'',
               data: dataForGraph,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
@@ -154,7 +159,7 @@ function forGraphDisplay2(result) {
           },
           title:{
             display: true,
-            text: 'Life Expectancy of JAPAN'
+            text: 'Life Expectancy of '+premiereDestination+''
           },
           scales: {
               y: {
@@ -168,7 +173,7 @@ function forGraphDisplay2(result) {
   });
   myChart2.clear();
   $.ajax({
-    url: "/Analyse_par_pays/unemployment_rate/JAPAN/",
+    url: "/Analyse_par_pays/unemployment_rate/"+premiereDestination+"/",
     success: forGraphDisplay3
   });
 
@@ -206,7 +211,7 @@ function forGraphDisplay3(result) {
       data: {
           labels: labelForGraph,
           datasets: [{
-              label: 'Unemployment rate of JAPAN',
+              label: 'Unemployment rate of '+premiereDestination+'',
               data: dataForGraph,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
@@ -235,7 +240,7 @@ function forGraphDisplay3(result) {
           },
           title:{
             display: true,
-            text: 'Unemployment rate of JAPAN'
+            text: 'Unemployment rate of '+premiereDestination+''
           },
           scales: {
               y: {
