@@ -1,0 +1,45 @@
+<!-- Test selecteurs POST-->
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Background image -->
+<div class="p-5 text-center bg-image mb-5" id="photo404">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.4);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 id="banner404">ジベの下書き</h1>
+                <h3 class="d-flex flex-row align-items-center 
+                justify-content-center">　何でも試してください！
+                <i class="fas fa-heart-broken"></i></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="">
+    <form>
+        <div class="mb-3">
+          <label  class="form-label" for="emailInput">Email address</label>
+          <input type="email" class="form-control" id="emailInput" placeholder="Email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="nameInput">Name</label>
+          <input type="nameInput" class="form-control" id="nameInput" placeholder="First Name">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    
+        <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+        <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+</div>
+
+
+<p class="d-flex justify-content-center align-items-center">
+    <a href="{{ url_for('main.accueil') }}">Go back to the shadow 
+        <i class="devicon-codeigniter-plain colored"></i></a></p>
+
+
+{% endblock %}
