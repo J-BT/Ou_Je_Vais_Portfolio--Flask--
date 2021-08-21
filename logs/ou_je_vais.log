@@ -59,3 +59,4 @@ UnboundLocalError: local variable 'countries_for_ranking' referenced before assi
 2021-08-21 08:32:10,029 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
 2021-08-21 08:35:22,590 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
 >>>>>>> cd611248af93dcee5731b74ff4ee4734bc56727a
+2021-08-21 09:31:43,103 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
