@@ -20,16 +20,32 @@
 <div class="">
     <form>
         <div class="mb-3">
-          <label  class="form-label" for="emailInput">Email address</label>
-          <input type="email" class="form-control" id="emailInput" placeholder="Email">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <label  class="form-label" for="pays">Pays</label>
+          <input type="text" class="form-control" id="pays" 
+          name="pays" placeholder="Pays">
         </div>
+
         <div class="mb-3">
-          <label class="form-label" for="nameInput">Name</label>
-          <input type="nameInput" class="form-control" id="nameInput" placeholder="First Name">
+          <label  class="form-label" for="critere">Critere</label>
+          <input type="text" class="form-control" id="critere" 
+          name="critere" placeholder="Critere">
+        </div>
+
+
+        <div class="mb-3">
+          <label  class="form-label" for="critere2">2ème Critère</label>
+          <input type="text" class="form-control" id="critere2" 
+          name="critere2" placeholder="2ème Critère">
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label" for="sens">Sens</label>
+          <input type="text" class="form-control" id="sens" 
+          name="sens" placeholder="Sens">
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
       </form>
     
         <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>

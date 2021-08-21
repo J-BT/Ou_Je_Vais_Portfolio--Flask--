@@ -1,5 +1,5 @@
 from app import (db, engine, session)
-from flask import (render_template, redirect, url_for, flash,
+from flask import (render_template, redirect, url_for, flash, jsonify,
  request, json, session)
 from flask_login import (current_user, login_user, logout_user, login_required)
 from werkzeug.urls import url_parse
@@ -1250,22 +1250,36 @@ def jy_vais():
 def tests_selecteurs():
     return render_template('tests.html')
 
-@bp.route("/Tests_recuperation_POST",
-    methods= ['POST'] )
+@bp.route("/Tests_recuperation_POST", methods= ['POST'] )
 def tests_recuperation_POST():
-    session['email'] = request.form['email']
-    session['name'] = request.form['name']
+    session['pays'] = request.form['pays']
+    session['critere'] = request.form['critere']
+    session['critere2'] = request.form['critere2']
+    session['sens'] = request.form['sens']
+
+    pays = request.form['pays']
+    critere = request.form['critere']
+    critere2 = request.form['critere2']
+    sens = request.form['sens']
 	
-    
-    return redirect(url_for('main.tests_resultat')) # donne code 302
+    return jsonify({"pays" : pays,
+            "critere" : critere,
+            "critere2" : critere2,
+            "sens" : sens})
+    #return redirect(url_for('main.tests_resultat')) # donne code 302 si OK
 
 @bp.route("/Tests_resultat", methods= ['GET'] )
 def tests_resultat():
 
-    email = session['email']
-    name = session['name']
+    pays = session['pays']
+    critere = session['critere']
+    critere2 = session['critere2']
+    sens = session['sens']
+    
 
-    dico = {"email" : email,
-            "name" : name}
+    pourJS = jsonify({"pays" : pays,
+            "critere" : critere,
+            "critere2" : critere2,
+            "sens" : sens})
 
-    return dico
+    return pourJS

@@ -100,55 +100,6 @@ function lectureDuJSON(result) {
 /******* (fin)  Remplissage tableau via /Classement_pays en  GET ********/
 
 
-////////////////////
-// Pour plus tard //
-////////////////////
-/* ******* POST ******** */
-/*
-(Dans .js)
-
-$(function(){
-	$('#buttonTest').click(function(){
-		var user = $('#inputUsername').val();
-		var pass = $('#inputPassword').val();
-		$.ajax({
-			url: '/Jy_vais_DATA',
-			data: $('#form_jy_vais').serialize(),
-			type: 'POST',
-			success: function(response){
-				console.log(response);
-			},
-			error: function(error){
-				console.log(error);
-			}
-		});
-	});
-});
-
-(Dans .html)
-
-<div class="container">
-  <form class=""  role="form" id="form_jy_vais">
-      <h2 class="form-signin-heading">Please Sign Up</h2>
-      
-      <input type="email" id="inputUsername" name="username" class="form-control"
-      placeholder="Email address" required autofocus>
-      
-      <input type="password" id="inputPassword" name="password" 
-      class="form-control" placeholder="Password" required>       
-      
-      <button class="btn btn-lg btn-primary btn-block" 
-      type="button" id="buttonTest">Register</button>
-</form>   
-</div>  
-*/
-
-
-
-
-
-
-
 
 /* *************** fin AJAX ********************************************* */
 
@@ -570,8 +521,10 @@ function displayCountryCharts(premiereDestination){
 
 		$.ajax({
 			data : {
-				name : $('#nameInput').val(),
-				email : $('#emailInput').val()
+				critere : $('#critere').val(),
+				critere2 : $('#critere2').val(),
+        sens : $('#sens').val(),
+        pays : $('#pays').val()
 			},
 			type : 'POST',
 			url : '/Tests_recuperation_POST'
@@ -583,10 +536,10 @@ function displayCountryCharts(premiereDestination){
 				$('#successAlert').hide();
 			}
 			else {
-				$('#successAlert').text(data.email).show();
+				$('#successAlert').text(data.critere).show();
         //$('#successAlert').text(data.name).show();
 				$('#errorAlert').hide();
-        console.log(data.email+" & "+data.name);
+        console.log(data.critere+"/"+data.critere2+" & "+data.sens+" pays :"+data.pays);
 			}
 
 		});
