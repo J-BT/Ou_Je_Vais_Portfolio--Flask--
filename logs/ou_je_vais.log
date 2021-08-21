@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2021-08-19 21:11:05,381 ERROR: Exception on /Temperatures_5_jours/GREECE/ [GET] [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/OuJeVaisFromScratch/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
@@ -53,3 +54,8 @@ Traceback (most recent call last):
     classement = countries_for_ranking.sort_values(
 UnboundLocalError: local variable 'countries_for_ranking' referenced before assignment
 2021-08-21 09:23:48,164 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+=======
+2021-08-21 08:30:06,032 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-21 08:32:10,029 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+2021-08-21 08:35:22,590 INFO: Ou je vais startup [in /home/jbt/Programming/Python/Porfolio2021/OuJeVaisFromScratch/app/__init__.py:48]
+>>>>>>> cd611248af93dcee5731b74ff4ee4734bc56727a
