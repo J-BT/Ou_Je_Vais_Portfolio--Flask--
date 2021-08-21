@@ -21,3 +21,6 @@ UnboundLocalError: local variable 'countries_for_ranking' referenced before assi
 2021-08-17 13:22:49,154 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
 2021-08-17 13:22:49,300 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
 2021-08-17 13:22:49,419 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+2021-08-19 19:17:48,053 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+2021-08-19 19:17:48,060 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]
+2021-08-19 19:17:48,069 INFO: Ou je vais startup [in /home/jbt/Ou_Je_Vais_Portfolio--Flask--/app/__init__.py:48]

@@ -1,5 +1,7 @@
 from app import (db, engine, session)
-from flask import (render_template, redirect, url_for, flash, request, json)
+from flask import (render_template, redirect, url_for, flash, request, json,
+jsonify)
+
 from flask_login import (current_user, login_user, logout_user, login_required)
 from werkzeug.urls import url_parse
 import pandas as pd
@@ -1119,7 +1121,7 @@ def jy_vais():
             fichier = "graphiques/chomage.png"
             lineplot_analyse(taux_chomage_etudie, abscisse,
                              ordonnee, fichier)
-            
+            redirect(url_for('tests_selecteurs'))
             #Graph Corrélation Pop/Espe/Chom/Tempe  -----------------------
             tous_les_pays = pd.read_sql_table("country", engine)
             correlation = tous_les_pays[[
@@ -1243,3 +1245,22 @@ def jy_vais():
 
 ########### fin J'y vais sans AJAX #############################################
 ################################################################################
+
+#/*******Tests selecteurs POST************* */
+@bp.route("/Tests_selecteurs", methods= ['GET'] )
+def tests_selecteurs():
+    return render_template('tests.html')
+
+@bp.route("/Tests_recuperation_POST", methods= ['POST'] )
+def tests_recuperation_POST():
+    
+    pays = request.form['pays']
+    critere = request.form['critere']
+    critere2 = request.form['critere2']
+    sens = request.form['sens']
+    
+    return jsonify({"pays" : pays,
+            "critere" : critere,
+            "critere2" : critere2,
+            "sens" : sens})
+   
