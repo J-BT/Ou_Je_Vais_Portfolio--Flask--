@@ -513,7 +513,7 @@ function displayCountryCharts(premiereDestination){
 /************************************************************************* */
 
   /*******Tests selecteurs POST************* */
-
+/*
   $(document).ready(function() {
 
     $('form').on('submit', function(event) {
@@ -548,3 +548,4 @@ function displayCountryCharts(premiereDestination){
     });
 
 }); 
+*/
