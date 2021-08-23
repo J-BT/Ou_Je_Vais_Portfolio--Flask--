@@ -1247,20 +1247,20 @@ def jy_vais():
 ################################################################################
 
 #/*******Tests selecteurs POST************* */
-@bp.route("/Tests_selecteurs", methods= ['GET'] )
-def tests_selecteurs():
-    return render_template('tests.html')
-
-@bp.route("/Tests_recuperation_POST", methods= ['POST'] )
-def tests_recuperation_POST():
-    
-    pays = request.form['pays']
-    critere = request.form['critere']
-    critere2 = request.form['critere2']
-    sens = request.form['sens']
-    
-    return jsonify({"pays" : pays,
-            "critere" : critere,
-            "critere2" : critere2,
-            "sens" : sens})
+#@bp.route("/Tests_selecteurs", methods= ['GET'] )
+#def tests_selecteurs():
+#    return render_template('tests.html')
+#
+#@bp.route("/Tests_recuperation_POST", methods= ['POST'] )
+#def tests_recuperation_POST():
+#    
+#    pays = request.form['pays']
+#    critere = request.form['critere']
+#    critere2 = request.form['critere2']
+#    sens = request.form['sens']
+#    
+#    return jsonify({"pays" : pays,
+#            "critere" : critere,
+#            "critere2" : critere2,
+#            "sens" : sens})
    
