@@ -1,15 +1,15 @@
 /* *************** AJAX ************************************************* */
-//Obligé de créer variables globale, sinon .destroy() ne fonctionne pas
+// We create the following global variables in order the use .destroy() method
+// to display charts
 let myChart = "";
 let myChart2 = "";
 let myChart3 = "";
 let myChart4 = "";
 
-/**********  Remplissage tableau via /Classement_pays en  GET ***********/
 
-/***************************************************************** */
-// Affiche tableau classsment pays en AJAX selon les critres choisis
-/***************************************************************** */
+/********** Table filling through /Classement_pays in AJAX **********/
+
+
 $(document).ready(function () {
   $('#critere_classement').change(function () {
     let critere = this.options[this.selectedIndex].value;
@@ -96,14 +96,11 @@ function lectureDuJSON(result) {
   displayCountryCharts(premiereDestination);
 }//fin lectureDuJSON
 
-
-/******* (fin)  Remplissage tableau via /Classement_pays en  GET ********/
-
-
-/* *************** fin AJAX ********************************************* */
+/********** (end) Table filling through /Classement_pays in AJAX **********/
 
 
-/* Navbar fixe */
+
+/* Fixed Navbar */
 document.addEventListener("DOMContentLoaded", function(){
     window.addEventListener('scroll', function() {
         if (window.scrollY > 0) {
@@ -121,8 +118,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 /************************  Anime.js J'y vais **************************/
 
-/************  Très grands ecrans  ********************* */
-//Avion
+//Plane
 let avion = anime({
   targets: '#avionJs',
   translateX: [
@@ -143,7 +139,7 @@ let avion = anime({
 });
   
 
-  //Lettres
+  //Letters
   let animation = anime({
   targets: '.letter',
   opacity: 1,
@@ -158,7 +154,7 @@ let avion = anime({
   translateX: [-10, 30]
 });   
 
-/************************  fin Anime.js J'y vais **************************/
+/************************  end Anime.js J'y vais **************************/
 
 /************************************************************************* */
 /**************************** Display charts ***************************** */
@@ -172,7 +168,7 @@ function displayCountryCharts(premiereDestination){
   });
 
   function forGraphDisplay(result) {
-    // On change titre du tableau 
+    //changing table's name
     $('#graphCountry').empty();
     $('#graphCountry').text(premiereDestination);
     
@@ -509,10 +505,10 @@ function displayCountryCharts(premiereDestination){
 }//end displayCountryCharts
 
 /************************************************************************* */
-/************************* fin  Display charts *************************** */
+/************************* end  Display charts *************************** */
 /************************************************************************* */
 
-  /*******Tests selecteurs POST************* */
+  /*******Tests selectors POST************* */
 /*
   $(document).ready(function() {
 
