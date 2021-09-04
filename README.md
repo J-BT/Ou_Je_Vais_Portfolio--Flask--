@@ -1,5 +1,4 @@
-# Project presented for the following certifications RS3497 “Built a database” 
-# and RS3508 “Manage a database” of Digifab school  : Ou Je Vais 
+# Project presented for the following certifications RS3497 “Built a database” and RS3508 “Manage a database” of Digifab school  : Ou Je Vais 
 
 
 ## | Installation
